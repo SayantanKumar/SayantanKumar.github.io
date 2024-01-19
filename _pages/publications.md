@@ -3,7 +3,7 @@ layout: archive
 title: ""
 excerpt: ""
 author_profile: true
-permalink: /research/
+permalink: /publications/
 ---
 
 ## Publications
