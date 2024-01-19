@@ -6,11 +6,11 @@ author_profile: true
 permalink: /publications/
 ---
 
-## Publications
+# Publications
 
 For the most updated list of my publications, please visit my [Google Scholar](https://scholar.google.com/citations?user=ytMVdOMAAAAJ&hl=en) or [Semantic Scholar](https://www.semanticscholar.org/author/Sayantan-Kumar/2122741675) page.
 
-### Journal articles (* indicates working and under review papers)
+## Journal articles (* indicates working and under review papers)
 
 \* **Kumar, S**, Kannampallil, T, Sotiras, A, Payne, PRO. **Hierarchial multi-task deep learning framework for jointly predicting and explaining Alzheimer's Disease progression**. [[To be submitted to Journal of Biomedical Informatics (JBI)](https://www.sciencedirect.com/journal/journal-of-biomedical-informatics)]
 
@@ -24,7 +24,7 @@ Li, F., Oh, I., **Kumar, S.**, Eteleeb, A., Gupta, A., Buchser, W., ... and Cruc
 
 **Kumar, S.**, Oh, I., Schindler, S., Lai, A. M., Payne, P. R., and Gupta, A. (2021). **Machine learning for modeling the progression of Alzheimer disease dementia using clinical data: a systematic literature review**. [JAMIA open](https://academic.oup.com/jamiaopen), 4(3), ooab052. [[Paper]](https://academic.oup.com/jamiaopen/article/4/3/ooab052/6334269)
 
-### Conference articles (* indicates working and under review papers)
+## Conference articles (* indicates working and under review papers)
 
 \* **Kumar, S**, Payne, PR, and Sotiras, A. (2023, April). **Improving Normative Modeling for Multi-modal Neuroimaging Data using mixture-of-product-of-experts variational autoencoders**. Submitted to IEEE International Symposium in Biomedical Imaging ([IEEE ISBI](https://biomedicalimaging.org/2024/)) 2024 [[Paper]](https://arxiv.org/pdf/2312.00992.pdf)
 
@@ -33,7 +33,7 @@ Li, F., Oh, I., **Kumar, S.**, Eteleeb, A., Gupta, A., Buchser, W., ... and Cruc
 **Kumar, S**, Yu, S, Kannampallil, T, Abrams, Z, Michelson, A, and Payne, PR. (2022, August). **Self-explaining neural network with concept-based explanations for ICU mortality prediction**. In Proceedings of the 13th ACM International Conference on Bioinformatics, Computational Biology and Health Informatics (pp. 1-9) ([ACM BCB 2022](https://acm-bcb.org/2022/))[**Oral**] [[Paper]](https://dl.acm.org/doi/pdf/10.1145/3535508.3545547)
 
 
-### Peer-reviewed workshops and abstracts
+## Peer-reviewed workshops and abstracts
 
 Lou SS, **Kumar S**, Avidan MS, Kheterpal S, Kannampallil T. **External validation of a publicly available surgical transfusion risk prediction model: a multi-center perioperative outcomes group study**. [World Congress of Anaesthesiologists 2024](https://www.wca2024.org/). [**Oral**]
 
