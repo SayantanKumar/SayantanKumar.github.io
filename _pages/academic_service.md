@@ -1,11 +1,9 @@
 ---
 layout: archive
-title: "Academic Service"
+title: ""
 permalink: /academic_service/
 author_profile: true
 ---
-
-{% include base_path %}
 
 
 ## Teaching
