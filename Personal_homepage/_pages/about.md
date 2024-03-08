@@ -21,7 +21,7 @@ I am currently on the job market for postdoctoral positions and research-oriente
 
 ## Recent News
 
-* **February 2024**: Paper on Improving multimodal normative modelling using mixture-of-products variational autoencoders accepted in the [IEEE ISBI 2024](https://biomedicalimaging.org/2024/). [Preprint](https://arxiv.org/pdf/2312.00992.pdf)
+* **February 2024**: Paper on Improving multimodal normative modelling using mixture-of-products variational autoencoders accepted in the [IEEE ISBI 2024](https://biomedicalimaging.org/2024/). [Preprint](https://arxiv.org/pdf/2312.00992.pdf) available in ArXiv.
 * **October 2023**: 2 NeurIPS 2023 workshop papers accepted in [XAI-in-action](https://xai-in-action.github.io/) and [Deep Generative Models for Health (DGM4H)](https://sites.google.com/ethz.ch/dgm4h-neurips2023)
 * **May 2023**: Received Honors (**top 5%**) in the Periodic Review of Doctoral Students (PRODS) in WashU CSE
 * **February 2023**: Received Student travel award and Robert F. Wagner All-Conference Best Paper Award Finalist at [SPIE Medical Imaging 2023](https://spie.org/conferences-and-exhibitions/medical-imaging/program#_=_)
