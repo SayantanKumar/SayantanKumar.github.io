@@ -12,15 +12,15 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 ## Journal articles (* indicates working and under review papers)
 
-\* Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evaluation of ComBat harmonization for reducing across-tracer biases in regional amyloid PET analyses**. To be submitted to [European Journal of Nuclear Medicine and Molecular Imaging](https://link.springer.com/journal/259)
+\* Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evaluation of ComBat harmonization for reducing across-tracer biases in regional amyloid PET analyses**. [[EJNMMI](https://link.springer.com/journal/259), under preparation] 
 
-\* **Kumar, S**, Kannampallil, T, Sotiras, A, Payne, PRO. **Hierarchial multi-task deep learning framework for jointly predicting and explaining Alzheimer's Disease progression**. To be submitted to Journal of Medical Informatics Association [(JAMIA)](https://www.sciencedirect.com/journal/journal-of-biomedical-informatics)
+\* **Kumar, S**, Kannampallil, T, Sotiras, A, Payne, PRO. **Multimodal hierarchical multi-task deep learning framework for jointly predicting and explaining Alzheimer’s disease progression**. [[JAMIA](https://academic.oup.com/jamia), under review]. [ArXiV](https://arxiv.org/pdf/2404.03208.pdf)
 
-\* **Kumar, S**., Earnest, T., Payne, P. R., Sotiras, A., and Alzheimer’s Disease Neuroimaging Initiative. (2023). **Analyse patient-level heterogeneity in Alzheimer’s Disease using multimodal normative modelling bioRxiv, 2023-08** To be submitted to [Neurology](https://www.neurology.org/about-journals#jnl)
+\* **Kumar, S**., Earnest, T., Payne, P. R., Sotiras, A., and Alzheimer’s Disease Neuroimaging Initiative. (2023). **Analysing heterogeneity in Alzheimer Disease using multimodal normative modelling on ATN biomarkers.** [[Neurology](https://www.neurology.org/about-journals#jnl), under review]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v3)
 
  <!-- \* Lou Y., **Kumar S.**, O Inez., Puri V.,... and Michelson A. **Fusing donor lung CT scans with clinical data to predict primary graft dysfunction after lung transplantation** To be submitted to [American Journal of Transplantation](https://www.amjtransplant.org/) -->
 
- \* Lou SS, **Kumar S**, Avidan MS, Kheterpal S, Kannampallil T. **External validation of a publicly available surgical transfusion risk prediction model: a multi-center perioperative outcomes group study**. To be submitted to [Anesthesiology](https://pubs.asahq.org/anesthesiology/pages/about-the-journal)
+ \* Lou SS, **Kumar S**, Avidan MS, Kheterpal S, Kannampallil T. **External validation of a publicly available surgical transfusion risk prediction model: a multi-center perioperative outcomes group study**.[[Anesthesiology](https://pubs.asahq.org/anesthesiology/pages/about-the-journal), under preparation]
 
 <!-- Li, F., Oh, I., **Kumar, S.**, Eteleeb, A., Gupta, A., Buchser, W., ... and Cruchaga, C. (2022). **Loss of estrogen unleashing neuro-inflammation increases the risk of Alzheimer’s disease in women**. bioRxiv, 2022-09. [[Paper]](https://www.biorxiv.org/content/10.1101/2022.09.19.508592v1.abstract) -->
 
@@ -28,7 +28,7 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 ## Conference articles (* indicates working and under review papers)
 
-\* Qiu, P, Yang, J, **Kumar, S**, Ghosh, S, Sotiras, A. **AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation**. Submitted to [MICCAI 2024](https://conferences.miccai.org/2024/en/).
+\* Qiu, P, Yang, J, **Kumar, S**, Ghosh, S, Sotiras, A. **AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation**. [[MICCAI 2024](https://conferences.miccai.org/2024/en/), under review]. [ArXiv](https://arxiv.org/pdf/2404.00122.pdf)
 
 **Kumar, S**, Payne, PR, and Sotiras, A. **Improving Normative Modeling for Multi-modal Neuroimaging Data using mixture-of-product-of-experts variational autoencoders**. \textbf{Accepted} in IEEE International Symposium in Biomedical Imaging ([IEEE ISBI](https://biomedicalimaging.org/2024/)) 2024 [[Paper]](https://arxiv.org/pdf/2312.00992.pdf)
 
