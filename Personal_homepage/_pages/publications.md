@@ -28,7 +28,7 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 ## Conference articles (* indicates working and under review papers)
 
-\* Qiu, P, Yang, J, **Kumar, S**, Ghosh, S, Sotiras, A. **AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation**. [[MICCAI 2024](https://conferences.miccai.org/2024/en/), under review].\\
+\* Qiu, P, Yang, J, **Kumar, S**, Ghosh, S, Sotiras, A. **AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation**. [[MICCAI 2024](https://conferences.miccai.org/2024/en/), under review]. \\
 [[ArXiv](https://arxiv.org/pdf/2404.00122.pdf)] [[Code](https://github.com/sotiraslab/AgileFormer)]
 
 **Kumar, S**, Payne, PR, and Sotiras, A. **Improving Normative Modeling for Multi-modal Neuroimaging Data using mixture-of-product-of-experts variational autoencoders**. \textbf{Accepted} in IEEE International Symposium in Biomedical Imaging ([IEEE ISBI](https://biomedicalimaging.org/2024/)) 2024 [[Paper]](https://arxiv.org/pdf/2312.00992.pdf) [[Code](https://github.com/SayantanKumar/ISBI_MoPoE)]
