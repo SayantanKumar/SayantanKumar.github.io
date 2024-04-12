@@ -9,11 +9,11 @@ author_profile: true
 ## Oral talks
 
 * SPIE Medical Imaging 2023, San Diego, USA
-  - [Paper](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12465/1246503/Normative-modeling-using-multimodal-variational-autoencoders-to-identify-abnormal-brain/10.1117/12.2654369.short#_=_), [Slides](https://docs.google.com/presentation/d/13uWGCq-Co8ZOtEEuAgeXzQxv_0F9JK_B/edit?usp=sharing&ouid=115349843758068286456&rtpof=true&sd=true), [Recoding](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12465/1246503/Normative-modeling-using-multimodal-variational-autoencoders-to-identify-abnormal-brain/10.1117/12.2654369.short#_=_), [[Code](https://github.com/SayantanKumar/SPIE_mmVAE)]
+  - [Paper](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12465/1246503/Normative-modeling-using-multimodal-variational-autoencoders-to-identify-abnormal-brain/10.1117/12.2654369.short#_=_), [Slides](https://docs.google.com/presentation/d/13uWGCq-Co8ZOtEEuAgeXzQxv_0F9JK_B/edit?usp=sharing&ouid=115349843758068286456&rtpof=true&sd=true), [Recoding](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12465/1246503/Normative-modeling-using-multimodal-variational-autoencoders-to-identify-abnormal-brain/10.1117/12.2654369.short#_=_), [Code](https://github.com/SayantanKumar/SPIE_mmVAE)
 
 
 * ACM International Conference on Bioinformatics, Computational Biology and Health Informatics 2022
-  - [Paper](https://dl.acm.org/doi/pdf/10.1145/3535508.3545547), [Slides](https://docs.google.com/presentation/d/134QyrYlqLrQ38JfG6JYq0qKxD6f5gGOA/edit?usp=drive_link&ouid=115349843758068286456&rtpof=true&sd=true), [[Code](https://github.com/SayantanKumar/clinical_concepts_EHR)]
+  - [Paper](https://dl.acm.org/doi/pdf/10.1145/3535508.3545547), [Slides](https://docs.google.com/presentation/d/134QyrYlqLrQ38JfG6JYq0qKxD6f5gGOA/edit?usp=drive_link&ouid=115349843758068286456&rtpof=true&sd=true), [Code](https://github.com/SayantanKumar/clinical_concepts_EHR)
 
 * AMIA Informatics Summit 2022, Chicago, USA 
   - [Abstract](https://drive.google.com/file/d/1yoAAvZDtYGd613bfbSoT1ZNqHNQqnqnn/view?usp=sharing), [Slides](https://drive.google.com/file/d/1Eq0Z5LQBA88gmkGL0ipHsaKd1CFK2-2H/view?usp=sharing)
@@ -25,11 +25,11 @@ author_profile: true
 ## Poster presentations
 
 * XAI in Action: Past, Present, and Future Applications Workshop NeurIPS 2023, New Orleans, USA
-  - [Paper](https://openreview.net/pdf?id=hpuOA3nkVW), [Poster](https://drive.google.com/file/d/1ZWbgdFuhMwnDxd7FOKJbidzOVkmjGry0/view?usp=sharing), [[Code](https://github.com/SayantanKumar/clinical_concepts_EHR)]
+  - [Paper](https://openreview.net/pdf?id=hpuOA3nkVW), [Poster](https://drive.google.com/file/d/1ZWbgdFuhMwnDxd7FOKJbidzOVkmjGry0/view?usp=sharing), [Code](https://github.com/SayantanKumar/clinical_concepts_EHR)
 
 
 * Deep Generative Models for Health Workshop NeurIPS 2023, New Orleans, USA
-  - [Paper](https://openreview.net/pdf?id=khB5CQidql), [Poster](https://drive.google.com/file/d/12cgINdFOA10o4wuDUIt5_CmFxA1L_aun/view?usp=sharing), [[Code](https://github.com/SayantanKumar/SPIE_mmVAE)]
+  - [Paper](https://openreview.net/pdf?id=khB5CQidql), [Poster](https://drive.google.com/file/d/12cgINdFOA10o4wuDUIt5_CmFxA1L_aun/view?usp=sharing), [Code](https://github.com/SayantanKumar/SPIE_mmVAE)
 
 
 * AMIA Informatics Summit 2021 [Virtual]
