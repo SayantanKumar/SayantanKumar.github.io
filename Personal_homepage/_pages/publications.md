@@ -18,7 +18,7 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 \* **Kumar, S**., Earnest, T., Payne, P. R., Sotiras, A., and Alzheimer’s Disease Neuroimaging Initiative. (2023). **Analysing heterogeneity in Alzheimer Disease using multimodal normative modelling on ATN biomarkers.** [[Neurology](https://www.neurology.org/about-journals#jnl), under review]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v3)
 
- <!-- \* Lou Y., **Kumar S.**, O Inez., Puri V.,... and Michelson A. **Fusing donor lung CT scans with clinical data to predict primary graft dysfunction after lung transplantation** To be submitted to [American Journal of Transplantation](https://www.amjtransplant.org/)
+ <!-- \* Lou Y., **Kumar S.**, O Inez., Puri V.,... and Michelson A. **Fusing donor lung CT scans with clinical data to predict primary graft dysfunction after lung transplantation** To be submitted to [American Journal of Transplantation](https://www.amjtransplant.org/) -->
 
  \* Lou SS, **Kumar S**, Avidan MS, Kheterpal S, Kannampallil T. **External validation of a publicly available surgical transfusion risk prediction model: a multi-center perioperative outcomes group study**.[[Anesthesiology](https://pubs.asahq.org/anesthesiology/pages/about-the-journal), under preparation]
 
@@ -31,7 +31,7 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 \* Qiu, P, Yang, J, **Kumar, S**, Ghosh, S, Sotiras, A. **AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation**. [[MICCAI 2024](https://conferences.miccai.org/2024/en/), under review]\
 [[ArXiv](https://arxiv.org/pdf/2404.00122.pdf)] [[Code](https://github.com/sotiraslab/AgileFormer)]
 
-**Kumar, S**, Payne, PR, and Sotiras, A. **Improving Normative Modeling for Multi-modal Neuroimaging Data using mixture-of-product-of-experts variational autoencoders**. \textbf{Accepted} in IEEE International Symposium in Biomedical Imaging ([IEEE ISBI 2024](https://biomedicalimaging.org/2024/)) <br />
+**Kumar, S**, Payne, PR, and Sotiras, A. **Improving Normative Modeling for Multi-modal Neuroimaging Data using mixture-of-product-of-experts variational autoencoders**. **Accepted** in IEEE International Symposium in Biomedical Imaging ([IEEE ISBI 2024](https://biomedicalimaging.org/2024/)) <br />
 [[Paper]](https://arxiv.org/pdf/2312.00992.pdf) [[Code](https://github.com/SayantanKumar/ISBI_MoPoE)]
 
 **Kumar, S**, Payne, PR, and Sotiras, A. (2023, April). **Normative modeling using multimodal variational autoencoders to identify abnormal brain volume deviations in Alzheimer's disease**. In [SPIE Medical Imaging 2023](https://spie.org/conferences-and-exhibitions/medical-imaging/program#_=_): Computer-Aided Diagnosis (Vol. 12465, p. 1246503) [**Oral, Best paper award finalist**] <br />
