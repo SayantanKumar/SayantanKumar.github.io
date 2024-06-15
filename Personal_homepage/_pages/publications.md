@@ -12,7 +12,7 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 ## Journal articles (* indicates working and under review papers)
 
-\* **Kumar, S**, Oh, I, Schindler. S., Ghoshal. N., Abrams, Z., Payne, P. Revealing heterogeneity in dementia using data-driven unsupervised clustering of cognitive profiles. [PLOS One, **under preparation**]
+\* **Kumar, S**, Oh, I, Schindler. S., Ghoshal. N., Abrams, Z., Payne, P. **Revealing heterogeneity in dementia using data-driven unsupervised clustering of cognitive profiles**. [PLOS One, **under preparation**]
 
 \* Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evaluation of ComBat harmonization for reducing across-tracer biases in regional amyloid PET analyses**. [Human Brain Mapping, **under preparation**] 
 
