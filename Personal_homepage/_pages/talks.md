@@ -24,7 +24,8 @@ author_profile: true
 
 ## Poster presentations
 
-* IEEE ISBI 2024, Athens, Greece - [Paper](https://arxiv.org/abs/2312.00992), [Poster](https://drive.google.com/file/d/1-p1dKWOqMT2KAGSntIzTjefS_aXD38I_/view)
+* IEEE ISBI 2024, Athens, Greece
+  - [Paper](https://arxiv.org/abs/2312.00992), [Poster](https://drive.google.com/file/d/1-p1dKWOqMT2KAGSntIzTjefS_aXD38I_/view), [Code](https://github.com/SayantanKumar/ISBI_MoPoE)
 
 * XAI in Action: Past, Present, and Future Applications Workshop NeurIPS 2023, New Orleans, USA
   - [Paper](https://openreview.net/pdf?id=hpuOA3nkVW), [Poster](https://drive.google.com/file/d/1ZWbgdFuhMwnDxd7FOKJbidzOVkmjGry0/view?usp=sharing), [Code](https://github.com/SayantanKumar/clinical_concepts_EHR)
