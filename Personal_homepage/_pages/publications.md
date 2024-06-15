@@ -12,15 +12,17 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 ## Journal articles (* indicates working and under review papers)
 
-\* Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evaluation of ComBat harmonization for reducing across-tracer biases in regional amyloid PET analyses**. [[EJNMMI](https://link.springer.com/journal/259), under review] 
+\* **Kumar, S**, Oh, I, Schindler. S., Ghoshal. N., Abrams, Z., Payne, P. Revealing heterogeneity in dementia using data-driven unsupervised clustering of cognitive profiles. [PLOS One, **under preparation**]
 
-\* **Kumar, S**, Kannampallil, T, Sotiras, A, Payne, PRO. **Multimodal hierarchical multi-task deep learning framework for jointly predicting and explaining Alzheimer’s disease progression**. [[JAMIA](https://academic.oup.com/jamia), under review]. [ArXiV](https://arxiv.org/pdf/2404.03208.pdf)
+\* Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evaluation of ComBat harmonization for reducing across-tracer biases in regional amyloid PET analyses**. [Human Brain Mapping, **under preparation**] 
 
-\* **Kumar, S**., Earnest, T., Payne, P. R., Sotiras, A., and Alzheimer’s Disease Neuroimaging Initiative. (2023). **Analysing heterogeneity in Alzheimer Disease using multimodal normative modelling on ATN biomarkers.** [[Neurology](https://www.neurology.org/about-journals#jnl), under review]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v3)
+\* **Kumar, S**, Yu, S, Michelson, A, Kannampallil, T, Payne, PRO. **HiMAL: A Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting and explaining Alzheimer disease progression.**. [JAMIA Open, **under review**]. [ArXiV](https://arxiv.org/pdf/2404.03208.pdf)
 
- \* Ma Y., Oh I., Luo Y.,**Kumar S.**, Gupta A.,,... and Michelson A. **Incorporating Donor Lung CT Images into Machine Learning Models to Predict Severe Primary Graft Dysfunction after Lung Transplantation** To be submitted to [American Journal of Transplantation](https://www.amjtransplant.org/)
+\* **Kumar, S**., Earnest, T., Yang, B.,... Sotiras, A. (2023). **Analysing heterogeneity in Alzheimer Disease using multimodal normative modelling on ATN biomarkers.** [Alzheimer's & Dementia, **under review**]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v3)
 
- \* Lou SS, **Kumar S**, Avidan MS, Kheterpal S, Kannampallil T. **External validation of a publicly available surgical transfusion risk prediction model: a multi-center perioperative outcomes group study**.[[Anesthesiology](https://pubs.asahq.org/anesthesiology/pages/about-the-journal), under preparation]
+ \* Ma Y., Oh I., Luo Y.,**Kumar S.**, Gupta A.,,... and Michelson A. **Incorporating Donor Lung CT Images into Machine Learning Models to Predict Severe Primary Graft Dysfunction after Lung Transplantation**[American Journal of Transplantation, **under review**]
+
+<!-- Lou SS, **Kumar S**, Avidan MS, Kheterpal S, Kannampallil T. **External validation of a publicly available surgical transfusion risk prediction model: a multi-center perioperative outcomes group study**.[[Anesthesiology](https://pubs.asahq.org/anesthesiology/pages/about-the-journal), under preparation] -->
 
 <!-- Li, F., Oh, I., **Kumar, S.**, Eteleeb, A., Gupta, A., Buchser, W., ... and Cruchaga, C. (2022). **Loss of estrogen unleashing neuro-inflammation increases the risk of Alzheimer’s disease in women**. bioRxiv, 2022-09. [[Paper]](https://www.biorxiv.org/content/10.1101/2022.09.19.508592v1.abstract) -->
 
@@ -28,9 +30,9 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 ## Conference articles (* indicates working and under review papers)
 
-\* Qiu, P, Yang, J, **Kumar, S**, Ghosh, S, Sotiras, A. **AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation**. [[MICCAI 2024](https://conferences.miccai.org/2024/en/), under review]. [[ArXiv](https://arxiv.org/pdf/2404.00122.pdf)] [[Code](https://github.com/sotiraslab/AgileFormer)]
+\* Qiu, P, Yang, J, **Kumar, S**, Ghosh, S, Sotiras, A. **AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation**. [MICCAI 2024, **under review**]. [[ArXiv](https://arxiv.org/pdf/2404.00122.pdf)] [[Code](https://github.com/sotiraslab/AgileFormer)]
 
-**Kumar, S**, Payne, PR, and Sotiras, A. **Improving Normative Modeling for Multi-modal Neuroimaging Data using mixture-of-product-of-experts variational autoencoders**. \textbf{Accepted} in IEEE International Symposium in Biomedical Imaging ([IEEE ISBI](https://biomedicalimaging.org/2024/)) 2024 [[Paper]](https://arxiv.org/pdf/2312.00992.pdf) [[Code](https://github.com/SayantanKumar/ISBI_MoPoE)]
+**Kumar, S**, Payne, PR, and Sotiras, A. **Improving Normative Modeling for Multi-modal Neuroimaging Data using mixture-of-product-of-experts variational autoencoders**. **Accepted** in IEEE International Symposium in Biomedical Imaging (IEEE ISBI 2024) [[Paper]](https://arxiv.org/pdf/2312.00992.pdf) [[Code](https://github.com/SayantanKumar/ISBI_MoPoE)]
 
 **Kumar, S**, Payne, PR, and Sotiras, A. (2023, April). **Normative modeling using multimodal variational autoencoders to identify abnormal brain volume deviations in Alzheimer's disease**. In [SPIE Medical Imaging 2023](https://spie.org/conferences-and-exhibitions/medical-imaging/program#_=_): Computer-Aided Diagnosis (Vol. 12465, p. 1246503). [**Oral**][**Best paper award finalist**] [[Paper]](https://doi.org/10.1117/12.2654369) [[Code](https://github.com/SayantanKumar/SPIE_mmVAE)]
 
