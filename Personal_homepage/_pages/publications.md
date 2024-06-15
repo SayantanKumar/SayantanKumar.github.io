@@ -16,7 +16,7 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 \* Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evaluation of ComBat harmonization for reducing across-tracer biases in regional amyloid PET analyses**. [Human Brain Mapping, **under preparation**] 
 
-\* **Kumar, S**, Yu, S, Michelson, A, Kannampallil, T, Payne, PRO. **HiMAL: A Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting and explaining Alzheimer disease progression.**. [JAMIA Open, **under review**]. [ArXiV](https://arxiv.org/pdf/2404.03208.pdf)
+\* **Kumar, S**, Yu, S, Michelson, A, Kannampallil, T, Payne, PRO. **HiMAL: A Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting and explaining Alzheimer disease progression.** [JAMIA Open, **under review**]. [ArXiV](https://arxiv.org/pdf/2404.03208.pdf)
 
 \* **Kumar, S**., Earnest, T., Yang, B.,... Sotiras, A. (2023). **Analysing heterogeneity in Alzheimer Disease using multimodal normative modelling on ATN biomarkers.** [Alzheimer's & Dementia, **under review**]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v3)
 
