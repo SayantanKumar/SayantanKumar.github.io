@@ -18,11 +18,11 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 \* **Kumar, S**, Yu, S, Michelson, A, Kannampallil, T, Payne, PRO. **HiMAL: A Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting and explaining Alzheimer disease progression.** [JAMIA Open, **under review**]. [ArXiV](https://arxiv.org/pdf/2404.03208.pdf)
 
-\* **Kumar, S**., Earnest, T., Yang, B.,... Sotiras, A. (2023). **Analysing heterogeneity in Alzheimer Disease using multimodal normative modelling on ATN biomarkers.** [Alzheimer's & Dementia, **under review**]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v3)
+\* **Kumar, S**., Earnest, T., Yang, B.,... Sotiras, A. (2023). **Analyzing heterogeneity in Alzheimer Disease using multimodal normative modeling on imaging-based ATN biomarkers.** [Alzheimer's & Dementia, **under review**]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v3)
 
  \* Ma Y., Oh I., Luo Y.,**Kumar S.**, Gupta A.,,... and Michelson A. **Incorporating Donor Lung CT Images into Machine Learning Models to Predict Severe Primary Graft Dysfunction after Lung Transplantation**[American Journal of Transplantation, **under review**]
 
-<!-- Lou SS, **Kumar S**, Avidan MS, Kheterpal S, Kannampallil T. **External validation of a publicly available surgical transfusion risk prediction model: a multi-center perioperative outcomes group study**.[[Anesthesiology](https://pubs.asahq.org/anesthesiology/pages/about-the-journal), under preparation] -->
+Lou SS, **Kumar S**, Goss C, Avidan MS, Kheterpal S, Kannampallil T. **Multi-center validation of a machine learning model for surgical transfusion risk at 45 US hospitals**[NEJM-AI, under preparation] -->
 
 <!-- Li, F., Oh, I., **Kumar, S.**, Eteleeb, A., Gupta, A., Buchser, W., ... and Cruchaga, C. (2022). **Loss of estrogen unleashing neuro-inflammation increases the risk of Alzheimer’s disease in women**. bioRxiv, 2022-09. [[Paper]](https://www.biorxiv.org/content/10.1101/2022.09.19.508592v1.abstract) -->
 
