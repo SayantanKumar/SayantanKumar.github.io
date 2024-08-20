@@ -30,7 +30,7 @@ Lou SS, **Kumar S**, Goss C, Avidan MS, Kheterpal S, Kannampallil T. **Multi-cen
 
 ## Conference articles (* indicates working and under review papers)
 
-\* Qiu, P, Yang, J, **Kumar, S**, Ghosh, S, Sotiras, A. **AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation**.[[ArXiv](https://arxiv.org/pdf/2404.00122.pdf)] [[Code](https://github.com/sotiraslab/AgileFormer)]
+\* Qiu, P, Yang, J, **Kumar, S**, Ghosh, S, Sotiras, A. **AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation**. IEEE WACV 2025, under review.[[ArXiv](https://arxiv.org/pdf/2404.00122.pdf)] [[Code](https://github.com/sotiraslab/AgileFormer)]
 
 **Kumar, S**, Payne, PR, and Sotiras, A. **Improving Normative Modeling for Multi-modal Neuroimaging Data using mixture-of-product-of-experts variational autoencoders**. **Accepted** in IEEE International Symposium in Biomedical Imaging (IEEE ISBI 2024) [[Paper]](https://arxiv.org/pdf/2312.00992.pdf) [[Code](https://github.com/SayantanKumar/ISBI_MoPoE)]
 
