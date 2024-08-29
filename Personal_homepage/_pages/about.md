@@ -23,8 +23,9 @@ I am currently on the job market for postdoctoral positions and research-oriente
 
 ## Recent News
 
-* **May 2023**: Presented my research (poster) in IEEE ISBI 2024, Athens, Greece.
-* **May 2023**: Received Honors (**top 5%**) in the Periodic Review of Doctoral Students (**PRODS 2024**) in WashU CSE
+* **August 2024** Our paper tiled ""HiMAL: Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting Alzheimer’s disease progression" got accepted in JAMIA Open.
+* **May 2024**: Presented my research (poster) in IEEE ISBI 2024, Athens, Greece.
+* **May 2024**: Received Honors (**top 5%**) in the Periodic Review of Doctoral Students (**PRODS 2024**) in WashU CSE
 * **February 2024**: Paper on Improving multimodal normative modelling using mixture-of-products variational autoencoders accepted in the [IEEE ISBI 2024](https://biomedicalimaging.org/2024/). [Preprint](https://arxiv.org/pdf/2312.00992.pdf) available in ArXiv.
 * **October 2023**: 2 NeurIPS 2023 workshop papers accepted in [XAI-in-action](https://xai-in-action.github.io/) and [Deep Generative Models for Health (DGM4H)](https://sites.google.com/ethz.ch/dgm4h-neurips2023)
 * **May 2023**: Received Honors (**top 5%**) in the Periodic Review of Doctoral Students (**PRODS 2023**) in WashU CSE
