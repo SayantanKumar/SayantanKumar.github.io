@@ -12,11 +12,11 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 ## Journal articles (* indicates working and under review papers)
 
-\* **Kumar, S**, Oh, I, Schindler. S., Ghoshal. N., Abrams, Z., Payne, P. **Revealing heterogeneity in dementia using data-driven unsupervised clustering of cognitive profiles**. [PLOS One, **under review**] [BioRxiV](https://www.biorxiv.org/content/10.1101/2024.06.13.598874v1)
+\* **Kumar, S**, Oh, I, Schindler. S., Ghoshal. N., Abrams, Z., Payne, P. **Revealing heterogeneity in dementia using data-driven unsupervised clustering of cognitive profiles**. [PLOS One, **minor revision**] [BioRxiV](https://www.biorxiv.org/content/10.1101/2024.06.13.598874v1)
 
 \* Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evaluation of ComBat harmonization for reducing across-tracer biases in regional amyloid PET analyses**. [Human Brain Mapping, **under review**] [medRxiV](https://www.medrxiv.org/content/10.1101/2024.06.14.24308952v1)
 
-\* **Kumar, S**, Yu, S, Michelson, A, Kannampallil, T, Payne, PRO. **HiMAL: A Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting and explaining Alzheimer disease progression.** [JAMIA Open, **under review**]. [ArXiV](https://arxiv.org/pdf/2404.03208.pdf)
+**Kumar, S**, Yu, S, Michelson, A, Kannampallil, T, Payne, PRO. **HiMAL: A Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting and explaining Alzheimer disease progression.** [JAMIA Open, **accepted**]. [ArXiV](https://arxiv.org/pdf/2404.03208.pdf)
 
 \* **Kumar, S**., Earnest, T., Yang, B.,... Sotiras, A. (2023). **Analyzing heterogeneity in Alzheimer Disease using multimodal normative modeling on imaging-based ATN biomarkers.** [Alzheimer's & Dementia, **under review**]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v3)
 
