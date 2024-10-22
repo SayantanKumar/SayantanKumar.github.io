@@ -22,7 +22,7 @@ Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evalu
 
  \* Ma Y., Oh I., Luo Y.,**Kumar S.**, Gupta A.,,... and Michelson A. **Incorporating Donor Lung CT Images into Machine Learning Models to Predict Severe Primary Graft Dysfunction after Lung Transplantation**[American Journal of Transplantation, **under review**]
 
-Lou SS, **Kumar S**, Goss C, Avidan MS, Kheterpal S, Kannampallil T. **Multi-center validation of a machine learning model for surgical transfusion risk at 45 US hospitals**[JAMA Surgery, under preparation] -->
+\* Lou SS, **Kumar S**, Goss C, Avidan MS, Kheterpal S, Kannampallil T. **Multi-center validation of a machine learning model for surgical transfusion risk at 45 US hospitals**[JAMA Surgery, under preparation]
 
 <!-- Li, F., Oh, I., **Kumar, S.**, Eteleeb, A., Gupta, A., Buchser, W., ... and Cruchaga, C. (2022). **Loss of estrogen unleashing neuro-inflammation increases the risk of Alzheimer’s disease in women**. bioRxiv, 2022-09. [[Paper]](https://www.biorxiv.org/content/10.1101/2022.09.19.508592v1.abstract) -->
 
