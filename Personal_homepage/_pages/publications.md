@@ -14,7 +14,7 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 **Kumar, S**, Oh, I, Schindler. S., Ghoshal. N., Abrams, Z., Payne, P. **Revealing heterogeneity in dementia using data-driven unsupervised clustering of cognitive profiles**. [PLOS One, **Accepted**] [BioRxiV](https://www.biorxiv.org/content/10.1101/2024.06.13.598874v1)
 
-Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evaluation of ComBat harmonization for reducing across-tracer biases in regional amyloid PET analyses**. [Human Brain Mapping, **under review**] [medRxiV](https://www.medrxiv.org/content/10.1101/2024.06.14.24308952v1)
+Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evaluation of ComBat harmonization for reducing across-tracer biases in regional amyloid PET analyses**. [Human Brain Mapping, **Accepted**] [medRxiV](https://www.medrxiv.org/content/10.1101/2024.06.14.24308952v1)
 
 **Kumar, S**, Yu, S, Michelson, A, Kannampallil, T, Payne, PRO. **HiMAL: A Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting and explaining Alzheimer disease progression.** JAMIA open, 7(3), ooae087. [Paper](https://academic.oup.com/jamiaopen/article/7/3/ooae087/7759862?login=true)
 
