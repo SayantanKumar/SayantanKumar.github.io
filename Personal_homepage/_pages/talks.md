@@ -5,7 +5,21 @@ permalink: /talks/
 author_profile: true
 ---
 
+## Invited talks
 
+* **September 2024** - Multimodal normative Modeling to examine heterogeneity in Alzheimer’s Disease
+    - **Host**: Dr Mustapha Bouhrara, National Institute on Aging, National Institute on Health, USA
+
+
+* **September 2024** - Explaining longitudinal clinical outcomes using domain-knowledge driven clinical concepts
+  - **Host**: Dr Jeremy Weiss, National Library of Medicine, National Institute on Health, USA
+  
+* **September 2024** - Multimodal representation learning for modeling progression in Alzheimer’s Disease
+  - **Host**: Dr Ronald Summers, National Institute on Health Clinical Center, USA
+
+* **August 2024** - Examining heterogeneity in dementia using unsupervised clustering of cognitive profiles
+   - **Host**: Dr Suzzanne Schindler, Department of Neurology, Washington University in St Louis
+     
 ## Oral talks
 
 * SPIE Medical Imaging 2023, San Diego, USA
