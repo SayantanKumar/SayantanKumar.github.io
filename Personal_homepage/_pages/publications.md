@@ -41,6 +41,8 @@ Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evalu
 
 ## Peer-reviewed workshops and abstracts
 
+Yang, B., Earnest, T., **Kumar, S**., Gordon, B. A., & Sotiras, A. (2024, July). **Harmonization of amyloid PET radiotracers using ComBat and its influence on detecting treatment effects in a simulated clinical trial**. In [Alzheimer's Association International Conference. ALZ](https://aaic.alz.org/).[**Poster**]
+
 Lou SS, **Kumar S**, Avidan MS, Kheterpal S, Kannampallil T. **External validation of a publicly available surgical transfusion risk prediction model: a multi-center perioperative outcomes group study**. [World Congress of Anaesthesiologists 2024](https://www.wca2024.org/). [**Oral**]
 
 **Kumar, S**, Kannampallil, T., Sotiras, A., and Payne, P. (2023, October). **Explaining Longitudinal Clinical Outcomes using Domain-Knowledge driven Intermediate Concepts** In [XAI in Action: Past, Present, and Future Applications Workshop NeurIPS 2023](https://xai-in-action.github.io/). [**Poster**] [[Workshop Paper](https://openreview.net/pdf?id=hpuOA3nkVW)] [[Code](https://github.com/SayantanKumar/clinical_concepts_EHR)]
