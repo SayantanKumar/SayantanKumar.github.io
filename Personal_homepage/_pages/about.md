@@ -18,12 +18,13 @@ Before joining WashU, I completed my Bachelor's in Electrical Engineering from [
 
 <!--During my M.Tech, I visited the [SOS lab](https://www.bcs.tu-darmstadt.de/welcome/index.en.jsp) of TU Darmstadt for a summer internship where I worked on "Modeling communication in social networks by approximating Markov Chains" under the supervision of [Dr Heinz Koppl]() and [Dr Wasiur R. KhudaBukhsh](https://www.wasiur.xyz/).--> 
 
-I am currently on the job market for postdoctoral positions and research-oriented industry roles. Feel free to reach out to me at sayantan.kumar@wustl.edu for potential opportunities. For more details about me and my research, please check out my [CV](https://sayantankumar.github.io/files/Resume_latest.pdf).
+I will be joining the Computational Health Research Branch at National Library of Medicine (NLM) at National Institures on Health as a Intramural Post-doctoral Visiting Fellow. I will be working with [Dr Jeremy Weiss](https://www.nlm.nih.gov/research/researchstaff/WeissJeremy.html). For more details about me and my research, please check out my [CV](https://sayantankumar.github.io/files/Resume_latest.pdf).
 
 
 ## Recent News
 
-* **August 2024** Our work [HiMAL: Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting Alzheimer’s disease progression](https://arxiv.org/abs/2404.03208) got accepted in JAMIA Open.
+* **October 2024** Our work on "Examining heterogeneity in dementia using data-driven unsupervised clustering of cognitive profiles" has been accepted in PlOS One. Preprint available [here](https://www.biorxiv.org/content/10.1101/2024.06.13.598874v2.full).
+* **September 2024** Our JAMIA Open paper [HiMAL: Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting Alzheimer’s disease progression](https://academic.oup.com/jamiaopen/article/7/3/ooae087/7759862?login=true) is now published and online.
 * **May 2024**: Presented my research (poster) in IEEE ISBI 2024, Athens, Greece.
 * **May 2024**: Received Honors (**top 5%**) in the Periodic Review of Doctoral Students (**PRODS 2024**) in WashU CSE
 * **February 2024**: Paper on Improving multimodal normative modelling using mixture-of-products variational autoencoders accepted in the [IEEE ISBI 2024](https://biomedicalimaging.org/2024/). [Preprint](https://arxiv.org/pdf/2312.00992.pdf) available in ArXiv.
