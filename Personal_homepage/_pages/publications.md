@@ -12,9 +12,11 @@ For the most updated list of my publications, please visit my [Google Scholar](h
 
 ## Journal articles (* indicates working and under review papers)
 
-**Kumar, S**, Oh, I, Schindler. S., Ghoshal. N., Abrams, Z., Payne, P. **Revealing heterogeneity in dementia using data-driven unsupervised clustering of cognitive profiles**. [PLOS One, **Accepted**] [BioRxiV](https://www.biorxiv.org/content/10.1101/2024.06.13.598874v1)
+\* Qiu, P, Yang, J, **Kumar, S**, Ghosh, S, Sotiras, A. **AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation**. [IEEE Journal of Biomedical Health Informatics (JBHI), **under review**].[[ArXiv](https://arxiv.org/pdf/2404.00122.pdf)] [[Code](https://github.com/sotiraslab/AgileFormer)]
 
-Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evaluation of ComBat harmonization for reducing across-tracer biases in regional amyloid PET analyses**. [Human Brain Mapping, **Accepted**] [medRxiV](https://www.medrxiv.org/content/10.1101/2024.06.14.24308952v1)
+**Kumar, S**, Oh, I, Schindler. S., Ghoshal. N., Abrams, Z., Payne, P. **Revealing heterogeneity in dementia using data-driven unsupervised clustering of cognitive profiles**. PLOS One [Paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0313425)
+
+Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evaluation of ComBat harmonization for reducing across-tracer biases in regional amyloid PET analyses**. Human Brain Mapping [Paper](https://onlinelibrary.wiley.com/doi/10.1002/hbm.70068)
 
 **Kumar, S**, Yu, S, Michelson, A, Kannampallil, T, Payne, PRO. **HiMAL: A Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting and explaining Alzheimer disease progression.** JAMIA open, 7(3), ooae087. [Paper](https://academic.oup.com/jamiaopen/article/7/3/ooae087/7759862?login=true)
 
@@ -22,7 +24,7 @@ Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evalu
 
  \* Ma Y., Oh I., Luo Y.,**Kumar S.**, Gupta A.,,... and Michelson A. **Incorporating Donor Lung CT Images into Machine Learning Models to Predict Severe Primary Graft Dysfunction after Lung Transplantation**[American Journal of Transplantation, **under review**]
 
-\* Lou SS, **Kumar S**, Goss C, Avidan MS, Kheterpal S, Kannampallil T. **Multi-center validation of a machine learning model for surgical transfusion risk at 45 US hospitals**[JAMA Surgery, under preparation]
+\* Lou SS, **Kumar S**, Goss C, Avidan MS, Kheterpal S, Kannampallil T. **Multi-center validation of a machine learning model for surgical transfusion risk at 45 US hospitals**[JAMA Surgery, **under review**]
 
 <!-- Li, F., Oh, I., **Kumar, S.**, Eteleeb, A., Gupta, A., Buchser, W., ... and Cruchaga, C. (2022). **Loss of estrogen unleashing neuro-inflammation increases the risk of Alzheimer’s disease in women**. bioRxiv, 2022-09. [[Paper]](https://www.biorxiv.org/content/10.1101/2022.09.19.508592v1.abstract) -->
 
@@ -30,8 +32,8 @@ Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evalu
 
 ## Conference articles (* indicates working and under review papers)
 
-\* Qiu, P, Yang, J, **Kumar, S**, Ghosh, S, Sotiras, A. **AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation**. IEEE WACV 2025, under review.[[ArXiv](https://arxiv.org/pdf/2404.00122.pdf)] [[Code](https://github.com/sotiraslab/AgileFormer)]
-
+\* Qiu, P, Zhu, W, **Kumar, S**, Chen, X, Yang, J, Sun, X, Razi, A, Wang, Y, Sotiras, A, **Multimodal Variational Autoencoder: a Barycentric View**. [AAAI 2025, **under review** ]
+    
 **Kumar, S**, Payne, PR, and Sotiras, A. **Improving Normative Modeling for Multi-modal Neuroimaging Data using mixture-of-product-of-experts variational autoencoders**. **Accepted** in IEEE International Symposium in Biomedical Imaging (IEEE ISBI 2024) [[Paper]](https://arxiv.org/pdf/2312.00992.pdf) [[Code](https://github.com/SayantanKumar/ISBI_MoPoE)]
 
 **Kumar, S**, Payne, PR, and Sotiras, A. (2023, April). **Normative modeling using multimodal variational autoencoders to identify abnormal brain volume deviations in Alzheimer's disease**. In [SPIE Medical Imaging 2023](https://spie.org/conferences-and-exhibitions/medical-imaging/program#_=_): Computer-Aided Diagnosis (Vol. 12465, p. 1246503). [**Oral**][**Best paper award finalist**] [[Paper]](https://doi.org/10.1117/12.2654369) [[Code](https://github.com/SayantanKumar/SPIE_mmVAE)]
