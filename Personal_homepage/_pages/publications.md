@@ -20,9 +20,9 @@ Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evalu
 
 **Kumar, S**, Yu, S, Michelson, A, Kannampallil, T, Payne, PRO. **HiMAL: A Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting and explaining Alzheimer disease progression.** JAMIA open, 7(3), ooae087. [Paper](https://academic.oup.com/jamiaopen/article/7/3/ooae087/7759862?login=true)
 
-\* **Kumar, S**., Earnest, T., Yang, B.,... Sotiras, A. (2023). **Analyzing heterogeneity in Alzheimer Disease using multimodal normative modeling on imaging-based ATN biomarkers.** [Alzheimer's & Dementia, **under review**]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v4)
+\* **Kumar, S**., Earnest, T., Yang, B.,... Sotiras, A. (2023). **Analyzing heterogeneity in Alzheimer Disease using multimodal normative modeling on imaging-based ATN biomarkers.** [Alzheimer's & Dementia, **Under review, Minor revision**]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v4)
 
- \* Ma Y., Oh I., Luo Y.,**Kumar S.**, Gupta A.,,... and Michelson A. **Incorporating Donor Lung CT Images into Machine Learning Models to Predict Severe Primary Graft Dysfunction after Lung Transplantation**[American Journal of Transplantation, **under review**]
+Ma Y., Oh I., Luo Y.,**Kumar S.**, Gupta A.,,... and Michelson A. **Incorporating Donor Lung CT Images into Machine Learning Models to Predict Severe Primary Graft Dysfunction after Lung Transplantation**[American Journal of Transplantation, **Accepted with minor revision**]
 
 \* Lou SS, **Kumar S**, Goss C, Avidan MS, Kheterpal S, Kannampallil T. **Multi-center validation of a machine learning model for surgical transfusion risk at 45 US hospitals**[JAMA Surgery, **under review**]
 
@@ -30,9 +30,9 @@ Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evalu
 
 **Kumar, S.**, Oh, I., Schindler, S., Lai, A. M., Payne, P. R., and Gupta, A. (2021). **Machine learning for modeling the progression of Alzheimer disease dementia using clinical data: a systematic literature review**. [JAMIA open](https://academic.oup.com/jamiaopen), 4(3), ooab052. [[Paper]](https://academic.oup.com/jamiaopen/article/4/3/ooab052/6334269)
 
-## Conference articles (* indicates working and under review papers)
+## Conference articles
 
-\* Qiu, P, Zhu, W, **Kumar, S**, Chen, X, Yang, J, Sun, X, Razi, A, Wang, Y, Sotiras, A, **Multimodal Variational Autoencoder: a Barycentric View**. [AAAI 2025, **under review** ]
+Qiu, P, Zhu, W, **Kumar, S**, Chen, X, Yang, J, Sun, X, Razi, A, Wang, Y, Sotiras, A, **Multimodal Variational Autoencoder: a Barycentric View**. [AAAI 2025, **Accepted**]
     
 **Kumar, S**, Payne, PR, and Sotiras, A. **Improving Normative Modeling for Multi-modal Neuroimaging Data using mixture-of-product-of-experts variational autoencoders**. **Accepted** in IEEE International Symposium in Biomedical Imaging (IEEE ISBI 2024) [[Paper]](https://arxiv.org/pdf/2312.00992.pdf) [[Code](https://github.com/SayantanKumar/ISBI_MoPoE)]
 
