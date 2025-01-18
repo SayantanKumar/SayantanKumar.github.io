@@ -23,7 +23,7 @@ I will be joining the Computational Health Research Branch at National Library o
 
 ## Recent News
 
-* **December 2024** Our work on "Multimodal Variational Autoencoder: a Barycentric View" has been accepted in AAAI 2025. Preprint available soon.
+* **January 2025** Our work on "Multimodal Variational Autoencoder: a Barycentric View" has been accepted in AAAI 2025 as an oral presentation. [Preprint](https://arxiv.org/pdf/2412.20487) available.
 * **December 2024** I successfully defended my PhD dissertation titled "Multimodal representation learning frameworks for modeling progression and heterogeneity in Alzheimer's Disease"
 * **October 2024** Our work on [Examining heterogeneity in dementia using data-driven unsupervised clustering of cognitive profiles](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0313425) has been published in PlOS One.
 * **September 2024** Our JAMIA Open paper [HiMAL: Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting Alzheimer’s disease progression](https://academic.oup.com/jamiaopen/article/7/3/ooae087/7759862?login=true) is now published and online.
