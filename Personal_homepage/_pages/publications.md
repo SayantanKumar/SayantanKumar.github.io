@@ -32,7 +32,7 @@ Ma Y., Oh I.,**Kumar S.**, Gupta A.,,... and Michelson A. **Incorporating Donor 
 
 ## Conference articles
 
-Qiu, P, Zhu, W, **Kumar, S**, Chen, X, Yang, J, Sun, X, Razi, A, Wang, Y, Sotiras, A, **Multimodal Variational Autoencoder: a Barycentric View**. [AAAI 2025, **Accepted**]
+Qiu, P, Zhu, W, **Kumar, S**, Chen, X, Yang, J, Sun, X, Razi, A, Wang, Y, Sotiras, A, **Multimodal Variational Autoencoder: a Barycentric View**. [AAAI 2025, **Oral**] [[Paper]](https://arxiv.org/pdf/2412.20487)
     
 **Kumar, S**, Payne, PR, and Sotiras, A. **Improving Normative Modeling for Multi-modal Neuroimaging Data using mixture-of-product-of-experts variational autoencoders**. **Accepted** in IEEE International Symposium in Biomedical Imaging (IEEE ISBI 2024) [[Paper]](https://arxiv.org/pdf/2312.00992.pdf) [[Code](https://github.com/SayantanKumar/ISBI_MoPoE)]
 
