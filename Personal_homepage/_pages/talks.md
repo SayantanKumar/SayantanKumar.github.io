@@ -22,6 +22,9 @@ author_profile: true
      
 ## Oral talks
 
+* AAAI 2025
+  - [Paper](https://arxiv.org/pdf/2412.20487)
+
 * SPIE Medical Imaging 2023, San Diego, USA
   - [Paper](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12465/1246503/Normative-modeling-using-multimodal-variational-autoencoders-to-identify-abnormal-brain/10.1117/12.2654369.short#_=_), [Slides](https://docs.google.com/presentation/d/13uWGCq-Co8ZOtEEuAgeXzQxv_0F9JK_B/edit?usp=sharing&ouid=115349843758068286456&rtpof=true&sd=true), [Recoding](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12465/1246503/Normative-modeling-using-multimodal-variational-autoencoders-to-identify-abnormal-brain/10.1117/12.2654369.short#_=_), [Code](https://github.com/SayantanKumar/SPIE_mmVAE)
 
