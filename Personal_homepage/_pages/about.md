@@ -18,7 +18,7 @@ Before joining WashU, I completed my Bachelor's in Electrical Engineering from [
 
 <!--During my M.Tech, I visited the [SOS lab](https://www.bcs.tu-darmstadt.de/welcome/index.en.jsp) of TU Darmstadt for a summer internship where I worked on "Modeling communication in social networks by approximating Markov Chains" under the supervision of [Dr Heinz Koppl]() and [Dr Wasiur R. KhudaBukhsh](https://www.wasiur.xyz/).--> 
 
-I will be joining the Computational Health Research Branch at National Library of Medicine (NLM) at National Institures on Health as a Intramural Post-doctoral Visiting Fellow. I will be working with [Dr Jeremy Weiss](https://www.nlm.nih.gov/research/researchstaff/WeissJeremy.html). For more details about me and my research, please check out my [CV](https://sayantankumar.github.io/files/Resume_latest.pdf).
+I will be joining the Computational Health Research Branch at National Library of Medicine (NLM) at National Institures on Health as a Intramural Post-doctoral Visiting Fellow. I will be working with [Dr Jeremy Weiss](https://www.nlm.nih.gov/research/researchstaff/WeissJeremy.html). For more details about me and my research, please check out my [CV](https://sayantankumar.github.io/files/CV_latest_SK.pdf).
 
 
 ## Recent News
