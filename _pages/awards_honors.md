@@ -13,7 +13,7 @@ author_profile: true
 * **Robert F. Wagner All-Conference Best Paper Award Finalist** - Computer-Aided and Diagnosis track, SPIE Medical Imaging 2023
 
 
-* **Honors (top 5%)** - Periodic Review of Doctoral Students (PRODS) **2022** and **2023**, Department of Computer Science and Engineering, Washington University in St. Louis
+* **Honors (top 5%)** - Periodic Review of Doctoral Students (PRODS) **2024**, **2023** and **2022**, Department of Computer Science and Engineering, Washington University in St. Louis
 
 
 * **Prize money** for **outstanding academic performance (>90% aggregate marks)** in 3rd and 4th semesters of M.Tech, Indian Statistical Institute, Kolkata 
