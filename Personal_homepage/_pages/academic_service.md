@@ -25,7 +25,7 @@ M18 BMI 5305: **Introduction to Biomedical Data Science II** - Fall 2020
 
 **Member**: SPECTRA, SPIE Student Chapter, Washington University in St. Louis
 
-**Reviewer (journal)** - Journal of Biomedical Informatics (JBI), IEEE Access, Medical Physics, IEEE Transactions in Biomedical Engineering, JAMIA Open
+**Reviewer (journal)** - Journal of Biomedical Informatics (JBI), JMIR Medical Informatics, Frontiers in Digital Health, IEEE Access, Medical Physics, IEEE Transactions in Biomedical Engineering, JAMIA Open
 
 **Reviewer (conference/workshops)** - MICCAI 2024-2025 ISBI 2024, MICCAI 2023, IJCNN 2023, ML4H 2022, ICLR Workshop TS4H 2024, 2022, EMNLP 2022 Workshop BlackboxNLP, ICML 2022 Workshop IMLH, AMIA Annual Symposium 2020-2023, AMIA Informatics Summit 2020-2023
 
