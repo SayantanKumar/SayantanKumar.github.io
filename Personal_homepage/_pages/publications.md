@@ -20,11 +20,11 @@ Yang, B, Earnest, T, **Kumar, S**, Kothapalli, D, Gordon, B, Soritas, A. **Evalu
 
 **Kumar, S**, Yu, S, Michelson, A, Kannampallil, T, Payne, PRO. **HiMAL: A Multimodal Hierarchical Multi-task Auxiliary Learning framework for predicting and explaining Alzheimer disease progression.** JAMIA open, 7(3), ooae087. [Paper](https://academic.oup.com/jamiaopen/article/7/3/ooae087/7759862?login=true)
 
-\* **Kumar, S**., Earnest, T., Yang, B.,... Sotiras, A. (2023). **Analyzing heterogeneity in Alzheimer Disease using multimodal normative modeling on imaging-based ATN biomarkers.** [Alzheimer's & Dementia, **Under review, Minor revision**]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v4)
+**Kumar, S**., Earnest, T., Yang, B.,... Sotiras, A. (2023). **Analyzing heterogeneity in Alzheimer Disease using multimodal normative modeling on imaging-based ATN biomarkers.** [Alzheimer's & Dementia, **Accepted, Minor revision**]. [BioRxiV](https://www.biorxiv.org/content/10.1101/2023.08.15.553412v4)
 
-Ma Y., Oh I.,**Kumar S.**, Gupta A.,,... and Michelson A. **Incorporating Donor Lung CT Images into Machine Learning Models to Predict Severe Primary Graft Dysfunction after Lung Transplantation**[American Journal of Transplantation, **Accepted with minor revision**]
+Ma W., Oh I., Luo Y.,**Kumar S.**, Gupta A.,,... and Michelson A. **Incorporating Donor Lung CT Images into Machine Learning Models to Predict Severe Primary Graft Dysfunction after Lung Transplantation**, American Journal of Transplantation, 2025.
 
-\* Lou SS, **Kumar S**, Goss C, Avidan MS, Kheterpal S, Kannampallil T. **Multi-center validation of a machine learning model for surgical transfusion risk at 45 US hospitals**[JAMA Surgery, **under review**]
+\* Lou SS, **Kumar S**, Goss C, Avidan MS, Kheterpal S, Kannampallil T. **Multi-center validation of a machine learning model for surgical transfusion risk at 45 US hospitals**[JAMA Network Open, **under review**]
 
 <!-- Li, F., Oh, I., **Kumar, S.**, Eteleeb, A., Gupta, A., Buchser, W., ... and Cruchaga, C. (2022). **Loss of estrogen unleashing neuro-inflammation increases the risk of Alzheimer’s disease in women**. bioRxiv, 2022-09. [[Paper]](https://www.biorxiv.org/content/10.1101/2022.09.19.508592v1.abstract) -->
 
