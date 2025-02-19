@@ -21,7 +21,7 @@ For more details about me and my research, please check out my [CV](https://saya
 
 ## Recent News
 
-* **February 2025** Our work on "Developing Approaches to Incorporate Donor Lung CT Images into Machine Learning Models to Predict Severe Primary Graft Dysfunction after Lung Transplantation" is available online at American Journal of Transplanation. [Link to paper](https://www.sciencedirect.com/science/article/pii/S1600613525000450).
+* **February 2025** Our work on "Developing Approaches to Incorporate Donor Lung CT Images into Machine Learning Models to Predict Severe Primary Graft Dysfunction after Lung Transplantation" is available online at American Journal of Transplanation. Link to [paper](https://www.sciencedirect.com/science/article/pii/S1600613525000450).
 * **January 2025** Our work on "Multimodal Variational Autoencoder: a Barycentric View" has been accepted in AAAI 2025 as an **oral** presentation. [Preprint](https://arxiv.org/pdf/2412.20487) available.
 * **December 2024** I successfully defended my PhD dissertation titled "Multimodal representation learning frameworks for modeling progression and heterogeneity in Alzheimer's Disease"
 * **October 2024** Our work on [Examining heterogeneity in dementia using data-driven unsupervised clustering of cognitive profiles](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0313425) has been published in PlOS One.
