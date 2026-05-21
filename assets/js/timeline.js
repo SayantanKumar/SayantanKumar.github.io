@@ -11,11 +11,11 @@
   if (!inner || typeof TIMELINE === 'undefined') return;
 
   // ── Layout config ─────────────────────────────────────────────────
-  const ENTRY_W    = 130;  // card width
-  const GAP        = 70;   // horizontal gap between entries
+  const ENTRY_W    = 190;  // card width — larger for visual prominence
+  const GAP        = 90;   // horizontal gap between entries
   const AXIS_Y     = 50;   // % from top of inner container
-  const CARD_H     = 90;   // approximate card height
-  const CONNECTOR  = 28;   // connector line length
+  const CARD_H     = 120;  // approximate card height
+  const CONNECTOR  = 35;   // connector line length
 
   // ── Compute total width needed ────────────────────────────────────
   function totalWidth() {

@@ -1,7 +1,8 @@
 /* ===================================================================
    carousel.js — Custom coverflow carousels for publications & projects.
    Data-pos attribute states drive CSS transforms (no Swiper).
-   Auto-advance 4500ms, hover-pause, keyboard navigation.
+   Auto-advance 7000ms, hover-pause, keyboard navigation.
+   Abstract opens in dedicated panel below carousel, not inside card.
    =================================================================== */
 
 (function () {
@@ -38,8 +39,15 @@
     ).join('');
   }
 
+  function isCodeData(label) {
+    const l = label.toLowerCase();
+    return l.includes('code') || l.includes('data') || l.includes('patent');
+  }
+
   function buildLinks(links) {
-    return (links || []).map(l =>
+    const paperLinks = (links || []).filter(l => !isCodeData(l.label));
+    const codeLinks  = (links || []).filter(l => isCodeData(l.label));
+    return [...paperLinks, ...codeLinks].map(l =>
       `<a href="${l.url}" target="_blank" rel="noopener" class="btn btn-sm" onclick="event.stopPropagation();">${l.label}</a>`
     ).join('');
   }
@@ -52,9 +60,28 @@
     return `rgba(${r},${g},${b},${alpha})`;
   }
 
+  // ── Abstract panel (shared for pub carousel) ──────────────────────
+  const abstractPanel = document.getElementById('pub-abstract-panel');
+  const papTitle      = document.getElementById('pap-title');
+  const papText       = document.getElementById('pap-text');
+  const papClose      = document.getElementById('pap-close');
+
+  function openAbstractPanel(item) {
+    if (!abstractPanel) return;
+    if (papTitle) papTitle.textContent = item.title;
+    if (papText)  papText.innerHTML = item.abstract.replace(/\n/g, '<br>');
+    abstractPanel.classList.add('open');
+  }
+
+  function closeAbstractPanel() {
+    if (!abstractPanel) return;
+    abstractPanel.classList.remove('open');
+  }
+
+  if (papClose) papClose.addEventListener('click', closeAbstractPanel);
+
   // ── Coverflow factory ─────────────────────────────────────────────
   function createCoverflow(opts) {
-    // opts: { listId, prevId, nextId, dotsId, items, type }
     const list    = document.getElementById(opts.listId);
     const prevBtn = document.getElementById(opts.prevId);
     const nextBtn = document.getElementById(opts.nextId);
@@ -66,7 +93,6 @@
     let autoTimer = null;
     let isHovered = false;
 
-    // ── Position label for item i given current activeIdx ──────────
     function getPos(i) {
       const total = items.length;
       const diff  = ((i - activeIdx) % total + total) % total;
@@ -78,7 +104,6 @@
       return 'hidden';
     }
 
-    // ── Update all data-pos attrs and dot states ───────────────────
     function updatePositions() {
       list.querySelectorAll('.cf-item').forEach((li, i) => {
         li.setAttribute('data-pos', getPos(i));
@@ -90,7 +115,6 @@
         });
       }
 
-      // Update --cf-glow from active pub's badge color
       if (opts.type === 'pub' && typeof VENUE_BADGES !== 'undefined') {
         const pub   = items[activeIdx];
         const color = (VENUE_BADGES[pub.venue_badge] || {}).color || '#3b82f6';
@@ -100,6 +124,7 @@
 
     function navigate(dir) {
       activeIdx = ((activeIdx + dir) % items.length + items.length) % items.length;
+      closeAbstractPanel();
       updatePositions();
     }
 
@@ -107,7 +132,7 @@
       stopAuto();
       autoTimer = setInterval(() => {
         if (!isHovered) navigate(1);
-      }, 4500);
+      }, 7000);
     }
 
     function stopAuto() {
@@ -123,17 +148,20 @@
           </div>
           <div class="cf-card-body">
             <div class="cf-card-badges">
-              <span class="venue-badge ${badgeClass(item.venue_badge)}">${item.venue_badge}</span>
-              ${buildAreaTags(item.areas)}
+              <div class="cf-badges-venue">
+                <span class="venue-badge ${badgeClass(item.venue_badge)}">${item.venue_badge}</span>
+              </div>
+              <div class="cf-badges-areas">
+                ${buildAreaTags(item.areas)}
+              </div>
             </div>
             <div class="cf-card-title">${item.title}</div>
             <div class="cf-card-authors">${item.authors}</div>
             <div class="cf-card-links">
+              <button class="btn btn-sm abs-btn" type="button" onclick="event.stopPropagation();">Abstract</button>
               ${buildLinks(item.links)}
-              <button class="btn btn-sm abs-btn" type="button" onclick="event.stopPropagation();">Abs</button>
             </div>
           </div>
-          <div class="cf-card-abstract">${item.abstract.replace(/\n/g, '<br>')}</div>
         </div>
       `;
     }
@@ -146,7 +174,9 @@
           </div>
           <div class="cf-card-body">
             <div class="cf-card-badges">
-              ${buildAreaTags(item.areas)}
+              <div class="cf-badges-areas">
+                ${buildAreaTags(item.areas)}
+              </div>
             </div>
             <div class="cf-card-title">${item.title}</div>
             <div class="cf-card-links">${buildLinks(item.links)}</div>
@@ -164,12 +194,10 @@
       if (dotsWrap) dotsWrap.innerHTML = '';
 
       items.forEach((item, i) => {
-        // List item
         const li = document.createElement('li');
         li.className = 'cf-item';
         li.innerHTML = opts.type === 'pub' ? buildPubCard(item) : buildProjCard(item);
 
-        // Click on non-active → navigate to it
         li.addEventListener('click', (e) => {
           const pos = li.getAttribute('data-pos');
           if (pos === 'prev' || pos === 'prev-2') {
@@ -178,7 +206,6 @@
           if (pos === 'next' || pos === 'next-2') {
             navigate(1);  stopAuto(); startAuto(); return;
           }
-          // Active card: open modal unless a button was clicked
           if (pos === 'active') {
             if (e.target.closest('.btn')) return;
             if (opts.type === 'pub'  && typeof openPubModal     === 'function') openPubModal(item);
@@ -186,25 +213,37 @@
           }
         });
 
-        // Abs button
-        const absBtn = li.querySelector('.abs-btn');
-        if (absBtn) {
-          absBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const card = li.querySelector('.cf-card');
-            const open = card.classList.toggle('abs-open');
-            absBtn.textContent = open ? 'Close' : 'Abs';
-          });
+        // Abstract button (pub only) — opens panel below carousel
+        if (opts.type === 'pub') {
+          const absBtn = li.querySelector('.abs-btn');
+          if (absBtn) {
+            absBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const isOpen = abstractPanel && abstractPanel.classList.contains('open');
+              const sameItem = papTitle && papTitle.textContent === item.title;
+              if (isOpen && sameItem) {
+                closeAbstractPanel();
+                absBtn.textContent = 'Abstract';
+              } else {
+                openAbstractPanel(item);
+                absBtn.textContent = 'Close';
+                // Reset other abs buttons
+                list.querySelectorAll('.abs-btn').forEach(b => {
+                  if (b !== absBtn) b.textContent = 'Abstract';
+                });
+              }
+            });
+          }
         }
 
         list.appendChild(li);
 
-        // Dot
         if (dotsWrap) {
           const dot = document.createElement('span');
           dot.className = 'cf-dot';
           dot.addEventListener('click', () => {
             activeIdx = i;
+            closeAbstractPanel();
             updatePositions();
             stopAuto(); startAuto();
           });
@@ -215,11 +254,9 @@
       updatePositions();
     }
 
-    // Prev / Next buttons
     if (prevBtn) prevBtn.addEventListener('click', () => { navigate(-1); stopAuto(); startAuto(); });
     if (nextBtn) nextBtn.addEventListener('click', () => { navigate(1);  stopAuto(); startAuto(); });
 
-    // Hover pause
     const wrap = list.closest('.carousel-wrap');
     if (wrap) {
       wrap.addEventListener('mouseenter', () => { isHovered = true; });
@@ -246,6 +283,7 @@
         books.forEach(b => b.classList.remove('active'));
         book.classList.add('active');
         currentFilter = book.dataset.filter;
+        closeAbstractPanel();
         if (pubCf) pubCf.build(filteredPubs(currentFilter));
       });
     });
@@ -287,7 +325,7 @@
       pubBtn.addEventListener('click', () => {
         const filtered = filteredPubs(currentFilter);
         const label    = currentFilter === 'all'
-          ? 'All Publications'
+          ? 'Recent Research & Publications'
           : `${currentFilter} — Publications`;
         if (typeof openExpandOverlay === 'function') openExpandOverlay(filtered, label, 'pub');
       });
@@ -296,7 +334,7 @@
     const projBtn = document.getElementById('proj-view-all');
     if (projBtn) {
       projBtn.addEventListener('click', () => {
-        if (typeof openExpandOverlay === 'function') openExpandOverlay(PROJECTS, 'All Projects', 'proj');
+        if (typeof openExpandOverlay === 'function') openExpandOverlay(PROJECTS, 'Past Research & Project Experiences', 'proj');
       });
     }
   }

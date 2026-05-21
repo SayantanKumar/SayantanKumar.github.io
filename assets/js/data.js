@@ -1,5 +1,5 @@
 /* ===================================================================
-   data.js — All site data: publications, projects, timeline
+   data.js — All site data: publications, projects, timeline, globe
    =================================================================== */
 
 // ─── Area tag config ───────────────────────────────────────────────
@@ -323,7 +323,7 @@ const TIMELINE = [
     full_name: 'Microsoft',
     role: 'Software Engineering Intern',
     period: '2015',
-    location: 'Vancouver, BC',
+    location: 'Vancouver, BC, Canada',
     logo: 'images/microsoft.jpg',
     type: 'industry',
     details: `Software Engineering Intern [2015]: Main focus areas researched and worked on during this internship included: Windows 10 Universal Application Platform (UAP), Windows 10 NFL Application, a Key Performance Indicator (KPI) System, Mocking Framework, Coded User Interface (UI) Automation, and Build Machine Automation.`,
@@ -345,7 +345,7 @@ const TIMELINE = [
     full_name: 'Sanofi Inc.',
     role: 'AI Research Scientist Intern',
     period: 'Summer 2024',
-    location: 'Cambridge, MA',
+    location: 'Cambridge, MA, USA',
     logo: 'images/sanofi-logo.jpeg',
     type: 'industry',
     details: `A.I. Research Scientist Intern [2024]: Co-led the development of the mRNA-LM model, a language model built from scratch and pretrained on millions of full-length mRNA sequences, achieving state-of-the-art performance on various mRNA prediction tasks. Designed and implemented a contrastive learning-based multimodal joint representation inspired by CLIP. Spearheaded submitting a paper to Nucleic Acids Research journal (IF: 16.8) and supported the filing of a patent for the mRNA-LM project. Contributed to Many-Shot In-Context Learning for Molecular Inverse Design.`,
@@ -356,7 +356,7 @@ const TIMELINE = [
     full_name: 'Google Research',
     role: 'A.I. PhD Student Researcher',
     period: '2025',
-    location: 'New York, NY',
+    location: 'New York, NY, USA',
     logo: 'images/Google-Research.webp',
     type: 'industry',
     details: `A.I. PhD Student Researcher [2025]: Isolated a clean and analyzable instance of implicit in-weights reasoning in Transformers, demonstrating that their memory is better characterized by global geometric structure rather than purely local associative storage. Provided both empirical and theoretical evidence connecting this emergent geometric memory to spectral bias in Node2Vec-style dynamics. Investigating the sufficiency of next-token prediction (NTP) as a training paradigm for large language models. Hosted by Vaishnavh Nagarajan, collaborating with Elan Rosenfeld.`,
@@ -367,23 +367,67 @@ const TIMELINE = [
     full_name: 'Microsoft Research',
     role: 'Research Intern',
     period: 'May 2026',
-    location: 'Redmond, WA',
+    location: 'Redmond, WA, USA',
     logo: 'images/microsoft.jpg',
     type: 'industry',
     details: `Research Intern [May 2026]: Researching multimodal reasoning and AI triage systems for contextual healthcare decision-making using longitudinal and conversational patient signals.`,
   },
 ];
 
-// ─── Globe pins ────────────────────────────────────────────────────
-const GLOBE_PINS = [
-  { lat: 40.4433,  lng: -79.9436,  label: 'CMU · Pittsburgh, PA',   type: 'academic'  },
-  { lat: 40.7128,  lng: -74.0060,  label: 'Google Research · NYC',  type: 'industry'  },
-  { lat: 42.3601,  lng: -71.0589,  label: 'Sanofi · Cambridge, MA', type: 'industry'  },
-  { lat: 49.2606,  lng: -123.2460, label: 'UBC · Vancouver, BC',    type: 'academic'  },
-  { lat: 35.6892,  lng:  51.3890,  label: 'Tehran, Iran',           type: 'personal'  },
-  { lat:  1.3521,  lng: 103.8198,  label: 'Singapore',              type: 'personal'  },
-  { lat: -22.9068, lng: -43.1729,  label: 'Rio de Janeiro, Brazil', type: 'personal'  },
-  { lat: 37.5665,  lng: 126.9780,  label: 'Seoul, Korea',           type: 'personal'  },
+// ─── Globe: location glow dots ─────────────────────────────────────
+// Each entry: { lat, lng, label, sublabel, type }
+// label format: "City, State/Province, Country"
+const LOCATION_PINS = [
+  { lat: 40.4433,  lng: -79.9436,  label: 'Pittsburgh, PA, USA',        sublabel: 'CMU',             type: 'academic'  },
+  { lat: 40.7128,  lng: -74.0060,  label: 'New York, NY, USA',          sublabel: 'Google Research', type: 'industry'  },
+  { lat: 42.3601,  lng: -71.0589,  label: 'Cambridge, MA, USA',         sublabel: 'Sanofi',          type: 'industry'  },
+  { lat: 49.2606,  lng: -123.2460, label: 'Vancouver, BC, Canada',      sublabel: 'UBC',             type: 'academic'  },
+  { lat: 35.6892,  lng:  51.3890,  label: 'Tehran, Tehran, Iran',       sublabel: '',                type: 'personal'  },
+  { lat:  1.3521,  lng: 103.8198,  label: 'Singapore, Singapore',       sublabel: '',                type: 'personal'  },
+  { lat: -22.9068, lng: -43.1729,  label: 'Rio de Janeiro, RJ, Brazil', sublabel: '',                type: 'personal'  },
+  { lat: 37.5665,  lng: 126.9780,  label: 'Seoul, South Korea',         sublabel: '',                type: 'personal'  },
 ];
-// Visitor pins are appended here at runtime:
-// GLOBE_PINS.push({ lat, lng, label: 'Visitor', type: 'visitor' });
+
+// ─── Globe: conference attendance flags (dark red markers) ─────────
+// To add a new location: push a new object with lat/lng/city/conferences.
+// city format: "City, State/Province, Country"
+const CONFERENCE_PINS = [
+  {
+    lat: -22.9068, lng: -43.1729,
+    city: 'Rio de Janeiro, RJ, Brazil',
+    conferences: ['ICLR 2026'],
+  },
+  {
+    lat:  1.3521, lng: 103.8198,
+    city: 'Singapore, Singapore',
+    conferences: ['AAAI 2026'],
+  },
+  {
+    lat: 37.5665, lng: 126.9780,
+    city: 'Seoul, South Korea',
+    conferences: ['ICML 2026'],
+  },
+  {
+    lat: 29.9511, lng: -90.0715,
+    city: 'New Orleans, LA, USA',
+    conferences: ['ML4H 2023', 'NeurIPS 2023'],
+  },
+  {
+    lat: 32.7157, lng: -117.1611,
+    city: 'San Diego, CA, USA',
+    conferences: ['ML4H 2025', 'NeurIPS 2025'],
+  },
+  {
+    lat: 37.8716, lng: -122.2727,
+    city: 'Berkeley, CA, USA',
+    conferences: ['CHIL 2025'],
+  },
+  {
+    lat: 47.6062, lng: -122.3321,
+    city: 'Seattle, WA, USA',
+    conferences: ['CHIL 2026'],
+  },
+];
+
+// Backward-compat alias; visitor pins appended here at runtime
+const GLOBE_PINS = LOCATION_PINS.slice();

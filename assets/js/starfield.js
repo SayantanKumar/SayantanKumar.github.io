@@ -12,13 +12,15 @@
   const ctx = canvas.getContext('2d');
 
   // Config
-  const STAR_COUNT     = 160;   // sparse by design
+  const STAR_COUNT     = 210;
   const STAR_MIN_R     = 0.4;
-  const STAR_MAX_R     = 1.5;
-  const TWINKLE_SPEED  = 0.003; // very slow
-  const PARALLAX_DEPTH = 0.012; // very subtle
-  const COMET_MIN_MS   = 20000; // 20s
-  const COMET_MAX_MS   = 90000; // 90s
+  const STAR_MAX_R     = 1.8;
+  const TWINKLE_SPEED  = 0.003;
+  const TWINKLE_AMP    = 0.30;
+  const PARALLAX_DEPTH = 0.005;  // subtle — reduced from 0.012
+  const COMET_MIN_MS   = 30000;  // 30s
+  const COMET_MAX_MS   = 45000;  // 45s
+  const DRIFT_MAX      = 0.025;  // max pixels/frame drift per star
 
   let W = 0, H = 0;
   let stars = [];
@@ -42,14 +44,19 @@
 
   // ── Stars ─────────────────────────────────────────────────────────
   function randomStar() {
+    const r = STAR_MIN_R + Math.random() * (STAR_MAX_R - STAR_MIN_R);
+    const angle = Math.random() * Math.PI * 2;
+    const drift = (r > 1.2 ? 0.4 : 1.0) * DRIFT_MAX; // large stars drift slower
     return {
-      x:       Math.random() * W,
-      y:       Math.random() * H,
-      r:       STAR_MIN_R + Math.random() * (STAR_MAX_R - STAR_MIN_R),
-      depth:   0.3 + Math.random() * 0.7,      // 0.3–1 (parallax layer)
-      phase:   Math.random() * Math.PI * 2,    // twinkle phase offset
-      speed:   (0.5 + Math.random()) * TWINKLE_SPEED,
-      baseAlpha: 0.35 + Math.random() * 0.50,  // 0.35–0.85
+      x:         Math.random() * W,
+      y:         Math.random() * H,
+      r,
+      depth:     0.3 + Math.random() * 0.7,
+      phase:     Math.random() * Math.PI * 2,
+      speed:     (0.5 + Math.random()) * TWINKLE_SPEED,
+      baseAlpha: 0.40 + Math.random() * 0.50,
+      vx:        Math.cos(angle) * drift * Math.random(),
+      vy:        Math.sin(angle) * drift * Math.random(),
     };
   }
 
@@ -146,27 +153,35 @@
   // ── Nebula clouds & galaxy dust ───────────────────────────────────
   function drawNebula() {
     // Cloud 1: violet, upper-right
-    const g1 = ctx.createRadialGradient(W * 0.78, H * 0.18, 0, W * 0.78, H * 0.18, W * 0.30);
-    g1.addColorStop(0, 'rgba(167,139,250,0.055)');
-    g1.addColorStop(0.5, 'rgba(139,92,246,0.024)');
+    const g1 = ctx.createRadialGradient(W * 0.78, H * 0.18, 0, W * 0.78, H * 0.18, W * 0.32);
+    g1.addColorStop(0, 'rgba(167,139,250,0.072)');
+    g1.addColorStop(0.5, 'rgba(139,92,246,0.032)');
     g1.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = g1;
     ctx.fillRect(0, 0, W, H);
 
     // Cloud 2: blue, center-left
-    const g2 = ctx.createRadialGradient(W * 0.18, H * 0.45, 0, W * 0.18, H * 0.45, W * 0.33);
-    g2.addColorStop(0, 'rgba(59,130,246,0.048)');
-    g2.addColorStop(0.6, 'rgba(37,99,235,0.020)');
+    const g2 = ctx.createRadialGradient(W * 0.18, H * 0.45, 0, W * 0.18, H * 0.45, W * 0.35);
+    g2.addColorStop(0, 'rgba(59,130,246,0.064)');
+    g2.addColorStop(0.6, 'rgba(37,99,235,0.028)');
     g2.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = g2;
     ctx.fillRect(0, 0, W, H);
 
     // Cloud 3: cyan, lower-right
-    const g3 = ctx.createRadialGradient(W * 0.68, H * 0.78, 0, W * 0.68, H * 0.78, W * 0.26);
-    g3.addColorStop(0, 'rgba(34,211,238,0.042)');
-    g3.addColorStop(0.5, 'rgba(6,182,212,0.018)');
+    const g3 = ctx.createRadialGradient(W * 0.68, H * 0.78, 0, W * 0.68, H * 0.78, W * 0.28);
+    g3.addColorStop(0, 'rgba(34,211,238,0.056)');
+    g3.addColorStop(0.5, 'rgba(6,182,212,0.026)');
     g3.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = g3;
+    ctx.fillRect(0, 0, W, H);
+
+    // Cloud 4: warm gold, lower-center — adds depth contrast
+    const g4 = ctx.createRadialGradient(W * 0.45, H * 0.88, 0, W * 0.45, H * 0.88, W * 0.24);
+    g4.addColorStop(0, 'rgba(212,168,83,0.038)');
+    g4.addColorStop(0.6, 'rgba(180,130,60,0.016)');
+    g4.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g4;
     ctx.fillRect(0, 0, W, H);
 
     // Galaxy dust band: faint diagonal stripe
@@ -196,17 +211,37 @@
     const my = (mouse.y / H - 0.5) * 2;
 
     stars.forEach(s => {
+      // Apply slow drift and wrap
+      s.x += s.vx;
+      s.y += s.vy;
+      if (s.x < 0) s.x = W;
+      if (s.x > W) s.x = 0;
+      if (s.y < 0) s.y = H;
+      if (s.y > H) s.y = 0;
+
       const px = s.x + mx * s.depth * W * PARALLAX_DEPTH;
       const py = s.y + my * s.depth * H * PARALLAX_DEPTH;
 
       const twinkle = Math.sin(t * s.speed + s.phase);
-      const alpha = s.baseAlpha + twinkle * 0.18;
+      const alpha = Math.max(0.08, Math.min(1, s.baseAlpha + twinkle * TWINKLE_AMP));
 
-      // Color: slightly blue-tinted white
       const blue = Math.floor(200 + s.depth * 55);
+
+      // Glow halo for larger stars
+      if (s.r > 1.2) {
+        const glowR = s.r * 3.5;
+        const glow = ctx.createRadialGradient(px, py, 0, px, py, glowR);
+        glow.addColorStop(0, `rgba(${blue}, ${blue}, 255, ${alpha * 0.35})`);
+        glow.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.beginPath();
+        ctx.arc(px, py, glowR, 0, Math.PI * 2);
+        ctx.fillStyle = glow;
+        ctx.fill();
+      }
+
       ctx.beginPath();
       ctx.arc(px, py, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${blue}, ${blue}, 255, ${Math.max(0.08, Math.min(1, alpha))})`;
+      ctx.fillStyle = `rgba(${blue}, ${blue}, 255, ${alpha})`;
       ctx.fill();
     });
 
