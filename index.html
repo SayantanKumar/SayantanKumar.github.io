@@ -1,837 +1,713 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Shahriar Noroozizadeh, ML PhD at CMU</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	 </head>	 
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Shahriar Noroozizadeh — ML PhD at CMU</title>
+  <meta name="description" content="Shahriar Noroozizadeh, ML+ISM PhD student at Carnegie Mellon University. Research in interpretable representation learning, healthcare ML, sequence models, causal survival analysis." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230d1226'/><text x='16' y='23' text-anchor='middle' font-size='20' font-family='serif' fill='%233b82f6'>S</text></svg>" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body class="is-preload">
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner align-center">
-					<a href="#" class="image avatar"><img src="images/shahriar-photo-min.jpg" alt="" /></a>
-					<h1><strong>Shahriar Noroozizadeh</strong> <br>
-					ML+ISM PhD @ Carnegie Mellon Unviersity <br>
-						snoroozi [AT] cs.cmu.edu
-					</h1>
-					<br><br><br>
-					<nav id="navbar">
-						<ul>
-							<li><a href="#aboutme">About Me</a></li>
-							<li><a href="#research">Research</a></li>
-							<li><a href="#work-experience">Work Experience</a></li>
-							<li><a href="#past-projects">Past Projects</a></li>
-							<li><a href="#news-section">News </a></li>
-							<!-- Add more menu items as needed -->
-						</ul>
-					</nav>
-				</div>
-			</header>
+<!-- ═══════════════════════════════════════════════════════════════
+     TOP NAVIGATION BAR
+════════════════════════════════════════════════════════════════ -->
+<nav id="top-nav" aria-label="Social links">
+  <a href="https://github.com/Shahriarnz14" class="nav-icon-link" target="_blank" rel="noopener" title="GitHub">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://ca.linkedin.com/in/shahriar-noroozi-zadeh-a4169ba4" class="nav-icon-link" target="_blank" rel="noopener" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://scholar.google.com/citations?user=3mRjov8AAAAJ&hl=en&oi=ao" class="nav-icon-link" target="_blank" rel="noopener" title="Google Scholar">
+    <i class="ai ai-google-scholar"></i>
+  </a>
+  <a href="Resume_Shahriar_Noroozizadeh_online.pdf" class="nav-icon-link" target="_blank" rel="noopener" title="CV / Resume">
+    <i class="ai ai-cv"></i>
+  </a>
+  <a href="mailto:snoroozi@cs.cmu.edu" class="nav-icon-link" title="Email">
+    <i class="fas fa-envelope"></i>
+  </a>
+</nav>
 
-		<!-- Main -->
-			<div id="main">
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE LAYOUT
+════════════════════════════════════════════════════════════════ -->
+<div id="layout">
 
-				<!-- About Me -->
-					<section id="aboutme">
-						<header class="major">
-							<h2>Hi, I'm Shahriar 👋</h2>
-						</header>
-						<p>I am a joint Machine Learning and Public Policy Management Ph.D. student at the <a href="https://www.ml.cmu.edu/">Machine Learning Department of the School of Computer Science</a> and <a href="https://www.heinz.cmu.edu/">Heinz College of Information Systems and Public Policy</a> at Carnegie Mellon University. I am very fortunate to be advised by <a href="https://www.andrew.cmu.edu/user/georgech/">Prof. George Chen</a> (Heinz and MLD) and <a href="https://www.nlm.nih.gov/research/researchstaff/WeissJeremy.html">Prof. Jeremy Weiss</a> (National Library of Medicine at NIH). I also work with <a href="https://acmilab.org/people/zachary-lipton/">Prof. Zachary Lipton</a> as my MLD Mentor. During my Ph.D., I have also spent time in conducting research in industry. 
-						I spent a summer at <a href="https://jobs.sanofi.com/en/digital">Sanofi Inc.</a> working on mRNA-Language Models, 
-						collaborating with <a href="https://www.linkedin.com/in/saeed-moayedpour">Saeed Moayedpour</a>, 
-						<a href="https://de.linkedin.com/in/sven-jager-950850155">Sven Jager</a>, and 
-						<a href="https://www.linkedin.com/in/ziv-bar-joseph-cmu">Ziv Bar-Joseph</a>.  
-						I am also currently working at 
-						<a href="https://research.google/">Google Research</a>, and I am fortunate to be hosted by 
-						<a href="https://vaishnavh.github.io/">Vaishnavh Nagarajan</a> and to collaborate with 
-						<a href="https://www.cs.cmu.edu/~elan/">Elan Rosenfeld</a> on understanding how deep sequence models 
-						such as Transformers and Mamba tend to memorize geometrically.
-						<br><a href="Resume_Shahriar_Noroozizadeh_online.pdf" 
-							class="button" 
-							target="_blank" 
-							style="margin-top: 0.5em;">
-							📄 View Resume (May 2026)
-							</a>
-						<!-- <br><br> -->
-						</p>
-						<p style="margin: 0; padding: 0;"> <u><b>Research:</b></u></p>
-						<p style="margin: 0; padding: 0;">
-						My research focuses on interpretable representation learning for temporal data with application in healthcare. I am specifically interested in developing machine learning methodology uncovering temporal representations that enhance our understanding of the evolving health status of patients, shedding light on the underlying mechanisms over time. 
-						I am also particularly interested in sequence models, especially how the next-token prediction paradigm in large language models shapes both their strengths and limitations, and how these models exhibit implicit forms of memory and reasoning that go beyond simple associative recall.
-						In addition, I am interested in the intersection of machine learning and information systems management, and how we can develop and utilize machine learning tools for high-stakes decision-making scenarios such as those prominent in healthcare management, with a particular emphasis on causal inference and survival analysis.
-						</p>
-						<p style="margin: 0; padding: 0; font-size:0.8em"> <u><b>Research Interests:</b></u>  Representation Learning, Machine Learning for Healthcare, Multimodal Machine Learning, Decision Making, Reinforcement Learning, ML for Temporal Data, Interpretability</p>
-						<br>
-						<p style="margin: 0; padding: 0;"><u><b>Pre-historic:</b></u></p>
-						<p style="margin: 0; padding: 0;">
-						I earned two master's degrees from CMU, Master's of Science in <a href="https://www.cmu.edu/bme/">Biomedical Engineering</a> 
-						(<a href="https://drive.google.com/file/d/1iUfV4gimAnLFZUf9FgRXyzKLeEfHwaw9/view?usp=drive_link">Thesis in Neuromodulation</a>)
-						 in 2020 and Master's of Science in <a href="https://www.ml.cmu.edu/">Machine Learning</a> in 2022.
-						Prior to joining CMU, I graduated with high honours from the University of British Columbia with the Bachelor of Applied Science in <a href="https://engineering.ubc.ca/programs/undergraduate/engineering-physics">Engineering Physics</a> (with Electrical Engineering and Computer Science specialization) in 2018. At UBC I researched on Automated Pathology and worked on GPU Accelerated Photoacousitc Tomography at <a href="https://rcl.ece.ubc.ca/">the Robotics and Control Laboratory</a> under the supervision of <a href="https://ece.ubc.ca/tim-salcudean/">Prof. Tim Salcudean</a>.
-						 </p>
-						<!-- <ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul> -->
-					</section>
+  <!-- ─── LEFT SIDEBAR ──────────────────────────────────────────── -->
+  <aside id="sidebar" aria-label="Profile sidebar">
+    <div class="sidebar-inner">
 
-				<!-- Current Research -->
-					<section id="research">
-						<h2>Recent Research and Publications</h2>
-						<div class="row">
-							<article class="col-6 col-12-xsmall work-item">
-								<!-- Visible content for users -->
-								<a href="#content-transformer-geometry" class="image fit thumb mfp-inline">
-									<img src="images/Overview_Geometric_Models_Path_Star.jpeg" alt="Deep sequence models tend to memorize geometrically; it is unclear why." />
-								</a>
-								<h3>Deep sequence models tend to memorize geometrically; it is unclear why.<br>[NeurIPS-FoRLM Workshop-2025]</h3>
-								<!-- Hidden content for Magnific Popup -->
-								<div id="content-transformer-geometry" class="mfp-hide">
-									<img src="images/Overview_Geometric_Models_Path_Star.jpeg" alt="Deep sequence models tend to memorize geometrically; it is unclear why." style="width: 50%;" /> 
-									<h3>Deep sequence models tend to memorize geometrically; it is unclear why. <br>
-										<a href="https://arxiv.org/abs/2510.26745" target="_blank"> [Preprint: ArXiv]</a>
-										<!-- <a href="" target="_blank">[Code]</a> -->
-									</h3>
-									<p><u><b>Abstract:</b></u> Deep sequence models are said to store atomic facts predominantly in the form of associative memory: a brute-force lookup of co-occurring entities. We identify a dramatically different form of storage of atomic facts that we term as geometric memory. Here, the model has synthesized embeddings encoding novel global relationships between all entities, including ones that do not co-occur in training. Such storage is powerful: for instance, we show how it transforms a hard reasoning task involving an ℓ-fold composition into an easy-to-learn 1-step navigation task. <br>
-									From this phenomenon, we extract fundamental aspects of neural embedding geometries that are hard to explain. We argue that the rise of such a geometry, as against a lookup of local associations, cannot be straightforwardly attributed to typical supervisory, architectural, or optimizational pressures. Counterintuitively, a geometry is learned even when it is more complex than the brute-force lookup. <br>
-									Then, by analyzing a connection to Node2Vec, we demonstrate how the geometry stems from a spectral bias that -- in contrast to prevailing theories -- indeed arises naturally despite the lack of various pressures. This analysis also points out to practitioners a visible headroom to make Transformer memory more strongly geometric. We hope the geometric view of parametric memory encourages revisiting the default intuitions that guide researchers in areas like knowledge acquisition, capacity, discovery, and unlearning.
-									</p>
-								</div>
-							</article>
+      <!-- Portrait + identity -->
+      <div class="sidebar-portrait">
+        <div class="portrait-wrap">
+          <img src="images/shahriar-photo-min.jpg" alt="Shahriar Noroozizadeh" />
+        </div>
+        <div class="sidebar-name">Shahriar Noroozizadeh</div>
+        <div class="sidebar-title">ML+ISM PhD @ Carnegie Mellon University</div>
+        <div class="sidebar-email">snoroozi [at] cs.cmu.edu</div>
+      </div>
 
+      <!-- Navigation -->
+      <nav class="sidebar-nav" aria-label="Page sections">
+        <div class="sidebar-nav-label">Navigate</div>
+        <ul>
+          <li><a href="#about" class="sidebar-link active">About</a></li>
+          <li><a href="#research" class="sidebar-link">Recent Research</a></li>
+          <li><a href="#publications" class="sidebar-link">Publications</a></li>
+          <li><a href="#teaching" class="sidebar-link">Teaching &amp; Service</a></li>
+          <li><a href="#work-experience" class="sidebar-link">Work Experience</a></li>
+          <li><a href="#past-projects" class="sidebar-link">Past Projects</a></li>
+          <li><a href="#news-globe" class="sidebar-link">News</a></li>
+        </ul>
+      </nav>
 
-							<article class="col-6 col-12-xsmall work-item">
-								<!-- Visible content for users -->
-								<a href="#content-surv-hte" class="image fit thumb mfp-inline">
-									<img src="images/SurvHTE-Bench.png" alt="SurvHTE-Bench: A Benchmark for Heterogeneous Treatment Effect Estimation in Survival Analysis" />
-								</a>
-								<h3>SurvHTE-Bench: A Benchmark for Heterogeneous Treatment Effect Estimation in Survival Analysis<br>[ICLR-2026]</h3>
-								<!-- Hidden content for Magnific Popup -->
-								<div id="content-surv-hte" class="mfp-hide">
-									<img src="images/SurvHTE-Bench.png" alt="SurvHTE-Bench: A Benchmark for Heterogeneous Treatment Effect Estimation in Survival Analysis" style="width: 50%;" /> 
-									<h3>SurvHTE-Bench: A Benchmark for Heterogeneous Treatment Effect Estimation in Survival Analysis<br>
-										<a href="https://openreview.net/pdf?id=qG6O3jMkCj" target="_blank"> [Paper: ICLR-2026]</a>
-										<a href="https://github.com/Shahriarnz14/SurvHTE-Benchmark" target="_blank">[Data & Code]</a>
-									</h3>
-									<p><u><b>Abstract:</b></u> Estimating heterogeneous treatment effects (HTEs) from right-censored survival data is critical in high-stakes applications such as precision medicine and individualized policy-making. Yet, the survival analysis setting poses unique challenges for HTE estimation due to censoring, unobserved counterfactuals, and complex identification assumptions. Despite recent advances, from causal survival forests to survival meta-learners and outcome imputation approaches, evaluation practices remain fragmented and inconsistent. We introduce SurvHTE‐Bench, the first comprehensive benchmark for HTE estimation with censored outcomes. The benchmark spans (i) a modular suite of synthetic datasets with known ground truth, systematically varying causal assumptions and survival dynamics, (ii) semi-synthetic datasets that pair real-world covariates with simulated treatments and outcomes, and (iii) real-world datasets from a twin study (with known ground truth) and from an HIV clinical trial. Across synthetic, semi-synthetic, and real-world settings, we provide the first rigorous comparison of survival HTE methods under diverse conditions and realistic assumption violations. SurvHTE‐Bench establishes a foundation for fair, reproducible, and extensible evaluation of causal survival methods.
-									</p>
-								</div>
-							</article>
+      <!-- Research area chips -->
+      <div class="sidebar-chips">
+        <div class="sidebar-chips-label">Research Areas</div>
+        <div class="chips-wrap">
+          <span class="chip chip-seq">Sequence Models &amp; Memory</span>
+          <span class="chip chip-health">ML for Healthcare</span>
+          <span class="chip chip-causal">Causal &amp; Survival Analysis</span>
+          <span class="chip chip-neuro">Neuro / Biomedical AI</span>
+          <span class="chip chip-repr">Representation Learning</span>
+        </div>
+      </div>
 
+      <!-- Social links -->
+      <div class="sidebar-social">
+        <a href="https://github.com/Shahriarnz14" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://ca.linkedin.com/in/shahriar-noroozi-zadeh-a4169ba4" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://scholar.google.com/citations?user=3mRjov8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+        <a href="Resume_Shahriar_Noroozizadeh_online.pdf" target="_blank" rel="noopener" title="CV"><i class="ai ai-cv"></i></a>
+      </div>
 
-							<article class="col-6 col-12-xsmall work-item">
-								<!-- Visible content for users -->
-								<a href="#content-TTS-Forecast" class="image fit thumb mfp-inline">
-									<img src="images/TTS-Forecasts.png" alt="Forecasting Clinical Risk from Textual Time Series" />
-								</a>
-								<h3>Forecasting Clinical Risk from Textual Time Series: Structuring Narratives for Temporal AI in Healthcare<br>[AAAI-2026]</h3>
-								<!-- Hidden content for Magnific Popup -->
-								<div id="content-TTS-Forecast" class="mfp-hide">
-									<img src="images/TTS-Forecasts.png" alt="Forecasting Clinical Risk from Textual Time Series" style="width: 50%;" /> 
-									<h3>Forecasting Clinical Risk from Textual Time Series: Structuring Narratives for Temporal AI in Healthcare <br>
-										<a href="https://arxiv.org/abs/2504.10340" target="_blank">[Paper: AAAI-2026]</a>
-										<a href="https://github.com/Shahriarnz14/Textual-Time-Series-Forecasting" target="_blank">[Code]</a>
-									</h3>
-									<p><u><b>Abstract:</b></u> Clinical case reports encode rich, temporal patient trajectories that are often underexploited by traditional machine learning methods relying on structured data. In this work, we introduce the forecasting problem from textual time series, where timestamped clinical findings -- extracted via an LLM-assisted annotation pipeline -- serve as the primary input for prediction. We systematically evaluate a diverse suite of models, including fine-tuned decoder-based large language models and encoder-based transformers, on tasks of event occurrence prediction, temporal ordering, and survival analysis. Our experiments reveal that encoder-based models consistently achieve higher F1 scores and superior temporal concordance for short- and long-horizon event forecasting, while fine-tuned masking approaches enhance ranking performance. In contrast, instruction-tuned decoder models demonstrate a relative advantage in survival analysis, especially in early prognosis settings. Our sensitivity analyses further demonstrate the importance of time ordering, which requires clinical time series construction, as compared to text ordering, the format of the text inputs that LLMs are classically trained on. This highlights the additional benefit that can be ascertained from time-ordered corpora, with implications for temporal tasks in the era of widespread LLM use.
-									</p>
-								</div>
-							</article>
+    </div>
+  </aside>
 
-							
-							<article class="col-6 col-12-xsmall work-item">
-								<!-- Visible content for users -->
-								<a href="#content-TTS" class="image fit thumb mfp-inline">
-									<img src="images/Textual-Time-Series.png" alt="Textual Time-Series" />
-								</a>
-								<h3>PubMed Open Access Textual Times Series Corpus: Reconstructing patient trajectories from clinical case reports using LLMs</h3>
-								<!-- Hidden content for Magnific Popup -->
-								<div id="content-TTS" class="mfp-hide">
-									<img src="images/Textual-Time-Series.png" alt="Textual Time-Series" style="width: 50%;" /> 
-									<h3>PubMed Open Access Textual Times Series Corpus: Reconstructing patient trajectories from clinical case reports using LLMs <br>
-										<a href="https://arxiv.org/abs/2505.20323" target="_blank">[Preprint: ArXiv [PMOA-TTS]]</a>
-										<a href="https://github.com/jcweiss2/pmoa_tts" target="_blank">[Code]</a>
-										<a href="https://huggingface.co/datasets/snoroozi/pmoa-tts" target="_blank">[Data]</a> <br>
-										<a href="https://arxiv.org/abs/2504.12326" target="_blank">[Preprint: ArXiv [Textual Time Series corpus for Sepsis (T2S2)]]</a>
-									</h3>
-									<p><u><b>Abstract:</b></u> Understanding temporal dynamics in clinical narratives is essential for modeling patient trajectories, yet large-scale temporally annotated resources remain limited. We present PMOA-TTS, the first openly available dataset of 124,699 PubMed Open Access (PMOA) case reports, each converted into structured (event, time) timelines via a scalable LLM-based pipeline. Our approach combines heuristic filtering with Llama 3.3 to identify single-patient case reports, followed by prompt-driven extraction using Llama 3.3 and DeepSeek R1, resulting in over 5.6 million timestamped clinical events. To assess timeline quality, we evaluate against a clinician-curated reference set using three metrics: (i) event-level matching (80% match at a cosine similarity threshold of 0.1), (ii) temporal concordance (c-index > 0.90), and (iii) Area Under the Log-Time CDF (AULTC) for timestamp alignment. Corpus-level analysis shows wide diagnostic and demographic coverage. In a downstream survival prediction task, embeddings from extracted timelines achieve time-dependent concordance indices up to 0.82 ± 0.01, demonstrating the predictive value of temporally structured narratives. PMOA-TTS provides a scalable foundation for timeline extraction, temporal reasoning, and longitudinal modeling in biomedical NLP. The dataset is available at: <a href="https://huggingface.co/datasets/snoroozi/pmoa-tts">https://huggingface.co/datasets/snoroozi/pmoa-tts</a>.
-									</p>
-								</div>
-							</article>
+  <!-- ─── RIGHT CONTENT PANEL ───────────────────────────────────── -->
+  <main id="content-panel">
 
+    <!-- Starfield canvas (fixed behind content) -->
+    <canvas id="starfield-canvas" aria-hidden="true"></canvas>
 
-							<article class="col-6 col-12-xsmall work-item">
-								<!-- Visible content for users -->
-								<a href="#content-causal-survival" class="image fit thumb mfp-inline">
-									<img src="images/Causal-Survival-Analysis-CHIL.png" alt="The Impact of Medication Non-adherence on Adverse Outcomes: Evidence from Schizophrenia Patients via Survival Analysis" />
-								</a>
-								<h3>The Impact of Medication Non-adherence on Adverse Outcomes: Evidence from Schizophrenia Patients via Survival Analysis<br>[CHIL-2025]</h3>
-								<!-- Hidden content for Magnific Popup -->
-								<div id="content-causal-survival" class="mfp-hide">
-									<img src="images/Causal-Survival-Analysis-CHIL.png" alt="The Impact of Medication Non-adherence on Adverse Outcomes: Evidence from Schizophrenia Patients via Survival Analysis" style="width: 50%;" />
-									<h3>The Impact of Medication Non-adherence on Adverse Outcomes: Evidence from Schizophrenia Patients via Survival Analysis <br>
-										<a href="https://proceedings.mlr.press/v287/noroozizadeh25a.html" target="_blank">[Paper: CHIL-2025]</a>
-										<a href="https://github.com/Shahriarnz14/causal-meta-learner-survival-analysis" target="_blank">[Code]</a>
-									</h3>
-									<p><u><b>Abstract:</b></u> This study quantifies the association between non-adherence to antipsychotic medications and adverse outcomes in individuals with schizophrenia. We frame the problem using survival analysis, focusing on the time to the earliest of several adverse events (early death, involuntary hospitalization, jail booking). We extend standard causal inference methods (T-learner, S-learner, nearest neighbor matching) to utilize various survival models to estimate individual and average treatment effects, where treatment corresponds to medication non-adherence. Analyses are repeated using different amounts of longitudinal information (3, 6, 9, and 12 months). Using data from Allegheny County in western Pennsylvania, we find strong evidence that non-adherence advances adverse outcomes by approximately 1 to 4 months. Ablation studies confirm that county-provided risk scores adjust for key confounders, as their removal amplifies the estimated effects. Subgroup analyses by medication formulation (injectable vs. oral) and medication type consistently show that non-adherence is associated with earlier adverse events. These findings highlight the clinical importance of adherence in delaying psychiatric crises and show that integrating survival analysis with causal inference tools can yield policy-relevant insights. We caution that although we apply causal inference, we only make associative claims and discuss assumptions needed for causal interpretation.
-									</p>
-								</div>
-							</article>
+    <div class="content-sections">
 
+      <!-- ═══ SECTION 1: INTRO / ABOUT ═══════════════════════════ -->
+      <section id="about" class="content-section">
+        <div class="about-greeting fade-up">Hi, I'm Shahriar 👋</div>
 
-							<article class="col-6 col-12-xsmall work-item">
-								<!-- Visible content for users -->
-								<a href="#content-mRNA-LM" class="image fit thumb mfp-inline">
-									<img src="images/mRNA-LM.png" alt="mRNA-Language Model" />
-								</a>
-								<h3>mRNA-LM: full-length integrated SLM for mRNA analysis<br>[Nucleic Acids Research Journal 2025]</h3>
-								<!-- Hidden content for Magnific Popup -->
-								<div id="content-mRNA-LM" class="mfp-hide">
-									<img src="images/mRNA-LM.png" alt="mRNA-Language Model" style="width: 50%;" /> 
-									<h3>mRNA-LM: full-length integrated SLM for mRNA analysis <br>
-										<a href="https://academic.oup.com/nar/article/53/3/gkaf044/7997216" target="_blank">[Paper: Nucleic Acids Research Journal]</a>
-										<a href="https://github.com/Sanofi-Public/mRNA-LM" target="_blank">[Code]</a> <br>
-										<a href="https://patents.google.com/patent/WO2025026948A1" target="_blank">[Patent]</a>
-									</h3>
-									<p><u><b>Abstract:</b></u> The success of SARS-CoV-2 (severe acute respiratory syndrome coronavirus 2) messenger RNA (mRNA) vaccine has led to increased interest in the design and use of mRNA for vaccines and therapeutics. Still, selecting the most appropriate mRNA sequence for a protein remains a challenge. Several recent studies have shown that the specific mRNA sequence can have a significant impact on the translation efficiency, half-life, degradation rates, and other issues that play a major role in determining vaccine efficiency. To enable the selection of the most appropriate sequence, we developed mRNA-LM, an integrated small language model for modeling the entire mRNA sequence. mRNA-LM uses the contrastive language–image pretraining integration technology to combine three separate language models for the different mRNA segments. We trained mRNA-LM on millions of diverse mRNA sequences from several different species. The unsupervised model was able to learn meaningful biology related to evolution and host–pathogen interactions. Fine-tuning of mRNA-LM allowed us to use it in several mRNA property prediction tasks. As we show, using the full-length integrated model led to accurate predictions, improving on prior methods proposed for this task.
-									</p>
-								</div>
-							</article>
+        <div class="about-block fade-up">
+          <p>I am a joint Machine Learning and Public Policy Management Ph.D. student at the <a href="https://www.ml.cmu.edu/">Machine Learning Department of the School of Computer Science</a> and <a href="https://www.heinz.cmu.edu/">Heinz College of Information Systems and Public Policy</a> at Carnegie Mellon University. I am very fortunate to be advised by <a href="https://www.andrew.cmu.edu/user/georgech/">Prof. George Chen</a> (Heinz and MLD) and <a href="https://www.nlm.nih.gov/research/researchstaff/WeissJeremy.html">Prof. Jeremy Weiss</a> (National Library of Medicine at NIH). I also work with <a href="https://acmilab.org/people/zachary-lipton/">Prof. Zachary Lipton</a> as my MLD Mentor. During my Ph.D., I have also spent time in conducting research in industry.
+          I spent a summer at <a href="https://jobs.sanofi.com/en/digital">Sanofi Inc.</a> working on mRNA-Language Models,
+          collaborating with <a href="https://www.linkedin.com/in/saeed-moayedpour">Saeed Moayedpour</a>,
+          <a href="https://de.linkedin.com/in/sven-jager-950850155">Sven Jager</a>, and
+          <a href="https://www.linkedin.com/in/ziv-bar-joseph-cmu">Ziv Bar-Joseph</a>.
+          I am also currently working at
+          <a href="https://research.google/">Google Research</a>, and I am fortunate to be hosted by
+          <a href="https://vaishnavh.github.io/">Vaishnavh Nagarajan</a> and to collaborate with
+          <a href="https://www.cs.cmu.edu/~elan/">Elan Rosenfeld</a> on understanding how deep sequence models
+          such as Transformers and Mamba tend to memorize geometrically.</p>
+          <a href="Resume_Shahriar_Noroozizadeh_online.pdf" class="resume-btn" target="_blank" rel="noopener">
+            <i class="fas fa-file-alt"></i> View Resume (May 2026)
+          </a>
+        </div>
 
+        <div class="about-block fade-up">
+          <div class="about-label">Research</div>
+          <p>My research focuses on interpretable representation learning for temporal data with application in healthcare. I am specifically interested in developing machine learning methodology uncovering temporal representations that enhance our understanding of the evolving health status of patients, shedding light on the underlying mechanisms over time.
+          I am also particularly interested in sequence models, especially how the next-token prediction paradigm in large language models shapes both their strengths and limitations, and how these models exhibit implicit forms of memory and reasoning that go beyond simple associative recall.
+          In addition, I am interested in the intersection of machine learning and information systems management, and how we can develop and utilize machine learning tools for high-stakes decision-making scenarios such as those prominent in healthcare management, with a particular emphasis on causal inference and survival analysis.</p>
+          <p style="margin-top:10px; font-size:0.82rem; color:var(--text-muted);">
+            <strong style="color:var(--text-secondary)">Research Interests:</strong>
+            Representation Learning, Machine Learning for Healthcare, Multimodal Machine Learning, Decision Making, Reinforcement Learning, ML for Temporal Data, Interpretability
+          </p>
+        </div>
 
-							<article class="col-6 col-12-xsmall work-item">
-								<!-- Visible content for users -->
-								<a href="#content-TLDR" class="image fit thumb mfp-inline">
-									<img src="images/TLDR-Model.jpg" alt="T5-generated clinical-Language summaries for DeBERTa Report Analysis (TLDR)" />
-								</a>
-								<h3>T5-generated clinical-Language summaries for DeBERTa Report Analysis (TLDR)<br>[SemEval-2024 at NAACL]</h3>
-								<!-- Hidden content for Magnific Popup -->
-								<div id="content-TLDR" class="mfp-hide">
-									<img src="images/TLDR-Model.jpg" alt="T5-generated clinical-Language summaries for DeBERTa Report Analysis (TLDR)" style="width: 50%;" /> 
-									<h3>T5-generated clinical-Language summaries for DeBERTa Report Analysis (TLDR) <br>
-										<a href="https://aclanthology.org/2024.semeval-1.79/" target="_blank">[Paper: SemEval-2024 at NAACL]</a>
-										<a href="https://github.com/Shahriarnz14/TLDR-T5-generated-clinical-Language-for-DeBERTa-Report-Analysis" target="_blank">[Code]</a>
-									</h3>
-									<p><u><b>Abstract:</b></u> This paper introduces novel methodologies for the Natural Language Inference for Clinical Trials (NLI4CT) task. We present TLDR (T5-generated clinical-Language summaries for DeBERTa Report Analysis) which incorporates T5-model generated premise summaries for improved entailment and contradiction analysis in clinical NLI tasks. This approach overcomes the challenges posed by small context windows and lengthy premises, leading to a substantial improvement in Macro F1 scores: a 0.184 increase over truncated premises. Our comprehensive experimental evaluation, including detailed error analysis and ablations, confirms the superiority of TLDR in achieving consistency and faithfulness in predictions against semantically altered inputs.
-									</p>
-								</div>
-							</article>
+        <div class="about-block fade-up">
+          <div class="about-label">Pre-Historic</div>
+          <p>I earned two master's degrees from CMU, Master's of Science in <a href="https://www.cmu.edu/bme/">Biomedical Engineering</a>
+          (<a href="https://drive.google.com/file/d/1iUfV4gimAnLFZUf9FgRXyzKLeEfHwaw9/view?usp=drive_link">Thesis in Neuromodulation</a>)
+          in 2020 and Master's of Science in <a href="https://www.ml.cmu.edu/">Machine Learning</a> in 2022.
+          Prior to joining CMU, I graduated with high honours from the University of British Columbia with the Bachelor of Applied Science in <a href="https://engineering.ubc.ca/programs/undergraduate/engineering-physics">Engineering Physics</a> (with Electrical Engineering and Computer Science specialization) in 2018. At UBC I researched on Automated Pathology and worked on GPU Accelerated Photoacoustic Tomography at <a href="https://rcl.ece.ubc.ca/">the Robotics and Control Laboratory</a> under the supervision of <a href="https://ece.ubc.ca/tim-salcudean/">Prof. Tim Salcudean</a>.</p>
+        </div>
+      </section>
 
+      <!-- ═══ SECTION 2: RECENT RESEARCH & PUBLICATIONS ══════════ -->
+      <section id="research" class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Recent Research &amp; Publications</h2>
+        </div>
 
-							<article class="col-6 col-12-xsmall work-item">
-								<!-- Visible content for users -->
-								<a href="#content-TSCL" class="image fit thumb mfp-inline">
-									<img src="images/TSCL-MIMIC.jpg" alt="Temporal-Supervised Contrastive Learning: Modeling Patient Risk Progression" />
-								</a>
-								<h3>Temporal-Supervised Contrastive Learning: Modeling Patient Risk Progression<br>[ML4H-2023; AAAI-R2HCAI Workshop]</h3>
-								<!-- Hidden content for Magnific Popup -->
-								<div id="content-TSCL" class="mfp-hide">
-									<img src="images/TSCL-MIMIC.jpg" alt="Temporal-Supervised Contrastive Learning: Modeling Patient Risk Progression" style="width: 50%;" /> 
-									<h3>Temporal-Supervised Contrastive Learning: Modeling Patient Risk Progression <br>
-										<a href="https://proceedings.mlr.press/v225/noroozizadeh23a.html" target="_blank">[Paper: ML4H]</a>
-										<a href="https://r2hcai.github.io/AAAI-23/files/CameraReadys/46.pdf" target="_blank">[Paper: AAAI - R2HCAI Workshop]</a>
-										<a href="https://github.com/Shahriarnz14/Temporal-Supervised-Contrastive-Learning" target="_blank">[Code]</a>
-									</h3>
-									<p><u><b>Abstract:</b></u> We consider the problem of predicting how the likelihood of an outcome of interest for a patient changes over time as we observe more of the patient’s data. To solve this problem, we propose a supervised contrastive learning framework that learns an embedding representation for each time step of a patient time series. Our framework learns the embedding space to have the following properties: (1) nearby points in the embedding space have similar predicted class probabilities, (2) adjacent time steps of the same time series map to nearby points in the embedding space, and (3) time steps with very different raw feature vectors map to far apart regions of the embedding space. To achieve property (3), we employ a nearest neighbor pairing mechanism in the raw feature space. This mechanism also serves as an alternative to “data augmentation”, a key ingredient of contrastive learning, which lacks a standard procedure that is adequately realistic for clinical tabular data, to our knowledge. We demonstrate that our approach outperforms state-of-the-art baselines in predicting mortality of septic patients (MIMIC-III dataset) and tracking progression of cognitive impairment (ADNI dataset). Our method also consistently recovers the correct synthetic dataset embedding structure across experiments, a feat not achieved by baselines. Our ablation experiments show the pivotal role of our nearest neighbor pairing.
-									</p>
-								</div>
-							</article>
+        <div class="research-layout">
+          <!-- Research Explorer -->
+          <div class="research-explorer" id="research-explorer">
+            <div class="explorer-label">Research Explorer</div>
+            <div class="explorer-item active" data-filter="all">
+              <div class="explorer-icon" style="background:rgba(59,130,246,0.15);color:#3b82f6;">
+                <i class="fas fa-layer-group" style="font-size:0.6rem;"></i>
+              </div>
+              <span class="explorer-text">Recent / All</span>
+              <span class="explorer-count" id="count-all">11</span>
+            </div>
+            <div class="explorer-item" data-filter="Sequence Models">
+              <div class="explorer-icon" style="background:rgba(99,102,241,0.15);color:#6366f1;">
+                <i class="fas fa-wave-square" style="font-size:0.6rem;"></i>
+              </div>
+              <span class="explorer-text">Sequence Models &amp; Memory</span>
+              <span class="explorer-count" id="count-seq">4</span>
+            </div>
+            <div class="explorer-item" data-filter="Healthcare">
+              <div class="explorer-icon" style="background:rgba(16,185,129,0.15);color:#10b981;">
+                <i class="fas fa-heartbeat" style="font-size:0.6rem;"></i>
+              </div>
+              <span class="explorer-text">ML for Healthcare</span>
+              <span class="explorer-count" id="count-health">8</span>
+            </div>
+            <div class="explorer-item" data-filter="Causal">
+              <div class="explorer-icon" style="background:rgba(245,158,11,0.15);color:#f59e0b;">
+                <i class="fas fa-code-branch" style="font-size:0.6rem;"></i>
+              </div>
+              <span class="explorer-text">Causal &amp; Survival Analysis</span>
+              <span class="explorer-count" id="count-causal">2</span>
+            </div>
+            <div class="explorer-item" data-filter="Neuro/Biomedical AI">
+              <div class="explorer-icon" style="background:rgba(139,92,246,0.15);color:#8b5cf6;">
+                <i class="fas fa-brain" style="font-size:0.6rem;"></i>
+              </div>
+              <span class="explorer-text">Neuro / Biomedical AI</span>
+              <span class="explorer-count" id="count-neuro">1</span>
+            </div>
+            <div class="explorer-item" data-filter="Representation Learning">
+              <div class="explorer-icon" style="background:rgba(14,165,233,0.15);color:#0ea5e9;">
+                <i class="fas fa-project-diagram" style="font-size:0.6rem;"></i>
+              </div>
+              <span class="explorer-text">Representation Learning</span>
+              <span class="explorer-count" id="count-repr">5</span>
+            </div>
+          </div>
 
-							<article class="col-6 col-12-xsmall work-item">
-								<!-- Visible content for users -->
-								<a href="#content-CMLH" class="image fit thumb mfp-inline">
-									<img src="images/CMLH.jpg" alt="Contrastive Learning Based Interpretable Hospital Discharge Delay Prediction" />
-								</a>
-								<h3>Contrastive Learning Based Interpretable Hospital Discharge Delay Prediction</h3>
-								<!-- Hidden content for Magnific Popup -->
-								<div id="content-CMLH" class="mfp-hide">
-									<img src="images/CMLH.jpg" alt="Contrastive Learning Based Interpretable Hospital Discharge Delay Prediction" style="width: 70%;" /> 
-									<h3>Contrastive Learning Based Interpretable Hospital Discharge Delay Prediction</h3>
-									<p><u><b>Abstract:</b></u> We addressed the significant challenge of delays in patient discharge across hospitals. Over an 11-month period, more than 63% of discharges at four UPMC hospitals were delayed, leading to costs of an estimated $6.6 million in the sampled hospital units. These delays adversely affect patient experience and health outcomes, exacerbated by issues like the lack of post-discharge patient transportation and ineffective capacity management in the health system. Throughout the CMLH fellowship, we aimed to mitigate these issues by developing a discharge delay prediction module. This initiative was divided into two phases: (1) Length of Stay Prediction: Various regression models were benchmarked using prehospital data. Predicting longer lengths of stays posed challenges, mainly due to their infrequent occurrence in the dataset. (2) Predictability Analysis: Building on initial insights, the prediction task was refined based on length of stay percentiles, identifying patients with more predictable stays versus those harder to forecast. A key innovation in this study was the application of a contrastive learning approach. This methodology significantly outperformed traditional models, including Random Forest, XGBoost, Support Vector Machines, Logistic Regression, and Fully-Connected Neural Networks. By leveraging the contrastive learning paradigm, the study offers a robust solution to predict patient discharge times, providing valuable guidance for hospital management and optimizing patient flow.</p>
-								</div>
-							</article>
-							
-							<article class="col-6 col-12-xsmall work-item">
-								<!-- Visible content for users -->
-								<a href="#content-ET-CLIP" class="image fit thumb mfp-inline">
-									<img src="images/et-clip.jpg" alt="Pre-trained CLIP Encoder for Embodied Instruction Following in ALFRED" />
-								</a>
-								<h3>Pre-trained CLIP Encoder for Embodied Instruction Following in ALFRED<br>[CVPR-Embodied AI Workshop-2022]</h3>
-								<!-- Hidden content for Magnific Popup -->
-								<div id="content-ET-CLIP" class="mfp-hide">
-									<img src="images/et-clip.jpg" alt="Pre-trained CLIP Encoder for Embodied Instruction Following in ALFRED" style="width: 50%;" /> 
-									<h3>Pre-trained CLIP Encoder for Embodied Instruction Following in ALFRED <br>
-										<a href="https://embodied-ai.org/papers/2022/20.pdf" target="_blank">[Paper]</a>
-									</h3>
-									<p><u><b>Abstract:</b></u> We introduce a method employing pre-trained CLIP encoders to enhance model generalization in the ALFRED task. In contrast to previous literature where CLIP replaces the visual encoder, we suggest using CLIP as an additional module through an auxiliary object detection objective. We validate our method on the recently proposed Episodic Transformer architecture and demonstrate that incorporating CLIP improves task performance on the unseen validation set. Additionally, our analysis results support that CLIP especially helps with leveraging object descriptions, detecting small objects, and interpreting rare words.</p>
-								</div>
-							</article>
-							
-							<article class="col-6 col-12-xsmall work-item">
-								<!-- Visible content for users -->
-								<a href="#content-neuroinformatics" class="image fit thumb mfp-inline">
-									<img src="images/neuroinformatics.jpg" alt="Automatic Brain Pathology Analysis for Traumatic Brain Injury" />
-								</a>
-								<h3>Automatic Brain Pathology Analysis for Traumatic Brain Injury [Neuroinformatics Journal-2019]</h3>
-								<!-- Hidden content for Magnific Popup -->
-								<div id="content-neuroinformatics" class="mfp-hide">
-									<img src="images/neuroinformatics.jpg" alt="Automatic Brain Pathology Analysis for Traumatic Brain Injury" style="width: 45%;" /> 
-									<h3>Automatic Brain Pathology Analysis for Traumatic Brain Injury <br>
-										<a href="https://link.springer.com/article/10.1007/s12021-018-9405-x" target="_blank">[Paper]</a>
-									</h3>
-									<p><u><b>Abstract:</b></u> Traumatic brain injury (TBI) is one of the leading causes of death and disability worldwide. Detailed studies of the microglial response after TBI require high throughput quantification of changes in microglial count and morphology in histological sections throughout the brain. In this paper, we present a fully automated end-to-end system that is capable of assessing microglial activation in white matter regions on whole slide images of Iba1 stained sections. Our approach involves the division of the full brain slides into smaller image patches that are subsequently automatically classified into white and grey matter sections. On the patches classified as white matter, we jointly apply functional minimization methods and deep learning classification to identify Iba1-immunopositive microglia. Detected cells are then automatically traced to preserve their complex branching structure after which fractal analysis is applied to determine the activation states of the cells. The resulting system detects white matter regions with 84% accuracy, detects microglia with a performance level of 0.70 (F1 score, the harmonic mean of precision and sensitivity) and performs binary microglia morphology classification with a 70% accuracy. This automated pipeline performs these analyses at a 20-fold increase in speed when compared to a human pathologist. Moreover, we have demonstrated robustness to variations in stain intensity common for Iba1 immunostaining. A preliminary analysis was conducted that indicated that this pipeline can identify differences in microglia response due to TBI. An automated solution to microglia cell analysis can greatly increase standardized analysis of brain slides, allowing pathologists and neuroscientists to focus on characterizing the associated underlying diseases and injuries.</p>
-								</div>
-							</article>
-							
-						</div>
-						<!-- <ul class="actions">
-							<li><a href="#" class="button">Full Portfolio</a></li>
-						</ul> -->
+          <!-- Carousel -->
+          <div class="carousel-wrap">
+            <div class="swiper pub-swiper" id="pub-swiper">
+              <div class="swiper-wrapper" id="pub-swiper-wrapper">
+                <!-- Cards injected by carousel.js -->
+              </div>
+            </div>
+            <div class="carousel-footer">
+              <div class="swiper-controls">
+                <button class="swiper-btn" id="pub-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div class="swiper-pagination" id="pub-pagination"></div>
+                <button class="swiper-btn" id="pub-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+              </div>
+              <button class="view-all-btn" id="pub-view-all">
+                <i class="fas fa-th"></i> View All
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-					    <!-- Start of Papers Subsection -->
-						<div id="working-papers-subsection">
-							<h3>Working Papers</h3>
-							<table class="working-papers-table">
-								<tbody>
-									<tr>
-										<td class="year">2026</td>
-										<td>
-											<a href="https://arxiv.org/abs/2510.26745" target="_blank">Deep sequence models tend to memorize geometrically; it is unclear why.</a>,
-											<span class="venue">[Under Review]</span>
-											<span> - S. Noroozizadeh, V. Nagarajan, E. Rosenfeld, S. Kumar</span>
-										</td>
-									</tr>
-									<!-- Add more rows for more papers -->
-								</tbody>
-							</table>
-						</div>
+      <!-- ═══ SECTION 3: PUBLICATIONS LIST ═══════════════════════ -->
+      <section id="publications" class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Publications</h2>
+        </div>
 
-						<div id="papers-subsection">
-							<h3>Publications</h3>
-							<table class="papers-table">
-								<tbody>
-									<tr>
-										<td class="year">2026</td>
-										<td>
-											<a href="https://openreview.net/pdf?id=qG6O3jMkCj" target="_blank">SurvHTE-Bench: A Benchmark for Heterogeneous Treatment Effect Estimation in Survival Analysis</a>
-											<a href="https://github.com/Shahriarnz14/SurvHTE-Benchmark" target="_blank">[Data & Code]</a>,
-											<span class="venue">The Fourteenth International Conference on Learning Representations (ICLR) 2026</span>
-											<span> - S. Noroozizadeh *, X. Shen *, J. Weiss, G. Chen</span>
-										</td>
-									</tr>
-									<tr>
-										<td class="year">2026</td>
-										<td>
-											<a href="https://arxiv.org/pdf/2504.10340" target="_blank">Forecasting Clinical Risk from Textual Time Series: Structuring Narratives for Temporal AI in Healthcare</a> <a href="https://github.com/Shahriarnz14/Textual-Time-Series-Forecasting" target="_blank">[Code]</a>,
-											<span class="venue">Proceedings of the AAAI Conference on Artificial Intelligence 2026 (AI for Social Impact Track)</span>
-											<span> - S. Noroozizadeh *, S. Kumar *, J. Weiss</span>
-										</td>
-									</tr>
-									<tr>
-										<td class="year">2025</td>
-										<td>
-											<a href="https://proceedings.mlr.press/v287/noroozizadeh25a.html" target="_blank">The Impact of Medication Non-adherence on Adverse Outcomes: Evidence from Schizophrenia Patients via Survival Analysis</a> <a href="https://github.com/Shahriarnz14/causal-meta-learner-survival-analysis">[Code]</a>,
-											<span class="venue">Conference on Health, Inference, and Learning (CHIL) 2025</span>
-											<span> - S. Noroozizadeh, P. Welle, J. Weiss, G. Chen</span>
-										</td>
-									</tr>
-									<tr>
-										<td class="year">2025</td>
-										<td>
-											<a href="https://academic.oup.com/nar/article/53/3/gkaf044/7997216" target="_blank">mRNA-LM: full-length integrated SLM for mRNA analysis</a> <a href="https://github.com/Sanofi-Public/mRNA-LM">[Code]</a>,
-											<span class="venue">Nucleic Acids Research</span>
-											<span> - S. Li, S. Noroozizadeh, S. Moayedpour, L. Kogler-Anele, Z. Xue, D. Zheng, F. Ulloa Montoya, V. Agarwal, Z. Bar-Joseph, S. Jager</span>
-										</td>
-									</tr>
-									<tr>
-										<td class="year">2024</td>
-										<td>
-											<a href="https://aclanthology.org/2024.semeval-1.79/" target="_blank">TLDR at SemEval-2024 Task 2: T5-generated clinical-Language summaries for DeBERTa Report Analysis</a> <a href="https://github.com/Shahriarnz14/TLDR-T5-generated-clinical-Language-for-DeBERTa-Report-Analysis">[Code]</a>,
-											<span class="venue">Proceedings of the 18th International Workshop on Semantic Evaluation (SemEval-2024) at Association for Computational Linguistics (NAACL)</span>
-											<span> - S. Das *, V. Samuel *, S. Noroozizadeh *</span>
-										</td>
-									</tr>
-									<tr>
-										<td class="year">2023</td>
-										<td>
-											<a href="https://proceedings.mlr.press/v225/noroozizadeh23a.html" target="_blank">Temporal Supervised Contrastive Learning for Modeling Patient Risk Progression</a> <a href="https://github.com/Shahriarnz14/Temporal-Supervised-Contrastive-Learning">[Code]</a>,
-											<span class="venue">Machine Learning for Health (ML4H) 2023</span>
-											<span> - S. Noroozizadeh, J. Weiss, G. Chen</span>
-										</td>
-									</tr>
-									<tr>
-										<td class="year">2023</td>
-										<td>
-											<a href="https://r2hcai.github.io/AAAI-23/files/CameraReadys/46.pdf" target="_blank">Temporal Supervised Contrastive Learning with Applications to Tabular Time Series Data</a>,
-											<span class="venue">AAAI 2023 R2HCAI Workshop</span>
-											<span> - S. Noroozizadeh, J. Weiss, G. Chen</span>
-										</td>
-									</tr>
-									<tr>
-										<td class="year">2022</td>
-										<td>
-											<a href="https://embodied-ai.org/papers/2022/20.pdf" target="_blank">ET tu, CLIP? Addressing Common Object Errors for Unseen Environments</a>,
-											<span class="venue">CVPR 2022 Embodied-AI Workshop</span>
-											<span> - Y.W. Byon *, C. Jiao *, S. Noroozizadeh *, J. Sun *, R. Vitiello *</span>
-										</td>
-									</tr>
-									<tr>
-										<td class="year">2019</td>
-										<td>
-											<a href="https://link.springer.com/article/10.1007/s12021-018-9405-x" target="_blank">An end-to-end system for automatic characterization of iba1 immunopositive microglia in whole slide imaging</a>,
-											<span class="venue">Neuroinformatics Journal</span>
-											<span> - A.D. Kyriazis *, S. Noroozizadeh *, A. Refaee *, W. Choi *, L.T. Chu *, A. Bashir, W.H. Cheng, R. Zhao, D.R. Namjoshi, S.E. Salcudean, C.L. Wellington, G. Nir</span>
-										</td>
-									</tr>
-									<!-- Add more rows for more papers -->
-								</tbody>
-							</table>
-						</div>
+        <!-- Area tag legend -->
+        <div class="tag-legend fade-up">
+          <span class="legend-label">Areas:</span>
+          <span class="legend-item"><span class="legend-dot" style="background:var(--tag-seq)"></span>Sequence Models</span>
+          <span class="legend-item"><span class="legend-dot" style="background:var(--tag-health)"></span>Healthcare</span>
+          <span class="legend-item"><span class="legend-dot" style="background:var(--tag-causal)"></span>Causal</span>
+          <span class="legend-item"><span class="legend-dot" style="background:var(--tag-neuro)"></span>Neuro/Bio</span>
+          <span class="legend-item"><span class="legend-dot" style="background:var(--tag-repr)"></span>Representation</span>
+        </div>
 
+        <!-- Tabs -->
+        <div class="tabs-wrap">
+          <button class="tab-btn active" data-tab="pub-list">Publications</button>
+          <button class="tab-btn" data-tab="preprint-list">Preprints</button>
+          <button class="tab-btn" data-tab="working-list">Working Papers</button>
+          <button class="tab-btn" data-tab="workshop-list">Workshop Papers</button>
+        </div>
 
-						<div id="papers-preprint-subsection">
-							<h3>Preprints</h3>
-							<table class="papers-preprint-table">
-								<tbody>
-									<tr>
-										<td class="year">2026</td>
-										<td>
-											<a href="https://arxiv.org/abs/2505.20323" target="_blank">PMOA-TTS: Introducing the PubMed Open Access Textual Times Series Corpus</a> <a href="https://huggingface.co/datasets/snoroozi/pmoa-tts">[Data]</a>,
-											<span class="venue">ArXiv</span>
-											<span> - S. Noroozizadeh *, S. Kumar *, G. Chen, J. Weiss</span>
-										</td>
-									</tr>
-									<tr>
-										<td class="year">2025</td>
-										<td>
-											<a href="https://arxiv.org/abs/2504.12326" target="_blank">Reconstructing sepsis trajectories from clinical case reports using LLMs: the textual time series corpus for sepsis</a>,
-											<span class="venue">ArXiv</span>
-											<span> - S. Noroozizadeh, J. Weiss</span>
-										</td>
-									</tr>
-									<!-- Add more rows for more papers -->
-								</tbody>
-							</table>
-						</div>
-						<!-- End of Papers Subsection -->
+        <!-- Publications tab -->
+        <div class="tab-panel active" id="pub-list">
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2026</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-causal">Causal</span>
+                <span class="area-tag tag-health">Healthcare</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://openreview.net/pdf?id=qG6O3jMkCj" target="_blank" rel="noopener">SurvHTE-Bench: A Benchmark for Heterogeneous Treatment Effect Estimation in Survival Analysis</a>
+              </div>
+              <div class="pub-list-venue">The Fourteenth International Conference on Learning Representations (ICLR) 2026</div>
+              <div class="pub-list-authors">S. Noroozizadeh *, X. Shen *, J. Weiss, G. Chen</div>
+              <div class="pub-list-links">
+                <a href="https://openreview.net/pdf?id=qG6O3jMkCj" target="_blank" class="link-btn">Paper</a>
+                <a href="https://github.com/Shahriarnz14/SurvHTE-Benchmark" target="_blank" class="link-btn">Data &amp; Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2026</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-health">Healthcare</span>
+                <span class="area-tag tag-seq">Sequence Models</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://arxiv.org/pdf/2504.10340" target="_blank" rel="noopener">Forecasting Clinical Risk from Textual Time Series: Structuring Narratives for Temporal AI in Healthcare</a>
+              </div>
+              <div class="pub-list-venue">Proceedings of the AAAI Conference on Artificial Intelligence 2026 (AI for Social Impact Track)</div>
+              <div class="pub-list-authors">S. Noroozizadeh *, S. Kumar *, J. Weiss</div>
+              <div class="pub-list-links">
+                <a href="https://arxiv.org/pdf/2504.10340" target="_blank" class="link-btn">Paper</a>
+                <a href="https://github.com/Shahriarnz14/Textual-Time-Series-Forecasting" target="_blank" class="link-btn">Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2025</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-causal">Causal</span>
+                <span class="area-tag tag-health">Healthcare</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://proceedings.mlr.press/v287/noroozizadeh25a.html" target="_blank" rel="noopener">The Impact of Medication Non-adherence on Adverse Outcomes: Evidence from Schizophrenia Patients via Survival Analysis</a>
+              </div>
+              <div class="pub-list-venue">Conference on Health, Inference, and Learning (CHIL) 2025</div>
+              <div class="pub-list-authors">S. Noroozizadeh, P. Welle, J. Weiss, G. Chen</div>
+              <div class="pub-list-links">
+                <a href="https://proceedings.mlr.press/v287/noroozizadeh25a.html" target="_blank" class="link-btn">Paper</a>
+                <a href="https://github.com/Shahriarnz14/causal-meta-learner-survival-analysis" target="_blank" class="link-btn">Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2025</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-repr">Representation Learning</span>
+                <span class="area-tag tag-health">Healthcare</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://academic.oup.com/nar/article/53/3/gkaf044/7997216" target="_blank" rel="noopener">mRNA-LM: full-length integrated SLM for mRNA analysis</a>
+              </div>
+              <div class="pub-list-venue">Nucleic Acids Research</div>
+              <div class="pub-list-authors">S. Li, S. Noroozizadeh, S. Moayedpour, L. Kogler-Anele, Z. Xue, D. Zheng, F. Ulloa Montoya, V. Agarwal, Z. Bar-Joseph, S. Jager</div>
+              <div class="pub-list-links">
+                <a href="https://academic.oup.com/nar/article/53/3/gkaf044/7997216" target="_blank" class="link-btn">Paper</a>
+                <a href="https://github.com/Sanofi-Public/mRNA-LM" target="_blank" class="link-btn">Code</a>
+                <a href="https://patents.google.com/patent/WO2025026948A1" target="_blank" class="link-btn">Patent</a>
+              </div>
+            </div>
+          </div>
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2024</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-health">Healthcare</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://aclanthology.org/2024.semeval-1.79/" target="_blank" rel="noopener">TLDR at SemEval-2024 Task 2: T5-generated clinical-Language summaries for DeBERTa Report Analysis</a>
+              </div>
+              <div class="pub-list-venue">Proceedings of the 18th International Workshop on Semantic Evaluation (SemEval-2024) at Association for Computational Linguistics (NAACL)</div>
+              <div class="pub-list-authors">S. Das *, V. Samuel *, S. Noroozizadeh *</div>
+              <div class="pub-list-links">
+                <a href="https://aclanthology.org/2024.semeval-1.79/" target="_blank" class="link-btn">Paper</a>
+                <a href="https://github.com/Shahriarnz14/TLDR-T5-generated-clinical-Language-for-DeBERTa-Report-Analysis" target="_blank" class="link-btn">Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2023</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-health">Healthcare</span>
+                <span class="area-tag tag-repr">Representation Learning</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://proceedings.mlr.press/v225/noroozizadeh23a.html" target="_blank" rel="noopener">Temporal Supervised Contrastive Learning for Modeling Patient Risk Progression</a>
+              </div>
+              <div class="pub-list-venue">Machine Learning for Health (ML4H) 2023</div>
+              <div class="pub-list-authors">S. Noroozizadeh, J. Weiss, G. Chen</div>
+              <div class="pub-list-links">
+                <a href="https://proceedings.mlr.press/v225/noroozizadeh23a.html" target="_blank" class="link-btn">Paper</a>
+                <a href="https://github.com/Shahriarnz14/Temporal-Supervised-Contrastive-Learning" target="_blank" class="link-btn">Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2022</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-repr">Representation Learning</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://embodied-ai.org/papers/2022/20.pdf" target="_blank" rel="noopener">ET tu, CLIP? Addressing Common Object Errors for Unseen Environments</a>
+              </div>
+              <div class="pub-list-venue">CVPR 2022 Embodied-AI Workshop</div>
+              <div class="pub-list-authors">Y.W. Byon *, C. Jiao *, S. Noroozizadeh *, J. Sun *, R. Vitiello *</div>
+              <div class="pub-list-links">
+                <a href="https://embodied-ai.org/papers/2022/20.pdf" target="_blank" class="link-btn">Paper</a>
+              </div>
+            </div>
+          </div>
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2019</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-neuro">Neuro/Bio</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://link.springer.com/article/10.1007/s12021-018-9405-x" target="_blank" rel="noopener">An end-to-end system for automatic characterization of iba1 immunopositive microglia in whole slide imaging</a>
+              </div>
+              <div class="pub-list-venue">Neuroinformatics Journal</div>
+              <div class="pub-list-authors">A.D. Kyriazis *, S. Noroozizadeh *, A. Refaee *, W. Choi *, L.T. Chu *, A. Bashir, W.H. Cheng, R. Zhao, D.R. Namjoshi, S.E. Salcudean, C.L. Wellington, G. Nir</div>
+              <div class="pub-list-links">
+                <a href="https://link.springer.com/article/10.1007/s12021-018-9405-x" target="_blank" class="link-btn">Paper</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <!-- Preprints tab -->
+        <div class="tab-panel" id="preprint-list">
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2026</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-health">Healthcare</span>
+                <span class="area-tag tag-seq">Sequence Models</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://arxiv.org/abs/2505.20323" target="_blank" rel="noopener">PMOA-TTS: Introducing the PubMed Open Access Textual Times Series Corpus</a>
+              </div>
+              <div class="pub-list-venue">ArXiv</div>
+              <div class="pub-list-authors">S. Noroozizadeh *, S. Kumar *, G. Chen, J. Weiss</div>
+              <div class="pub-list-links">
+                <a href="https://arxiv.org/abs/2505.20323" target="_blank" class="link-btn">ArXiv</a>
+                <a href="https://huggingface.co/datasets/snoroozi/pmoa-tts" target="_blank" class="link-btn">Data</a>
+              </div>
+            </div>
+          </div>
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2025</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-health">Healthcare</span>
+                <span class="area-tag tag-seq">Sequence Models</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://arxiv.org/abs/2504.12326" target="_blank" rel="noopener">Reconstructing sepsis trajectories from clinical case reports using LLMs: the textual time series corpus for sepsis</a>
+              </div>
+              <div class="pub-list-venue">ArXiv</div>
+              <div class="pub-list-authors">S. Noroozizadeh, J. Weiss</div>
+              <div class="pub-list-links">
+                <a href="https://arxiv.org/abs/2504.12326" target="_blank" class="link-btn">ArXiv</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-						<!-- Start of Honours and Awards Subsection -->
-						<h3>Honours and Awards</h3>
-						<ul class="honours-list">
-							<li><b>[2024-2025]</b> Presidential Fellowship, Tata Consultancy Services (TCS) </li>
-							<li><b>[2023-2026]</b> Doctoral Fellowship, Natural Sciences and Engineering Research Council of Canada (NSERC)</li>
-							<li><b>[2023]</b> Suresh Konda Memorial, Ph.D. First Research Paper Award, (CMU Heinz College)</li>
-							<li><b>[2022-2023]</b> Center for Machine Learning and Health, Digital Health Innovation Fellowship
-							<a href="https://www.cs.cmu.edu/cmlh/digital-health-archive/cmlh-digital-health-fellows-2022#:~:text=Chain%20Monte%20Carlo%22-,Shahriar,-Noroozizadeh%20is%20a">[Link]</a></li>
-							<li><b>[2018-2019]</b> Carnegie Mellon University Presidential Fellowship (CMU College of Engineering CIT)</li>
-							<li><b>[2017]</b> UBC Self-Directed Research Abroad Award (Computational Gene Sequencing Research at USC)</li>
-							<li><b>[2017]</b> Award for Excellence in Biomedical Engineering Student Design and Innovation as Finalist, Medical Device Development Centre (MDDC), Vancouver, Canada
-							<a href="https://www.engphys.ubc.ca/2017/08/14/">[Link]</a></li>
-							<li><b>[2016]</b> Coordinated International Experience Award (ETH Zürich)</li>
-							<li><b>[2016]</b> The Google Games 2016 (UBC): Third Place / 1st Place in Coding Challenge (Google)
-							<a href="https://www.engphys.ubc.ca/2016/10/01/first-place-finish-in-coding-challenge-at-ubc-google-games/">[Link]</a></li>
-							<li><b>[2015]</b> IEEEXtreme 9.0 Programming Contest: 1st Place at UBC, 4th in Canada (IEEE)</li>
-							<li><b>[2014-2018]</b> Applied Science Dean’s Honour List (4x)</li>
-							<li><b>[2014]</b> Science Scholar Designation (University of British Columbia)</li>
-							<li><b>[2014]</b> First Year Enriched Physics Top Echelon (University of British Columbia)</li>
-							<li><b>[2013]</b> Chancellor’s Scholar (University of British Columbia)</li>
-							<li><b>[2012]</b> Certificate of Distinction, Canadian Senior Mathematics Contest (University of Waterloo)</li>
-						</ul>
-						<!-- End of Honours and Awards Subsection -->
+        <!-- Working Papers tab -->
+        <div class="tab-panel" id="working-list">
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2026</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-seq">Sequence Models</span>
+                <span class="area-tag tag-repr">Representation Learning</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://arxiv.org/abs/2510.26745" target="_blank" rel="noopener">Deep sequence models tend to memorize geometrically; it is unclear why.</a>
+              </div>
+              <div class="pub-list-venue">[Under Review]</div>
+              <div class="pub-list-authors">S. Noroozizadeh, V. Nagarajan, E. Rosenfeld, S. Kumar</div>
+              <div class="pub-list-links">
+                <a href="https://arxiv.org/abs/2510.26745" target="_blank" class="link-btn">ArXiv</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <!-- Workshop Papers tab -->
+        <div class="tab-panel" id="workshop-list">
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2025</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-seq">Sequence Models</span>
+                <span class="area-tag tag-repr">Representation Learning</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://openreview.net/pdf?id=2NuCrYf8Ap" target="_blank" rel="noopener">Deep sequence models tend to memorize geometrically; it is unclear why.</a>
+              </div>
+              <div class="pub-list-venue">NeurIPS 2025 Workshop on Foundations of Reasoning in Language Models</div>
+              <div class="pub-list-authors">S. Noroozizadeh, V. Nagarajan, E. Rosenfeld, S. Kumar</div>
+              <div class="pub-list-links">
+                <a href="https://openreview.net/pdf?id=2NuCrYf8Ap" target="_blank" class="link-btn">Workshop Paper</a>
+                <a href="https://arxiv.org/abs/2510.26745" target="_blank" class="link-btn">ArXiv</a>
+              </div>
+            </div>
+          </div>
+          <div class="pub-list-entry">
+            <div class="pub-list-year">2023</div>
+            <div class="pub-list-body">
+              <div class="pub-list-tags">
+                <span class="area-tag tag-health">Healthcare</span>
+                <span class="area-tag tag-repr">Representation Learning</span>
+              </div>
+              <div class="pub-list-title">
+                <a href="https://r2hcai.github.io/AAAI-23/files/CameraReadys/46.pdf" target="_blank" rel="noopener">Temporal Supervised Contrastive Learning with Applications to Tabular Time Series Data</a>
+              </div>
+              <div class="pub-list-venue">AAAI 2023 R2HCAI Workshop</div>
+              <div class="pub-list-authors">S. Noroozizadeh, J. Weiss, G. Chen</div>
+              <div class="pub-list-links">
+                <a href="https://r2hcai.github.io/AAAI-23/files/CameraReadys/46.pdf" target="_blank" class="link-btn">Paper</a>
+                <a href="https://www.youtube.com/watch?v=sykp_gKXpAk" target="_blank" class="link-btn">Video</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <!-- Honours & Awards -->
+        <div style="margin-top:40px;">
+          <h3 style="font-size:1rem;font-weight:500;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border-subtle);">Honours &amp; Awards</h3>
+          <ul class="honours-list">
+            <li><strong>[2024–2025]</strong> Presidential Fellowship, Tata Consultancy Services (TCS)</li>
+            <li><strong>[2023–2026]</strong> Doctoral Fellowship, Natural Sciences and Engineering Research Council of Canada (NSERC)</li>
+            <li><strong>[2023]</strong> Suresh Konda Memorial, Ph.D. First Research Paper Award (CMU Heinz College)</li>
+            <li><strong>[2022–2023]</strong> Center for Machine Learning and Health, Digital Health Innovation Fellowship <a href="https://www.cs.cmu.edu/cmlh/digital-health-archive/cmlh-digital-health-fellows-2022#:~:text=Chain%20Monte%20Carlo%22-,Shahriar,-Noroozizadeh%20is%20a">[Link]</a></li>
+            <li><strong>[2018–2019]</strong> Carnegie Mellon University Presidential Fellowship (CMU College of Engineering CIT)</li>
+            <li><strong>[2017]</strong> UBC Self-Directed Research Abroad Award (Computational Gene Sequencing Research at USC)</li>
+            <li><strong>[2017]</strong> Award for Excellence in Biomedical Engineering Student Design and Innovation as Finalist, Medical Device Development Centre (MDDC), Vancouver, Canada <a href="https://www.engphys.ubc.ca/2017/08/14/">[Link]</a></li>
+            <li><strong>[2016]</strong> Coordinated International Experience Award (ETH Zürich)</li>
+            <li><strong>[2016]</strong> The Google Games 2016 (UBC): Third Place / 1st Place in Coding Challenge (Google) <a href="https://www.engphys.ubc.ca/2016/10/01/first-place-finish-in-coding-challenge-at-ubc-google-games/">[Link]</a></li>
+            <li><strong>[2015]</strong> IEEEXtreme 9.0 Programming Contest: 1st Place at UBC, 4th in Canada (IEEE)</li>
+            <li><strong>[2014–2018]</strong> Applied Science Dean's Honour List (4×)</li>
+            <li><strong>[2014]</strong> Science Scholar Designation (University of British Columbia)</li>
+            <li><strong>[2014]</strong> First Year Enriched Physics Top Echelon (University of British Columbia)</li>
+            <li><strong>[2013]</strong> Chancellor's Scholar (University of British Columbia)</li>
+            <li><strong>[2012]</strong> Certificate of Distinction, Canadian Senior Mathematics Contest (University of Waterloo)</li>
+          </ul>
+        </div>
+      </section>
 
-						<!-- Start of Combined Subsection -->
-						<div id="combined-subsection">
-							<!-- Start of Teaching Experience Column -->
-							<div class="column half teaching">
-								<h3>Teaching Experience</h3>
-								<ul class="teaching-list">
-									<!-- Add your teaching experiences here. Example: -->
-									<li><b>[2024]</b> PhD Probabilistic Graphical Models, CMU</li>
-									<li><b>[2023]</b> Machine Learning for Problem Solving, CMU</li>
-									<li><b>[2022 - 2023]</b> Unstructured Data Analytics, CMU</li>
-									<li><b>[2022 - 2025]</b> PhD Microeconomics, CMU</li>
-									<li><b>[2020]</b> Neural Signal Processing, CMU</li>
-									<li><b>[2020]</b> Fundamentals of Computational BME, CMU</li>
-									<li><b>[2016 - 2017]</b> Algorithms and Data Structures, UBC</li>
-									<li><b>[2014]</b> Computer Science Fundamentals, UBC</li>
-									<!-- ... -->
-								</ul>
-							</div>
-							<!-- End of Teaching Experience Column -->
+      <!-- ═══ SECTION 4: TEACHING & SERVICE ══════════════════════ -->
+      <section id="teaching" class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Teaching &amp; Service</h2>
+        </div>
+        <div class="two-col">
+          <div class="two-col-block fade-up">
+            <h3>Teaching Experience</h3>
+            <ul class="two-col-list">
+              <li><strong>[2024]</strong> PhD Probabilistic Graphical Models, CMU</li>
+              <li><strong>[2023]</strong> Machine Learning for Problem Solving, CMU</li>
+              <li><strong>[2022–2023]</strong> Unstructured Data Analytics, CMU</li>
+              <li><strong>[2022–2025]</strong> PhD Microeconomics, CMU</li>
+              <li><strong>[2020]</strong> Neural Signal Processing, CMU</li>
+              <li><strong>[2020]</strong> Fundamentals of Computational BME, CMU</li>
+              <li><strong>[2016–2017]</strong> Algorithms and Data Structures, UBC</li>
+              <li><strong>[2014]</strong> Computer Science Fundamentals, UBC</li>
+            </ul>
+          </div>
+          <div class="two-col-block fade-up">
+            <h3>Services</h3>
+            <ul class="two-col-list">
+              <li><strong>[2023, 2024, 2025, 2026]</strong> Reviewer, ICLR</li>
+              <li><strong>[2023, 2024, 2025]</strong> Reviewer, NeurIPS</li>
+              <li><strong>[2023, 2024, 2025]</strong> Reviewer, ML4H</li>
+              <li><strong>[2023, 2024, 2025]</strong> Reviewer, CHIL</li>
+              <li><strong>[2026]</strong> Reviewer, ICML</li>
+              <li><strong>[2025]</strong> Reviewer, MLHC</li>
+              <li><strong>[2023]</strong> Reviewer, AAAI</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-							<!-- Start of Services Column -->
-							<div class="column half services">
-								<h3>Services</h3>
-								<ul class="services-list">
-									<li><b>[2023, 2024, 2025, 2026]</b> <br> Reviewer, ICLR</li>
-									<li><b>[2023, 2024, 2025]</b> <br> Reviewer, NeurIPS</li>
-									<li><b>[2023, 2024, 2025]</b> Reviewer, ML4H</li>
-									<li><b>[2023, 2024, 2025]</b> Reviewer, CHIL</li>
-									<li><b>[2026]</b> Reviewer, ICML</li>
-									<li><b>[2025]</b> Reviewer, MLHC</li>
-									<li><b>[2023]</b> Reviewer, AAAI</li>
-									<!-- ... -->
-								</ul>
-							</div>
-							<!-- End of Services Column -->
+      <!-- ═══ SECTION 5: WORK EXPERIENCE TIMELINE ════════════════ -->
+      <section id="work-experience" class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Work Experience</h2>
+        </div>
+        <div class="timeline-wrap">
+          <div class="timeline-inner" id="timeline-inner">
+            <div class="timeline-axis" id="timeline-axis"></div>
+            <div class="timeline-axis-glow" id="timeline-axis-glow"></div>
+            <!-- Entries injected by timeline.js -->
+            <!-- Running stick figure injected by timeline.js -->
+          </div>
+        </div>
+      </section>
 
-						</div>
-						<!-- End of Combined Subsection -->
-					</section>
-					
-				
+      <!-- ═══ SECTION 6: PAST PROJECTS CAROUSEL ══════════════════ -->
+      <section id="past-projects" class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Past Research &amp; Project Experiences</h2>
+        </div>
+        <div class="carousel-wrap">
+          <div class="swiper pub-swiper" id="proj-swiper">
+            <div class="swiper-wrapper" id="proj-swiper-wrapper">
+              <!-- Cards injected by carousel.js -->
+            </div>
+          </div>
+          <div class="carousel-footer">
+            <div class="swiper-controls">
+              <button class="swiper-btn" id="proj-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+              <div class="swiper-pagination" id="proj-pagination"></div>
+              <button class="swiper-btn" id="proj-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <button class="view-all-btn" id="proj-view-all">
+              <i class="fas fa-th"></i> View All
+            </button>
+          </div>
+        </div>
+      </section>
 
-				<!-- Work Experience -->
-				<section id="work-experience">
-					<h2>Work Experience</h2>
-					<div class="row">
-						<article class="col-6 col-12-xsmall work-item">
-							<!-- Visible content for users -->
-							<a href="#content-google-research" class="image fit thumb mfp-inline">
-								<img src="images/Google-Research.webp" alt="Google Research (BigML)" />
-							</a>
-							<h3>Google Research (New York, NY)</h3>
-							<p>Doctoral Researcher</p>
-							
-							<!-- Hidden content for Magnific Popup -->
-							<div id="content-google-research" class="mfp-hide">
-								<img src="images/Google-Research.webp" alt="Google Research (BigML)" style="width: 20%;" />
-								<!-- <h3>Microsoft</h3> -->
-								<p><u><b>A.I. PhD Student Researcher [2025]:</b></u> 
-									• Isolated a clean and analyzable instance of implicit in-weights reasoning in Transformers, demonstrating that their memory is better characterized by global geometric structure rather than purely local associative storage. <br>
-									• Provided both empirical and theoretical evidence connecting this emergent geometric memory to spectral bias in Node2Vec-style dynamics, offering new insights into how Transformers generalize beyond local associations. <a href="https://arxiv.org/abs/2510.26745" target="_blank">[Paper]</a> <i> – Under Review</i> <br>
-									• Investigating the sufficiency of next-token prediction (NTP) as a training paradigm for large language models, and analyzing alternative multi-token objectives to enable deeper reasoning. <br>
-									• Combining theoretical and empirical analysis in controlled synthetic settings and downstream language tasks to identify representational and learning bottlenecks inherent to NTP. <br>
-									• Designing and executing large-scale experiments leveraging Google’s compute infrastructure, aiming to refine methods and produce publishable advances in sequence modeling objectives for language models. <br>
-								</p>
-							</div>
-						</article>
-						<article class="col-6 col-12-xsmall work-item">
-							<!-- Visible content for users -->
-							<a href="#content-sanofi" class="image fit thumb mfp-inline">
-								<img src="images/sanofi-logo.jpeg" alt="Sanofi" />
-							</a>
-							<h3>Sanofi (Cambridge, MA)</h3>
-							<p>Artificial Intelligence Research Scientist Intern</p>
-							
-							<!-- Hidden content for Magnific Popup -->
-							<div id="content-sanofi" class="mfp-hide">
-								<img src="images/sanofi-logo.jpeg" alt="Sanofi" style="width: 20%;" />
-								<!-- <h3>Microsoft</h3> -->
-								<p><u><b>A.I. Research Scientist Intern [2024]:</b></u> 
-									• Co-led the development of the mRNA-LM model, a language model built from scratch and pretrained on millions of full-length mRNA sequences, achieving state-of-the-art performance on various mRNA prediction tasks, including structure prediction, localization, and translation efficiency. <br>
-									• Designed and implemented a contrastive learning-based multimodal joint representation inspired by CLIP, which enhanced the alignment of embeddings from different mRNA regions (5' UTR, CDS, and 3' UTR) and significantly improved the downstream predictive performance of the full-length mRNA language model. <br>
-									• Spearheaded submitting a paper on mRNA-LM to Nucleic Acids Research journal (IF: 16.8) and supported the filing of a patent for the mRNA-LM project, showcasing innovative methodologies and findings. 
-									<a href="https://academic.oup.com/nar/article/53/3/gkaf044/7997216" target="_blank">[Paper]</a>
-									<a href="https://patents.google.com/patent/WO2025026948A1" target="_blank">[Patent]</a>
-									<br>
-									• Contributed to the project <a href="https://arxiv.org/abs/2407.19089">Many-Shot In-Context Learning for Molecular Inverse Design</a>, developing a semi-supervised learning method utilizing Large Language Models (LLMs) to improve molecular design and lead optimization. Implemented a multi-modal LLM framework for interactive molecular structure modification using text instructions. <br>
-									• Collaborated on integrating Large Language Models (LLMs) into the Bayesian Optimization framework to guide optimization directions for reaction yield in drug discovery, achieving superior performance compared to human experts in selecting optimal reactions and refining design pipelines.</p>
-							</div>
-						</article>
+      <!-- ═══ SECTION 7: NEWS + GLOBE ════════════════════════════ -->
+      <section id="news-globe" class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">News &amp; Whereabouts</h2>
+        </div>
+        <div class="news-globe-layout">
 
-						<article class="col-6 col-12-xsmall work-item">
-							<!-- Visible content for users -->
-							<a href="#content-microsoft" class="image fit thumb mfp-inline">
-								<img src="images/microsoft.jpg" alt="Microsoft" />
-							</a>
-							<h3>Microsoft</h3>
-							<p>Software Development Engineering Intern</p>
-							
-							<!-- Hidden content for Magnific Popup -->
-							<div id="content-microsoft" class="mfp-hide">
-								<img src="images/microsoft.jpg" alt="Microsoft" style="width: 20%;" />
-								<!-- <h3>Microsoft</h3> -->
-								<p><u><b>Software Development Engineering Intern [2015]:</b></u> Main focus areas researched and worked on during this internship included:
-									Windows 10 Universal Application Platform (UAP), Windows 10 NFL Application, Development of a Key Performance Indicator (KPI) System, Mocking Framework Development, Coded User Interface (UI) Automation and Build Machine Automation Development.</p>
-							</div>
-						</article>
-						
-						<article class="col-6 col-12-xsmall work-item">
-							<!-- Visible content for users -->
-							<a href="#content-philips" class="image fit thumb mfp-inline">
-								<img src="images/philips.jpeg" alt="Philips Healthcare Research" />
-							</a>
-							<h3>Philips Healthcare Research</h3>
-							<p>Research and Development Intern</p>
-							
-							<!-- Hidden content for Magnific Popup -->
-							<div id="content-philips" class="mfp-hide">
-								<img src="images/philips.jpeg" alt="Philips Healthcare Research" style="width: 20%;" />
-								<!-- <h3>Philips Healthcare Research</h3> -->
-								<p><u><b>Research and Development Intern [2016]:</b></u> Developed an electronic nose sensor that is capable of selectively and sensitively detect biomarkers in exhaled breath to improve the emergency diagnosis of lung infections for patients with respiratory diseases including Acute Respiratory Distress Syndrome (ARDS). I designed a standalone signal processing algorithm and application tailored for gas chromatography data, which effectively isolated the presence of octane—a critical biomarker of ARDS in exhaled breath. This application was instrumental in enhancing the accuracy and reliability of the electronic nose sensor, especially given the challenges of non-real-time data processing.</p>
-							</div>
-						</article>
-					</div>
-					<!-- <ul class="actions">
-						<li><a href="#" class="button">Full Portfolio</a></li>
-					</ul> -->
-				</section>				
+          <!-- News panel -->
+          <div class="news-panel-wrap">
+            <h3>📣 News</h3>
+            <div style="position:relative;">
+              <div class="news-scroll" id="news-scroll">
+                <ul class="news-list">
+                  <li class="news-item"><span class="news-date">[Feb 2026]</span><br>SurvHTE-Bench got accepted to ICLR-2026! <a href="https://openreview.net/pdf?id=qG6O3jMkCj" target="_blank">[Paper]</a> <a href="https://github.com/Shahriarnz14/SurvHTE-Benchmark" target="_blank">[Code]</a></li>
+                  <li class="news-item"><span class="news-date">[Nov 2025]</span><br>Forecasting Textual Time Series Paper accepted to AAAI-2026! <a href="https://arxiv.org/abs/2504.10340" target="_blank">[Paper]</a> <a href="https://github.com/Shahriarnz14/Textual-Time-Series-Forecasting" target="_blank">[Code]</a></li>
+                  <li class="news-item"><span class="news-date">[Sep 2025]</span><br>Geometric Memory Paper accepted to NeurIPS 2025 Workshop on Foundations of Reasoning in Language Models! <a href="https://openreview.net/pdf?id=2NuCrYf8Ap" target="_blank">[Workshop Version]</a> <a href="https://arxiv.org/abs/2510.26745" target="_blank">[Longer ArXiv]</a></li>
+                  <li class="news-item"><span class="news-date">[May 2025]</span><br>Spending Summer and Fall 2025 in the beautiful NYC as an AI PhD Researcher at <a href="https://research.google/" target="_blank">Google Research</a> hosted by <a href="https://vaishnavh.github.io/" target="_blank">Vaishnavh Nagarajan</a>! Investigating how next-token learners reason and memorize.</li>
+                  <li class="news-item"><span class="news-date">[Apr 2025]</span><br>Causal Survival-Analysis Paper accepted to Conference on Health, Inference, and Learning (CHIL)! <a href="https://arxiv.org/abs/2506.18187" target="_blank">[Paper]</a> <a href="https://github.com/Shahriarnz14/causal-meta-learner-survival-analysis" target="_blank">[Code]</a></li>
+                  <li class="news-item"><span class="news-date">[Mar 2025]</span><br>ML-Driven Glucose Prediction Paper accepted to Biosensors Journal! (Collaboration with Pardis Sadeghi) <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11940286/" target="_blank">[Paper]</a></li>
+                  <li class="news-item"><span class="news-date">[Feb 2025]</span><br>First Patent published for predicting mRNA properties using Large Language Models! (Work from Sanofi's Internship) <a href="https://patents.google.com/patent/WO2025026948A1" target="_blank">[Patent]</a></li>
+                  <li class="news-item"><span class="news-date">[Jan 2025]</span><br>mRNA-LM Paper accepted to Nucleic Acids Research (NAR) Journal! (Work from Sanofi's Internship) <a href="https://academic.oup.com/nar/article/53/3/gkaf044/7997216" target="_blank">[Paper]</a> <a href="https://github.com/Sanofi-Public/mRNA-LM" target="_blank">[Code]</a></li>
+                  <li class="news-item"><span class="news-date">[Sep 2024]</span><br>Awarded Tata Consultancy Services (TCS) Presidential Fellowship</li>
+                  <li class="news-item"><span class="news-date">[May 2024]</span><br>Spending Summer 2024 as an AI Research Scientist Intern at <a href="https://jobs.sanofi.com/en/ai-coe" target="_blank">Sanofi Inc.</a></li>
+                  <li class="news-item"><span class="news-date">[Apr 2024]</span><br>TLDR Paper accepted to SemEval-2024 at NAACL! <a href="https://arxiv.org/abs/2404.09136" target="_blank">[Paper]</a> <a href="https://github.com/Shahriarnz14/TLDR-T5-generated-clinical-Language-for-DeBERTa-Report-Analysis" target="_blank">[Code]</a></li>
+                  <li class="news-item"><span class="news-date">[Nov 2023]</span><br>Temporal-SCL Paper accepted to Machine Learning for Health (ML4H) Conference! <a href="https://arxiv.org/abs/2312.05933" target="_blank">[Paper]</a> <a href="https://github.com/Shahriarnz14/Temporal-Supervised-Contrastive-Learning" target="_blank">[Code]</a></li>
+                  <li class="news-item"><span class="news-date">[Sep 2023]</span><br>Awarded Natural Sciences and Engineering Research Council of Canada (NSERC) CGS-D/PGS-D Fellowship</li>
+                  <li class="news-item"><span class="news-date">[May 2023]</span><br>Awarded best first paper award at Heinz</li>
+                  <li class="news-item"><span class="news-date">[Feb 2023]</span><br>Oral Presentation at AAAI'23 Representation Learning for Responsible Human-Centric AI <a href="https://r2hcai.github.io/AAAI-23/files/CameraReadys/46.pdf" target="_blank">[Paper]</a> <a href="https://www.youtube.com/watch?v=sykp_gKXpAk" target="_blank">[Video]</a></li>
+                  <li class="news-item"><span class="news-date">[Sep 2022]</span><br>Awarded <a href="https://www.cs.cmu.edu/cmlh/digital-health-archive/cmlh-digital-health-fellows-2022" target="_blank">Fellowship in Digital Health Innovation</a> from Center for Machine Learning and Health (CMLH) at CMU</li>
+                  <li class="news-item"><span class="news-date">[Jun 2022]</span><br>Poster at CVPR'22 Embodied AI Workshop <a href="https://embodied-ai.org/papers/2022/20.pdf" target="_blank">[Paper]</a></li>
+                  <li class="news-item"><span class="news-date">[May 2022]</span><br>Graduated from Machine Learning Master's at CMU!</li>
+                  <li class="news-item"><span class="news-date">[Sep 2021]</span><br>Started a joint PhD at Heinz College and Machine Learning Department at CMU!</li>
+                  <li class="news-item"><span class="news-date">[Dec 2020]</span><br>Graduated from Biomedical Engineering Master's at CMU! <a href="https://drive.google.com/file/d/1iUfV4gimAnLFZUf9FgRXyzKLeEfHwaw9/view" target="_blank">[Thesis]</a></li>
+                  <li class="news-item"><span class="news-date">[Jan 2019]</span><br>Paper accepted to Neuroinformatics Journal! (AShLAW 🎉) <a href="https://link.springer.com/article/10.1007/s12021-018-9405-x" target="_blank">[Paper]</a></li>
+                  <li class="news-item"><span class="news-date">[Sep 2018]</span><br>Awarded CMU Presidential Fellowship from College of Engineering</li>
+                  <li class="news-item"><span class="news-date">[May 2018]</span><br>Graduated from Engineering Physics with EECS Specialization at UBC!</li>
+                </ul>
+              </div>
+              <div class="news-fade"></div>
+            </div>
+          </div>
 
-				<!-- Past Projects -->
-				<section id="past-projects">
-					<h2>Past Research and Project Experiences</h2>
-					<div class="row">
+          <!-- Globe panel -->
+          <div class="globe-panel">
+            <h3>🌍 Whereabouts</h3>
+            <div class="globe-container" id="globe-container"></div>
+            <div class="globe-stats">
+              <div class="globe-stat">
+                <div class="globe-stat-value" id="stat-visitors">—</div>
+                <div class="globe-stat-label">Visitors</div>
+              </div>
+              <div class="globe-stat">
+                <div class="globe-stat-value" id="stat-countries">8+</div>
+                <div class="globe-stat-label">Countries</div>
+              </div>
+              <div class="globe-stat">
+                <div class="globe-stat-value" id="stat-cities">8+</div>
+                <div class="globe-stat-label">Locations</div>
+              </div>
+            </div>
+          </div>
 
-						<!-- Many-Shot ICL -->
-						<article class="col-6 col-12-xsmall work-item">
-							<a href="#content-manyShot_ICL" class="image fit thumb mfp-inline">
-								<img src="images/ManyShotICL.jpg" alt="" />
-							</a>
-							<h3>Many-Shot In-Context Learning for Molecular Inverse Design</h3>
-							<div id="content-manyShot_ICL" class="mfp-hide popup-content">
-								<img src="images/ManyShotICL.jpg" alt="" style="width: 50%;" />
-								<h3>Many-Shot In-Context Learning for Molecular Inverse Design <a href="https://arxiv.org/abs/2407.19089">[Paper]</a></h3>
-								<p> Large Language Models (LLMs) have demonstrated great performance in few-shot In-Context Learning (ICL) for a variety of generative and discriminative chemical design tasks. The newly expanded context windows of LLMs can further improve ICL capabilities for molecular inverse design and lead optimization. To take full advantage of these capabilities we developed a new semi-supervised learning method that overcomes the lack of experimental data available for many-shot ICL. Our approach involves iterative inclusion of LLM generated molecules with high predicted performance, along with experimental data. We further integrated our method in a multi-modal LLM which allows for the interactive modification of generated molecular structures using text instructions. As we show, the new method greatly improves upon existing ICL methods for molecular design while being accessible and easy to use for scientists.</p>
-							</div>
-						</article>
+        </div>
+      </section>
 
-						<!-- First Item: BERT_CRF -->
-						<article class="col-6 col-12-xsmall work-item">
-							<a href="#content-BERT_CRF" class="image fit thumb mfp-inline">
-								<img src="images/BERT_CRF.jpg" alt="" />
-							</a>
-							<h3>“BERT, do you still love me?” <br> A painful perspective from CRF</h3>
-							<div id="content-BERT_CRF" class="mfp-hide popup-content">
-								<img src="images/BERT_CRF.jpg" alt="" style="width: 50%;" />
-								<h3>“BERT, do you still love me?” A painful perspective from CRF </h3>
-								<p> <u><b>[Best Poster Award: Probabilistic Graphical Models]</b></u> Developed and complied a comprehensive study of using graphical models on top of BERT and RNN variants for evaluating the encoding capacity of these models in Part of Speech Tagging (POS) and Named Entity Recognition (NER) tasks. Provided evidence of performance boost with end-to-end training of a conditional random field (CRF) on top of a pretrained BERT.</p>
-							</div>
-						</article>
-					
-						<!-- Second Item: PETS_MBRL -->
-						<article class="col-6 col-12-xsmall work-item">
-							<a href="#content-PETS_MBRL" class="image fit thumb mfp-inline">
-								<img src="images/PETS_MBRL.jpg" alt="" />
-							</a>
-							<h3>Model-Based Reinforcement Learning with Probabilistic Ensemble and Trajectory Sampling</h3>
-							<div id="content-PETS_MBRL" class="mfp-hide popup-content">
-								<img src="images/PETS_MBRL.jpg" alt="" style="width: 50%;" />
-								<h3>Model-Based Reinforcement Learning with Probabilistic Ensemble and Trajectory Sampling (PETS) <a href="https://github.com/Shahriarnz14/Model-Based-RL-with-Probabilistic-Ensemble-and-Trajectory-Sampling">[Code]</a></h3>
-								<p>Implemented the PETS algorithm as a model-based RL method to solve the Pusher environment of OpenAI-Gym for a robotic arm to push an object to reach to a randomly positioned goal location: <br>
-									(i) Using probabilistic ensemble of neural networks outputting distribution over the resulting states given a state and action pair. <br>
-									(ii) Propagate hallucinated trajectories through time by passing hypothetical state-action pairs through different networks of the ensemble. <br>
-									(iii) Planning with model predictive control (MPC) on top of Cross Entropy Method (CEM) for random shooting.</p>
-							</div>
-						</article>
-					
-						<!-- Third Item: S3VM -->
-						<article class="col-6 col-12-xsmall work-item">
-							<a href="#content-S3VM" class="image fit thumb mfp-inline">
-								<img src="images/S3VM.jpg" alt="" />
-							</a>
-							<h3>Semi-Supervised Support Vector Machine (S3VM)</h3>
-							<div id="content-S3VM" class="mfp-hide popup-content">
-								<img src="images/S3VM.jpg" alt="" style="width: 50%;" />
-								<h3>Semi-Supervised Support Vector Machine (S3VM) <a href="https://github.com/Shahriarnz14/Semi-Supervised-Support-Vector-Machine-S3VM">[Code]</a></h3>
-								<p>Developed a self-training scheme with SVM to improve classification accuracy of the training data when only a small subset is labeled. Additionally, implemented a quasi- Newton method Semisupervised Support Vector Machine (S3VM). Applied these two techniques for the task of image classification of MNIST and CIFAR10 datasets. Showed significant improvement in classification accuracy in the range that only 30%-50% of data is labeled as compared to conventional SVM. </p>
-							</div>
-						</article>
-					
-						<!-- Fourth Item: tFUS -->
-						<article class="col-6 col-12-xsmall work-item">
-							<a href="#content-tFUS" class="image fit thumb mfp-inline">
-								<img src="images/tFUS.jpg" alt="" />
-							</a>
-							<h3>Transcranial Focused Ultrasound Stimulation (tFUS)</h3>
-							<div id="content-tFUS" class="mfp-hide popup-content">
-								<img src="images/tFUS.jpg" alt="" style="width: 50%;" />
-								<h3>Transcranial Focused Ultrasound Stimulation (tFUS)</h3>
-								<p> <u><b><a href="https://drive.google.com/file/d/1iUfV4gimAnLFZUf9FgRXyzKLeEfHwaw9/view?usp=drive_link">[Thesis]</a>: Characterization of Transcranial Focused Ultrasound Field to Reduce Ultrasonic Standing Waves</b></u> <br>
-									• Multiple neural engineering research projects ranging from neural device development and neural signal processing and computation. <br>
-									• Developed a novel method for enhancing the neuromodulation modality of transcranial Focused Ultrasound Stimulation (tFUS) through computer simulations, ex-vivo experimentation, and in-vivo rodent model demonstration (Publication in preparation). <br>
-									• Utilizing unsupervised learning algorithms for automated spike sorting of in-vivo intracranial neural data collected (a review journal publication in preparation). <br> 
-									• Contributing with MRI and non-invasive Brain Computer Interface (BCI) experimentation for enhancing the control of 2D cursor.</p>
-							</div>
-						</article>
-					
-						<!-- Fifth Item: PATgpu_research -->
-						<article class="col-6 col-12-xsmall work-item">
-							<a href="#content-PATgpu_research" class="image fit thumb mfp-inline">
-								<img src="images/PATgpu_research.jpg" alt="" />
-							</a>
-							<h3>A GPU-Accelerated Inversion Algorithm for Photoacoustic Tomography</h3>
-							<div id="content-PATgpu_research" class="mfp-hide popup-content">
-								<img src="images/PATgpu_research.jpg" alt="" style="width: 50%;" />
-								<h3>A GPU-Accelerated Inversion Algorithm for Photoacoustic Tomography</h3>
-								<p>Developed GPU-Accelerated Inversion Algorithm for Photoacoustic Tomography. The implemented algorithm reduces the computation time for photoacoustic tomography for the research in the field of breast cancer screening. Using multi-threaded and parallel processing feature of GPU architecture with CUDA, we worked on a real-time 3D visualization of the imaging at the time of the diagnosis.</p>
-							</div>
-						</article>
-					
-						<!-- Sixth Item: USCsequencing_Preclustering -->
-						<article class="col-6 col-12-xsmall work-item">
-							<a href="#content-USCsequencing_Preclustering" class="image fit thumb mfp-inline">
-								<img src="images/USCsequencing_Preclustering.jpg" alt="" />
-							</a>
-							<h3>Pre-clustering RNA sequences Database for Long-read de Novo Transcriptome Error Correction</h3>
-							<div id="content-USCsequencing_Preclustering" class="mfp-hide popup-content">
-								<img src="images/USCsequencing_Preclustering.jpg" alt="" style="width: 50%;" />
-								<h3>Pre-clustering RNA sequences Database for Long-read de Novo Transcriptome Error Correction</h3>
-								<p>Developed unsupervised machine learning algorithms for pre-clustering Pacific Biosciences RNA sequences database and improving the grouping of similar transcripts to be used for long-read de novo transcriptome error correction. The results obtained from this clustering method achieves better accuracy and runtime for CONVEX tool for fast and accurate de novo transcriptome recovery from long reads.</p>
-							</div>
-						</article>
-					
-						<!-- Seventh Item: batbot -->
-						<article class="col-6 col-12-xsmall work-item">
-							<a href="#content-batbot" class="image fit thumb mfp-inline">
-								<img src="images/batbot.jpg" alt="" />
-							</a>
-							<h3>Rescue-Bot: BatBot Rescuing Pets from Fire</h3>
-							<div id="content-batbot" class="mfp-hide popup-content">
-								<img src="images/batbot.jpg" alt="" style="width: 50%;" />
-								<h3>Rescue-Bot: BatBot Rescuing Pets from a Building on Fire <a href="https://github.com/Shahriarnz14/Batbot">[Code]</a></h3>
-								<p>Fully designed, built, and tested an autonomous robot 6 pets and managed to finish the competition as the quarter-finalist among 16 teams. 500+ hours of work on: <br> 
-									<u><b>Implemented more than 2000 lines of C++ code</b></u> including control algorithms for the drive system and the robotic arm.
-									<u><b>Designed and built circuits</b></u> such as H-bridge (run motors), IR receiver circuit (to find the last two pets, and find the way back), Pulse-Width Modulation circuit (to feed the motors), and various signal filters.
-									<u><b>Designed and built the full body of the robot using a CAD software (SolidWorks)</b></u> and made a robotic arm able to collect pets placed in all possible coordinates of space. Made full use of fabrication tools: Waterjet, laser cutter, 3D printer.
-								</p>
-							</div>
-						</article>
-					
-					</div>
-					<!-- <ul class="actions">
-						<li><a href="#" class="button">Full Portfolio</a></li>
-					</ul> -->
-				</section>
+    </div><!-- /.content-sections -->
 
-				<!-- News Section -->
-				<section id="news-section">
-					<h2>📣 News</h2>
-					
-					<div id="news-content">
-						<ul>
-							<li><span><b>[Feb 2026]</b></span> SurvHTE-Bench got accepted to ICLR-2026! <a href="https://openreview.net/pdf?id=qG6O3jMkCj">[Paper]</a> <a href="https://github.com/Shahriarnz14/SurvHTE-Benchmark">[Code]</a> </li>
-							<li><span><b>[Nov 2025]</b></span> Forecasting Textual Time Series Paper accepted to AAAI-2026! <a href="https://arxiv.org/abs/2504.10340">[Paper]</a> <a href="https://github.com/Shahriarnz14/Textual-Time-Series-Forecasting">[Code]</a> </li>
-							<li><span><b>[Sep 2025]</b></span> Geometric Memory Paper accepted to NeurIPS 2025 Workshop on Foundations of Reasoning in Language Models! <a href="https://openreview.net/pdf?id=2NuCrYf8Ap" target="_blank"> [Workshop Version]</a> <a href="https://arxiv.org/abs/2510.26745" target="_blank">[Longer ArXiv]</a> </li>
-							<li><span><b>[May 2025]</b></span> Spending Summer and Fall 2025 in the beautiful NYC as an AI PhD Researcher at <a href="https://research.google/">Google Research</a> hosted by <a href="https://vaishnavh.github.io/" target="_blank">Vaishnavh Nagarajan</a>! Investigating how next-token learners reason and memorize.
-							<li><span><b>[Apr 2025]</b></span> Causal Survival-Analysis Paper accepted to Conference on Health, Inference, and Learning (CHIL)!<a href="https://arxiv.org/abs/2506.18187">[Paper]</a> <a href="https://github.com/Shahriarnz14/causal-meta-learner-survival-analysis">[Code]</a> </li>
-							<li><span><b>[March 2025]</b></span> ML-Driven Glucose Prediction Paper accepted to Biosensors Journal! (Collaboration with Pardis Sadeghi)<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11940286/">[Paper]</a> </li>
-							<li><span><b>[Feb 2025]</b></span> First Patent published for predicting mRNA properties using Large Language Models! (Work from Sanofi's Internship)<a href="https://patents.google.com/patent/WO2025026948A1">[Patent]</a> </li>
-							<li><span><b>[Jan 2025]</b></span> mRNA-LM Paper accepted to Nucleic Acids Research (NAR) Journal! (Work from Sanofi's Internship)<a href="https://academic.oup.com/nar/article/53/3/gkaf044/7997216">[Paper]</a> <a href="https://github.com/Sanofi-Public/mRNA-LM">[Code]</a> </li>
-							<li><span><b>[Sep 2024]</b></span> Awarded Tata Consultancy Services (TCS) Presidential Fellowship</li>
-							<li><span><b>[May 2024]</b></span> Spending Summer 2024 as an AI Research Scientist Intern at <a href="https://jobs.sanofi.com/en/ai-coe">Sanofi Inc.</a> </li>
-							<li><span><b>[Apr 2024]</b></span> TLDR Paper accepted to SemEval-2024 at NAACL!<a href="https://arxiv.org/abs/2404.09136">[Paper]</a> <a href="https://github.com/Shahriarnz14/TLDR-T5-generated-clinical-Language-for-DeBERTa-Report-Analysis">[Code]</a> </li>
-							<li><span><b>[Nov 2023]</b></span> Temporal-SCL Paper accepted to Machine Learning for Health (ML4H) Conference!<a href="https://arxiv.org/abs/2312.05933">[Paper]</a> <a href="https://github.com/Shahriarnz14/Temporal-Supervised-Contrastive-Learning">[Code]</a> </li>
-							<li><span><b>[Sep 2023]</b></span> Awarded Natural Sciences and Engineering Research Council of Canada (NSERC) CGS-D/PGS-D Fellowship</li>
-							<li><span><b>[May 2023]</b></span> Awarded best first paper award at Heinz</li>
-							<li><span><b>[Feb 2023]</b></span> Oral Presentation at AAAI'23 Representation Learning for Responsible Human-Centric AI 
-							<a href="https://r2hcai.github.io/AAAI-23/files/CameraReadys/46.pdf">[Paper]</a> <a href="https://www.youtube.com/watch?v=sykp_gKXpAk&ab_channel=ShahriarNoroozizadeh">[Video]</a> </li>
-							</li>
-							<li><span><b>[Sep 2022]</b></span> Awarded <a href="https://www.cs.cmu.edu/cmlh/digital-health-archive/cmlh-digital-health-fellows-2022#:~:text=Chain%20Monte%20Carlo%22-,Shahriar,-Noroozizadeh%20is%20a">
-								Fellowship in Digital Health Innovation</a> from Center for Machine Learning and Health (CMLH) at CMU</li>
-							<li><span><b>[Jun 2022]</b></span> Poster at CVPR'22 Embodied AI Workshop
-							<a href="https://embodied-ai.org/papers/2022/20.pdf">[Paper]</a>
-							</li>
-							<li><span><b>[May 2022]</b></span> Graduated from Machine Learning Master's at CMU! </li>
-							<li><span><b>[Sep 2021]</b></span> Started a joint PhD at Heinz College and Machine Learning Department at CMU! </li>
-							<li><span><b>[Dec 2020]</b></span> Graduated from Biomedical Engineering Master's at CMU!  <a href="https://drive.google.com/file/d/1iUfV4gimAnLFZUf9FgRXyzKLeEfHwaw9/view">[Thesis]</a></li>
-							<li><span><b>[Jan 2019]</b></span> Paper accepted to Neuroinformatics Journal! (AShLAW 🎉) <a href="https://link.springer.com/article/10.1007/s12021-018-9405-x">[Paper]</a> </li>
-							<li><span><b>[Sep 2018]</b></span> Awarded CMU Presidential Fellowship from College of Engineering</li>
-							<li><span><b>[May 2018]</b></span> Graduated from Engineering Physics with EECS Specilization at UBC!</li>
-							<!-- Add more list items for additional news updates -->
-						</ul>
-					</div>
-				</section>
+    <!-- Footer inside content panel -->
+    <footer id="site-footer">
+      <span class="footer-copy">&copy; Shahriar Noroozizadeh</span>
+      <div class="footer-links">
+        <a href="https://github.com/Shahriarnz14" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://ca.linkedin.com/in/shahriar-noroozi-zadeh-a4169ba4" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://scholar.google.com/citations?user=3mRjov8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+        <a href="Resume_Shahriar_Noroozizadeh_online.pdf" target="_blank" rel="noopener" title="CV"><i class="ai ai-cv"></i></a>
+      </div>
+    </footer>
 
+  </main><!-- /#content-panel -->
+</div><!-- /#layout -->
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
-						<li><a href="https://github.com/Shahriarnz14" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="https://ca.linkedin.com/in/shahriar-noroozi-zadeh-a4169ba4" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						<li>
-							<a href="https://scholar.google.com/citations?user=3mRjov8AAAAJ&hl=en&oi=ao" class="ai ai-google-scholar ai-2x"><span class="label"></span></a>
-						</li>
-						<li>
-							<a href="Resume_Shahriar_Noroozizadeh_online.pdf" class="ai ai-cv ai-2x mfp-iframe-popup"><span class="label"></span></a>
-							<!-- Hidden content for Magnific Popup -->
-							<div id="cv-popup" class="mfp-hide">
-								<iframe src="Resume_Shahriar_Noroozizadeh_online.pdf" style="width:90%; height:90%;" frameborder="0"></iframe>
-							</div>
-						</li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Shahriar Noroozizadeh</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+<!-- ═══════════════════════════════════════════════════════════════
+     UNIFIED MODAL OVERLAY
+════════════════════════════════════════════════════════════════ -->
+<div id="modal-overlay" role="dialog" aria-modal="true" aria-label="Details">
+  <div class="modal-box" id="modal-box">
+    <div class="modal-close">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-content" id="modal-content">
+      <!-- Injected by modals.js -->
+    </div>
+  </div>
+</div>
 
-		<!-- Scripts -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-		<!-- <script src="assets/js/jquery.poptrox.min.js"></script> -->
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+<!-- ═══════════════════════════════════════════════════════════════
+     EXPAND / VIEW ALL OVERLAY
+════════════════════════════════════════════════════════════════ -->
+<div id="expand-overlay" role="dialog" aria-modal="true">
+  <div class="expand-header">
+    <h2 id="expand-title">All Publications</h2>
+    <button class="expand-close-btn" id="expand-close-btn" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="expand-body">
+    <div class="expand-grid" id="expand-grid">
+      <!-- Injected by carousel.js -->
+    </div>
+  </div>
+</div>
 
-		<script>
-			$(document).ready(function() {
-				// Smooth scrolling for anchor links
-				$("a[href^='#']:not([href='#'])").on('click', function(event) {
-					event.preventDefault();
-					
-					if ($(this).hasClass('mfp-inline')) {
-						return;  // If it's a popup link, don't proceed with the scrolling logic
-					}
-					
-					var target = this.hash;
-					var $targetElem = $(target);
-					
-					// Check if the target element exists and has a defined offset
-					if ($targetElem.length && $targetElem.offset()) {
-						$('html, body').animate({
-							scrollTop: $targetElem.offset().top
-						}, 800, function(){
-							window.location.hash = target;
-						});
-					}
-				});
-			});
-		</script>
+<!-- ═══════════════════════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════════════════════ -->
+<script src="assets/js/data.js"></script>
+<!-- Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<!-- globe.gl (Three.js based) -->
+<script src="https://cdn.jsdelivr.net/npm/globe.gl@2.27.2/dist/globe.gl.min.js"></script>
+<!-- Site scripts -->
+<script src="assets/js/starfield.js"></script>
+<script src="assets/js/modals.js"></script>
+<script src="assets/js/carousel.js"></script>
+<script src="assets/js/timeline.js"></script>
+<script src="assets/js/globe.js"></script>
+<script src="assets/js/main.js"></script>
 
-		<script>
-			$(document).ready(function() {
-			$('.mfp-inline').magnificPopup({
-				type: 'inline',
-				midClick: true,
-				mainClass: 'mfp-fade',
-				removalDelay: 300
-			});
-			});
-		</script>
-
-		<script>
-			$(document).ready(function() {
-				$('.mfp-iframe-popup').magnificPopup({
-					type: 'iframe',
-					mainClass: 'mfp-fade custom-popup-size',
-					removalDelay: 300,
-					preloader: false,
-					fixedContentPos: true,
-					iframe: {
-						patterns: {
-							pdf: {
-								index: 'Resume_Shahriar_Noroozizadeh_online.pdf',
-								id: '/',
-								src: '%id%'
-							}
-						}
-					}
-				});
-			});
-		</script>
-
-			
-
-	</body>
+</body>
 </html>
-

@@ -1,244 +1,113 @@
-/*
-	Strata by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+/* ===================================================================
+   main.js — Site initialization: tabs, nav highlight, smooth scroll,
+   fade-up animations, news scroll fade indicator.
+   =================================================================== */
 
-(function($) {
+(function () {
+  'use strict';
 
-	var $window = $(window),
-		$body = $('body'),
-		$header = $('#header'),
-		$footer = $('#footer'),
-		$main = $('#main'),
-		settings = {
-
-			// Parallax background effect?
-				parallax: true,
-
-			// Parallax factor (lower = more intense, higher = less intense).
-				parallaxFactor: 20
-
-		};
-
-	// Breakpoints.
-		breakpoints({
-			xlarge:  [ '1281px',  '1800px' ],
-			large:   [ '981px',   '1280px' ],
-			medium:  [ '737px',   '980px'  ],
-			small:   [ '481px',   '736px'  ],
-			xsmall:  [ null,      '480px'  ],
-		});
-
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
-
-	// Touch?
-		if (browser.mobile) {
-
-			// Turn on touch mode.
-				$body.addClass('is-touch');
-
-			// Height fix (mostly for iOS).
-				window.setTimeout(function() {
-					$window.scrollTop($window.scrollTop() + 1);
-				}, 0);
-
-		}
-
-	// Footer.
-		breakpoints.on('<=medium', function() {
-			$footer.insertAfter($main);
-		});
-
-		breakpoints.on('>medium', function() {
-			$footer.appendTo($header);
-		});
-
-	// Header.
-
-		// Parallax background.
-
-			// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
-				if (browser.name == 'ie'
-				||	browser.mobile)
-					settings.parallax = false;
-
-			if (settings.parallax) {
-
-				breakpoints.on('<=medium', function() {
-
-					$window.off('scroll.strata_parallax');
-					$header.css('background-position', '');
-
-				});
-
-				breakpoints.on('>medium', function() {
-
-					$header.css('background-position', 'left 0px');
-
-					$window.on('scroll.strata_parallax', function() {
-						$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
-					});
-
-				});
-
-				$window.on('load', function() {
-					$window.triggerHandler('scroll');
-				});
-
-			}
-
-	// Main Sections: Two.
-
-		// Lightbox gallery.
-			// $window.on('load', function() {
-
-				// $('#two').poptrox({
-				// 	caption: function($a) { return $a.next('h3').text(); },
-				// 	overlayColor: '#2c2c2c',
-				// 	overlayOpacity: 0.85,
-				// 	popupCloserText: '',
-				// 	popupLoaderText: '',
-				// 	selector: '.work-item a.image',
-				// 	usePopupCaption: true,
-				// 	usePopupDefaultStyling: false,
-				// 	usePopupEasyClose: false,
-				// 	usePopupNav: true,
-				// 	windowMargin: (breakpoints.active('<=small') ? 0 : 50)
-				// });
-
-				// $('#research').poptrox({
-				// 	caption: function($a) { 
-				// 		var parentArticle = $a.parent('article.work-item');
-				// 		var h3Text = parentArticle.find('h3').text();
-				// 		var pText = parentArticle.find('p').text();
-				// 		return '<div class="popup-title">' + $a.next('h3').text() + '</div><div class="popup-description">' + $a.next('h3').next('p').text() + '</div>';
-				// 	},			
-				// 	overlayColor: '#2c2c2c',
-				// 	overlayOpacity: 0.85,
-				// 	popupCloserText: '',
-				// 	popupLoaderText: '',
-				// 	selector: '.work-item a.image',
-				// 	usePopupCaption: true,
-				// 	usePopupDefaultStyling: false,
-				// 	usePopupEasyClose: false,
-				// 	usePopupNav: true,
-				// 	windowMargin: (breakpoints.active('<=small') ? 0 : 50)
-				// });
-
-				// $('#research').poptrox({
-				// 	selector: '.work-item a.image',
-				// 	popupType: 'inline'
-				// });
-
-				// $('#research').poptrox({
-				// 	overlayColor: '#2c2c2c',
-				// 	overlayOpacity: 0.85,
-				// 	popupCloserText: '',
-				// 	popupLoaderText: '',
-				// 	selector: '.work-item a.image',
-				// 	usePopupCaption: false,  // We don't need the default caption handling
-				// 	usePopupDefaultStyling: false,
-				// 	usePopupEasyClose: false,
-				// 	usePopupNav: true,
-				// 	windowMargin: (breakpoints.active('<=small') ? 0 : 50),
-				// 	popupType: 'inline'  // This tells poptrox to treat href content as inline HTML
-				// });
-
-				// $('#work-experience').poptrox({
-				// 	caption: function($a) { return $a.next('h3').text(); },
-				// 	overlayColor: '#2c2c2c',
-				// 	overlayOpacity: 0.85,
-				// 	popupCloserText: '',
-				// 	popupLoaderText: '',
-				// 	selector: '.work-item a.image',
-				// 	usePopupCaption: true,
-				// 	usePopupDefaultStyling: false,
-				// 	usePopupEasyClose: false,
-				// 	usePopupNav: true,
-				// 	windowMargin: (breakpoints.active('<=small') ? 0 : 50)
-				// });
-
-				// $('#past-projects').poptrox({
-				// 	caption: function($a) { return $a.next('h3').text(); },
-				// 	overlayColor: '#2c2c2c',
-				// 	overlayOpacity: 0.85,
-				// 	popupCloserText: '',
-				// 	popupLoaderText: '',
-				// 	selector: '.work-item a.image',
-				// 	usePopupCaption: true,
-				// 	usePopupDefaultStyling: false,
-				// 	usePopupEasyClose: false,
-				// 	usePopupNav: true,
-				// 	windowMargin: (breakpoints.active('<=small') ? 0 : 50)
-				// });
-
-
-
-// 			});
-
-})(jQuery);
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("#navbar ul li a");
-    let clickedNavItem = null; // New: Track the last clicked item
-
-    // New: Event listeners for each nav item
-    navItems.forEach((item, index) => {
-        item.addEventListener("click", function () {
-            // Remove active class from all items
-            navItems.forEach((i) => i.classList.remove("active"));
-            
-            // Set the clicked item to active
-            item.classList.add("active");
-
-            // Store the clicked item so we can reference it in the scroll function
-            clickedNavItem = item;
-            
-            // Set a timeout to nullify the clickedNavItem after a duration (e.g., 1 second)
-            setTimeout(() => {
-                clickedNavItem = null;
-            }, 1000);
-        });
+  // ── Tab switching (Publications section) ─────────────────────────
+  function initTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        tabBtns.forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const panel = document.getElementById(target);
+        if (panel) panel.classList.add('active');
+      });
     });
+  }
 
-    function makeActive() {
-        // If an item was recently clicked, exit the function
-        if (clickedNavItem) return;
+  // ── Active sidebar nav link on scroll ────────────────────────────
+  function initNavHighlight() {
+    const sections = document.querySelectorAll('.content-section[id]');
+    const links    = document.querySelectorAll('.sidebar-link');
+    if (!sections.length || !links.length) return;
 
-		let maxSection;
-		let maxVal = 0;
-	
-		sections.forEach((section) => {
-			const rect = section.getBoundingClientRect();
-			if (rect.top > 0 && rect.top < window.innerHeight) {
-				const visibleHeight = Math.min(rect.bottom, window.innerHeight) - rect.top;
-				if (visibleHeight > maxVal) {
-					maxVal = visibleHeight;
-					maxSection = section;
-				}
-			}
-		});
-	
-		if (maxSection) {
-			navItems.forEach((item, index) => {
-				if ("#" + sections[index].id === item.getAttribute('href')) {
-					if (maxSection.id === sections[index].id) {
-						item.classList.add('active');
-					} else {
-						item.classList.remove('active');
-					}
-				}
-			});
-		}
-	}
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          links.forEach(l => {
+            l.classList.toggle('active', l.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
 
-    window.addEventListener("scroll", makeActive);
-});
+    sections.forEach(s => observer.observe(s));
+  }
+
+  // ── Smooth scroll for anchor links ───────────────────────────────
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  // ── Scroll-triggered fade-up animations ──────────────────────────
+  function initFadeUps() {
+    const els = document.querySelectorAll('.fade-up, .stagger-children');
+    if (!els.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    els.forEach(el => observer.observe(el));
+  }
+
+  // ── News panel scroll fade indicator ─────────────────────────────
+  function initNewsFade() {
+    const scroll = document.getElementById('news-scroll');
+    const wrap   = scroll ? scroll.parentElement : null;
+    const fade   = wrap ? wrap.querySelector('.news-fade') : null;
+    if (!scroll || !fade) return;
+
+    function update() {
+      const atBottom = scroll.scrollTop + scroll.clientHeight >= scroll.scrollHeight - 10;
+      fade.style.opacity = atBottom ? '0' : '1';
+    }
+    scroll.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  // ── Remove preload class ─────────────────────────────────────────
+  function removePreload() {
+    window.addEventListener('load', () => {
+      document.body.classList.remove('is-preload');
+    });
+  }
+
+  // ── Init ─────────────────────────────────────────────────────────
+  function init() {
+    initTabs();
+    initNavHighlight();
+    initSmoothScroll();
+    initFadeUps();
+    initNewsFade();
+    removePreload();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
