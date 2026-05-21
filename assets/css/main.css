@@ -440,9 +440,9 @@ img { max-width: 100%; display: block; }
   opacity: 0.6;
 }
 
-.prehistoric p {
-  font-size: 0.78rem;
-  color: var(--text-muted);
+#about .prehistoric p {
+  font-size: 0.85rem;
+  /* color: var(--text-muted); */
   line-height: 1.72;
 }
 
