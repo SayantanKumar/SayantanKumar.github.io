@@ -1,6 +1,7 @@
 /* ===================================================================
-   carousel.js — Publication and Project carousels.
-   Research Explorer filter + Swiper.js coverflow carousels.
+   carousel.js — Custom coverflow carousels for publications & projects.
+   Data-pos attribute states drive CSS transforms (no Swiper).
+   Auto-advance 4500ms, hover-pause, keyboard navigation.
    =================================================================== */
 
 (function () {
@@ -30,73 +31,195 @@
 
   function buildLinks(links) {
     return (links || []).map(l =>
-      `<a href="${l.url}" target="_blank" rel="noopener" class="link-btn" onclick="event.stopPropagation();">${l.label}</a>`
+      `<a href="${l.url}" target="_blank" rel="noopener" class="btn btn-sm" onclick="event.stopPropagation();">${l.label}</a>`
     ).join('');
   }
 
-  // ── Build a publication card element ─────────────────────────────
-  function buildPubCard(pub) {
-    const el = document.createElement('div');
-    el.className = 'swiper-slide';
+  function hexToRgba(hex, alpha) {
+    if (!hex || hex.length < 7) return `rgba(59,130,246,${alpha})`;
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
 
-    el.innerHTML = `
-      <div class="pub-card" data-pub-id="${pub.id}">
-        <div class="pub-card-image">
-          <img src="${pub.image}" alt="${pub.title}" loading="lazy" />
-        </div>
-        <div class="pub-card-body">
-          <div class="pub-card-badges">
-            <span class="venue-badge ${badgeClass(pub.venue_badge)}">${pub.venue_badge}</span>
-            ${buildAreaTags(pub.areas)}
+  // ── Coverflow factory ─────────────────────────────────────────────
+  function createCoverflow(opts) {
+    // opts: { listId, prevId, nextId, dotsId, items, type }
+    const list    = document.getElementById(opts.listId);
+    const prevBtn = document.getElementById(opts.prevId);
+    const nextBtn = document.getElementById(opts.nextId);
+    const dotsWrap= document.getElementById(opts.dotsId);
+    if (!list) return null;
+
+    let items     = opts.items.slice();
+    let activeIdx = 0;
+    let autoTimer = null;
+    let isHovered = false;
+
+    // ── Position label for item i given current activeIdx ──────────
+    function getPos(i) {
+      const total = items.length;
+      const diff  = ((i - activeIdx) % total + total) % total;
+      if (diff === 0)          return 'active';
+      if (diff === 1)          return 'next';
+      if (diff === total - 1)  return 'prev';
+      if (diff === 2)          return 'next-2';
+      if (diff === total - 2)  return 'prev-2';
+      return 'hidden';
+    }
+
+    // ── Update all data-pos attrs and dot states ───────────────────
+    function updatePositions() {
+      list.querySelectorAll('.cf-item').forEach((li, i) => {
+        li.setAttribute('data-pos', getPos(i));
+      });
+
+      if (dotsWrap) {
+        dotsWrap.querySelectorAll('.cf-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === activeIdx);
+        });
+      }
+
+      // Update --cf-glow from active pub's badge color
+      if (opts.type === 'pub' && typeof VENUE_BADGES !== 'undefined') {
+        const pub   = items[activeIdx];
+        const color = (VENUE_BADGES[pub.venue_badge] || {}).color || '#3b82f6';
+        document.documentElement.style.setProperty('--cf-glow', hexToRgba(color, 0.14));
+      }
+    }
+
+    function navigate(dir) {
+      activeIdx = ((activeIdx + dir) % items.length + items.length) % items.length;
+      updatePositions();
+    }
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(() => {
+        if (!isHovered) navigate(1);
+      }, 4500);
+    }
+
+    function stopAuto() {
+      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    }
+
+    // ── Build card HTML ───────────────────────────────────────────
+    function buildPubCard(item) {
+      return `
+        <div class="cf-card" data-id="${item.id}">
+          <div class="cf-card-image">
+            <img src="${item.image}" alt="${item.title}" loading="lazy" />
           </div>
-          <div class="pub-card-title">${pub.title}</div>
-          <div class="pub-card-authors">${pub.authors}</div>
-          <div class="pub-card-links">${buildLinks(pub.links)}</div>
+          <div class="cf-card-body">
+            <div class="cf-card-badges">
+              <span class="venue-badge ${badgeClass(item.venue_badge)}">${item.venue_badge}</span>
+              ${buildAreaTags(item.areas)}
+            </div>
+            <div class="cf-card-title">${item.title}</div>
+            <div class="cf-card-authors">${item.authors}</div>
+            <div class="cf-card-links">
+              ${buildLinks(item.links)}
+              <button class="btn btn-sm abs-btn" type="button" onclick="event.stopPropagation();">Abs</button>
+            </div>
+          </div>
+          <div class="cf-card-abstract">${item.abstract.replace(/\n/g, '<br>')}</div>
         </div>
-      </div>
-    `;
+      `;
+    }
 
-    el.querySelector('.pub-card').addEventListener('click', () => {
-      if (typeof openPubModal === 'function') openPubModal(pub);
-    });
+    function buildProjCard(item) {
+      return `
+        <div class="cf-card" data-id="${item.id}">
+          <div class="cf-card-image project-card-image">
+            <img src="${item.image}" alt="${item.title}" loading="lazy" />
+          </div>
+          <div class="cf-card-body">
+            <div class="cf-card-title">${item.title}</div>
+            <div class="cf-card-links">${buildLinks(item.links)}</div>
+          </div>
+        </div>
+      `;
+    }
 
-    return el;
+    // ── (Re)build DOM from items array ────────────────────────────
+    function build(newItems) {
+      items     = newItems.slice();
+      activeIdx = Math.max(0, Math.min(activeIdx, items.length - 1));
+
+      list.innerHTML      = '';
+      if (dotsWrap) dotsWrap.innerHTML = '';
+
+      items.forEach((item, i) => {
+        // List item
+        const li = document.createElement('li');
+        li.className = 'cf-item';
+        li.innerHTML = opts.type === 'pub' ? buildPubCard(item) : buildProjCard(item);
+
+        // Click on non-active → navigate to it
+        li.addEventListener('click', (e) => {
+          const pos = li.getAttribute('data-pos');
+          if (pos === 'prev' || pos === 'prev-2') {
+            navigate(-1); stopAuto(); startAuto(); return;
+          }
+          if (pos === 'next' || pos === 'next-2') {
+            navigate(1);  stopAuto(); startAuto(); return;
+          }
+          // Active card: open modal unless a button was clicked
+          if (pos === 'active') {
+            if (e.target.closest('.btn')) return;
+            if (opts.type === 'pub'  && typeof openPubModal     === 'function') openPubModal(item);
+            if (opts.type === 'proj' && typeof openProjectModal === 'function') openProjectModal(item);
+          }
+        });
+
+        // Abs button
+        const absBtn = li.querySelector('.abs-btn');
+        if (absBtn) {
+          absBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const card = li.querySelector('.cf-card');
+            const open = card.classList.toggle('abs-open');
+            absBtn.textContent = open ? 'Close' : 'Abs';
+          });
+        }
+
+        list.appendChild(li);
+
+        // Dot
+        if (dotsWrap) {
+          const dot = document.createElement('span');
+          dot.className = 'cf-dot';
+          dot.addEventListener('click', () => {
+            activeIdx = i;
+            updatePositions();
+            stopAuto(); startAuto();
+          });
+          dotsWrap.appendChild(dot);
+        }
+      });
+
+      updatePositions();
+    }
+
+    // Prev / Next buttons
+    if (prevBtn) prevBtn.addEventListener('click', () => { navigate(-1); stopAuto(); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { navigate(1);  stopAuto(); startAuto(); });
+
+    // Hover pause
+    const wrap = list.closest('.carousel-wrap');
+    if (wrap) {
+      wrap.addEventListener('mouseenter', () => { isHovered = true; });
+      wrap.addEventListener('mouseleave', () => { isHovered = false; });
+    }
+
+    return { build, navigate, startAuto, stopAuto };
   }
 
-  // ── Build a project card element ──────────────────────────────────
-  function buildProjectCard(proj) {
-    const el = document.createElement('div');
-    el.className = 'swiper-slide';
-
-    el.innerHTML = `
-      <div class="pub-card" data-proj-id="${proj.id}">
-        <div class="pub-card-image project-card-image">
-          <img src="${proj.image}" alt="${proj.title}" loading="lazy" />
-        </div>
-        <div class="pub-card-body">
-          <div class="pub-card-title">${proj.title}</div>
-          <div class="pub-card-links">${buildLinks(proj.links)}</div>
-        </div>
-      </div>
-    `;
-
-    el.querySelector('.pub-card').addEventListener('click', () => {
-      if (typeof openProjectModal === 'function') openProjectModal(proj);
-    });
-
-    return el;
-  }
-
-  // ── Populate wrapper from array ───────────────────────────────────
-  function populateWrapper(wrapper, items, type) {
-    wrapper.innerHTML = '';
-    items.forEach(item => {
-      wrapper.appendChild(type === 'pub' ? buildPubCard(item) : buildProjectCard(item));
-    });
-  }
-
-  // ── Init Publication Swiper ───────────────────────────────────────
-  let pubSwiper = null;
+  // ── Bookshelf (Research Explorer) ────────────────────────────────
+  let pubCf  = null;
+  let projCf = null;
   let currentFilter = 'all';
 
   function filteredPubs(filter) {
@@ -104,138 +227,38 @@
     return PUBLICATIONS.filter(p => p.areas && p.areas.includes(filter));
   }
 
-  function initPubSwiper(items) {
-    const wrapper = document.getElementById('pub-swiper-wrapper');
-    if (!wrapper) return;
-
-    populateWrapper(wrapper, items, 'pub');
-
-    if (pubSwiper) { pubSwiper.destroy(true, true); pubSwiper = null; }
-
-    pubSwiper = new Swiper('#pub-swiper', {
-      slidesPerView:  'auto',
-      centeredSlides: true,
-      spaceBetween:   20,
-      grabCursor:     true,
-      loop:           items.length > 3,
-      navigation: {
-        nextEl: '#pub-next',
-        prevEl: '#pub-prev',
-      },
-      pagination: {
-        el: '#pub-pagination',
-        clickable: true,
-        dynamicBullets: true,
-      },
-      on: {
-        init(swiper) {
-          syncNavBtns(swiper, '#pub-prev', '#pub-next');
-        },
-        slideChange(swiper) {
-          syncNavBtns(swiper, '#pub-prev', '#pub-next');
-        },
-      },
-    });
-  }
-
-  function syncNavBtns(swiper, prevSel, nextSel) {
-    const prev = document.querySelector(prevSel);
-    const next = document.querySelector(nextSel);
-    if (!prev || !next) return;
-    prev.classList.toggle('swiper-button-disabled', swiper.isBeginning && !swiper.params.loop);
-    next.classList.toggle('swiper-button-disabled', swiper.isEnd && !swiper.params.loop);
-  }
-
-  // ── Research Explorer ─────────────────────────────────────────────
-  function initExplorer() {
-    const items = document.querySelectorAll('#research-explorer .explorer-item');
-    items.forEach(item => {
-      item.addEventListener('click', () => {
-        items.forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-        currentFilter = item.dataset.filter;
-        const filtered = filteredPubs(currentFilter);
-        initPubSwiper(filtered);
+  function initBookshelf() {
+    const books = document.querySelectorAll('#research-bookshelf .book');
+    books.forEach(book => {
+      book.addEventListener('click', () => {
+        books.forEach(b => b.classList.remove('active'));
+        book.classList.add('active');
+        currentFilter = book.dataset.filter;
+        if (pubCf) pubCf.build(filteredPubs(currentFilter));
       });
     });
   }
 
-  // ── Init Project Swiper ───────────────────────────────────────────
-  let projSwiper = null;
-
-  function initProjSwiper() {
-    const wrapper = document.getElementById('proj-swiper-wrapper');
-    if (!wrapper) return;
-
-    populateWrapper(wrapper, PROJECTS, 'proj');
-
-    if (projSwiper) { projSwiper.destroy(true, true); projSwiper = null; }
-
-    projSwiper = new Swiper('#proj-swiper', {
-      slidesPerView:  'auto',
-      centeredSlides: true,
-      spaceBetween:   20,
-      grabCursor:     true,
-      loop:           PROJECTS.length > 3,
-      navigation: {
-        nextEl: '#proj-next',
-        prevEl: '#proj-prev',
-      },
-      pagination: {
-        el: '#proj-pagination',
-        clickable: true,
-        dynamicBullets: true,
-      },
-      on: {
-        init(swiper) { syncNavBtns(swiper, '#proj-prev', '#proj-next'); },
-        slideChange(swiper) { syncNavBtns(swiper, '#proj-prev', '#proj-next'); },
-      },
-    });
-  }
-
-  // ── View All buttons ──────────────────────────────────────────────
-  function initViewAll() {
-    const pubBtn = document.getElementById('pub-view-all');
-    if (pubBtn) {
-      pubBtn.addEventListener('click', () => {
-        const filtered = filteredPubs(currentFilter);
-        const label = currentFilter === 'all'
-          ? 'All Publications'
-          : `${currentFilter} — Publications`;
-        if (typeof openExpandOverlay === 'function')
-          openExpandOverlay(filtered, label, 'pub');
-      });
-    }
-
-    const projBtn = document.getElementById('proj-view-all');
-    if (projBtn) {
-      projBtn.addEventListener('click', () => {
-        if (typeof openExpandOverlay === 'function')
-          openExpandOverlay(PROJECTS, 'All Projects', 'proj');
-      });
-    }
-  }
-
-  // ── Update explorer counts based on actual data ───────────────────
+  // ── Count badges ──────────────────────────────────────────────────
   function updateCounts() {
     const counts = {
-      all:                     PUBLICATIONS.length,
-      'Sequence Models':       0,
-      'Healthcare':            0,
-      'Causal':                0,
-      'Neuro/Biomedical AI':   0,
+      all: PUBLICATIONS.length,
+      'Sequence Models': 0,
+      'Healthcare': 0,
+      'Causal': 0,
+      'Neuro/Biomedical AI': 0,
       'Representation Learning': 0,
     };
     PUBLICATIONS.forEach(p => {
-      (p.areas || []).forEach(a => { if (counts[a] !== undefined) counts[a]++; });
+      (p.areas || []).forEach(a => { if (a in counts) counts[a]++; });
     });
     const map = {
-      all:                     'count-all',
-      'Sequence Models':       'count-seq',
-      'Healthcare':            'count-health',
-      'Causal':                'count-causal',
-      'Neuro/Biomedical AI':   'count-neuro',
-      'Representation Learning':'count-repr',
+      all:                       'count-all',
+      'Sequence Models':         'count-seq',
+      'Healthcare':              'count-health',
+      'Causal':                  'count-causal',
+      'Neuro/Biomedical AI':     'count-neuro',
+      'Representation Learning': 'count-repr',
     };
     Object.entries(map).forEach(([key, id]) => {
       const el = document.getElementById(id);
@@ -243,16 +266,63 @@
     });
   }
 
+  // ── View All ─────────────────────────────────────────────────────
+  function initViewAll() {
+    const pubBtn = document.getElementById('pub-view-all');
+    if (pubBtn) {
+      pubBtn.addEventListener('click', () => {
+        const filtered = filteredPubs(currentFilter);
+        const label    = currentFilter === 'all'
+          ? 'All Publications'
+          : `${currentFilter} — Publications`;
+        if (typeof openExpandOverlay === 'function') openExpandOverlay(filtered, label, 'pub');
+      });
+    }
+
+    const projBtn = document.getElementById('proj-view-all');
+    if (projBtn) {
+      projBtn.addEventListener('click', () => {
+        if (typeof openExpandOverlay === 'function') openExpandOverlay(PROJECTS, 'All Projects', 'proj');
+      });
+    }
+  }
+
+  // ── Keyboard navigation ───────────────────────────────────────────
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft')  { if (pubCf)  pubCf.navigate(-1);  }
+    if (e.key === 'ArrowRight') { if (pubCf)  pubCf.navigate(1);   }
+  });
+
   // ── Init ──────────────────────────────────────────────────────────
   function init() {
     if (typeof PUBLICATIONS === 'undefined' || typeof PROJECTS === 'undefined') {
-      console.warn('carousel.js: data.js not loaded yet');
+      console.warn('carousel.js: data.js not loaded');
       return;
     }
+
     updateCounts();
-    initPubSwiper(PUBLICATIONS);
-    initExplorer();
-    initProjSwiper();
+
+    pubCf = createCoverflow({
+      listId: 'pub-cf',
+      prevId: 'pub-prev',
+      nextId: 'pub-next',
+      dotsId: 'pub-dots',
+      items:  PUBLICATIONS,
+      type:   'pub',
+    });
+    if (pubCf) { pubCf.build(PUBLICATIONS); pubCf.startAuto(); }
+
+    projCf = createCoverflow({
+      listId: 'proj-cf',
+      prevId: 'proj-prev',
+      nextId: 'proj-next',
+      dotsId: 'proj-dots',
+      items:  PROJECTS,
+      type:   'proj',
+    });
+    if (projCf) { projCf.build(PROJECTS); projCf.startAuto(); }
+
+    initBookshelf();
     initViewAll();
   }
 

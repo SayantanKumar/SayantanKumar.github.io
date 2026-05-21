@@ -143,10 +143,53 @@
     ctx.fill();
   }
 
+  // ── Nebula clouds & galaxy dust ───────────────────────────────────
+  function drawNebula() {
+    // Cloud 1: violet, upper-right
+    const g1 = ctx.createRadialGradient(W * 0.78, H * 0.18, 0, W * 0.78, H * 0.18, W * 0.30);
+    g1.addColorStop(0, 'rgba(167,139,250,0.055)');
+    g1.addColorStop(0.5, 'rgba(139,92,246,0.024)');
+    g1.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g1;
+    ctx.fillRect(0, 0, W, H);
+
+    // Cloud 2: blue, center-left
+    const g2 = ctx.createRadialGradient(W * 0.18, H * 0.45, 0, W * 0.18, H * 0.45, W * 0.33);
+    g2.addColorStop(0, 'rgba(59,130,246,0.048)');
+    g2.addColorStop(0.6, 'rgba(37,99,235,0.020)');
+    g2.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g2;
+    ctx.fillRect(0, 0, W, H);
+
+    // Cloud 3: cyan, lower-right
+    const g3 = ctx.createRadialGradient(W * 0.68, H * 0.78, 0, W * 0.68, H * 0.78, W * 0.26);
+    g3.addColorStop(0, 'rgba(34,211,238,0.042)');
+    g3.addColorStop(0.5, 'rgba(6,182,212,0.018)');
+    g3.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g3;
+    ctx.fillRect(0, 0, W, H);
+
+    // Galaxy dust band: faint diagonal stripe
+    ctx.save();
+    ctx.translate(W * 0.5, H * 0.5);
+    ctx.rotate(-Math.PI / 7.5);
+    const bandLen = Math.sqrt(W * W + H * H);
+    const dustGrad = ctx.createLinearGradient(0, -65, 0, 65);
+    dustGrad.addColorStop(0, 'rgba(0,0,0,0)');
+    dustGrad.addColorStop(0.28, 'rgba(130,148,185,0.024)');
+    dustGrad.addColorStop(0.50, 'rgba(155,172,210,0.033)');
+    dustGrad.addColorStop(0.72, 'rgba(130,148,185,0.024)');
+    dustGrad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = dustGrad;
+    ctx.fillRect(-bandLen / 2, -65, bandLen, 130);
+    ctx.restore();
+  }
+
   // ── Draw frame ────────────────────────────────────────────────────
   let t = 0;
   function draw() {
     ctx.clearRect(0, 0, W, H);
+    drawNebula();
     t += 1;
 
     const mx = (mouse.x / W - 0.5) * 2;  // -1 to 1

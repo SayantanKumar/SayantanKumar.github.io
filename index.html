@@ -7,8 +7,6 @@
   <meta name="description" content="Shahriar Noroozizadeh, ML+ISM PhD student at Carnegie Mellon University. Research in interpretable representation learning, healthcare ML, sequence models, causal survival analysis." />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230d1226'/><text x='16' y='23' text-anchor='middle' font-size='20' font-family='serif' fill='%233b82f6'>S</text></svg>" />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <!-- Swiper -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body class="is-preload">
 
@@ -144,65 +142,49 @@
         </div>
 
         <div class="research-layout">
-          <!-- Research Explorer -->
-          <div class="research-explorer" id="research-explorer">
-            <div class="explorer-label">Research Explorer</div>
-            <div class="explorer-item active" data-filter="all">
-              <div class="explorer-icon" style="background:rgba(59,130,246,0.15);color:#3b82f6;">
-                <i class="fas fa-layer-group" style="font-size:0.6rem;"></i>
+          <!-- Bookshelf navigation -->
+          <div class="bookshelf" id="research-bookshelf">
+            <div class="bookshelf-label">Research Areas</div>
+            <div class="book-wrap">
+              <div class="book book-all active" data-filter="all">
+                <span class="book-spine-text">All Research</span>
+                <span class="book-count" id="count-all">11</span>
               </div>
-              <span class="explorer-text">Recent / All</span>
-              <span class="explorer-count" id="count-all">11</span>
-            </div>
-            <div class="explorer-item" data-filter="Sequence Models">
-              <div class="explorer-icon" style="background:rgba(99,102,241,0.15);color:#6366f1;">
-                <i class="fas fa-wave-square" style="font-size:0.6rem;"></i>
+              <div class="book book-seq" data-filter="Sequence Models">
+                <span class="book-spine-text">Sequence Models</span>
+                <span class="book-count" id="count-seq">4</span>
               </div>
-              <span class="explorer-text">Sequence Models &amp; Memory</span>
-              <span class="explorer-count" id="count-seq">4</span>
-            </div>
-            <div class="explorer-item" data-filter="Healthcare">
-              <div class="explorer-icon" style="background:rgba(16,185,129,0.15);color:#10b981;">
-                <i class="fas fa-heartbeat" style="font-size:0.6rem;"></i>
+              <div class="book book-health" data-filter="Healthcare">
+                <span class="book-spine-text">Healthcare AI</span>
+                <span class="book-count" id="count-health">8</span>
               </div>
-              <span class="explorer-text">ML for Healthcare</span>
-              <span class="explorer-count" id="count-health">8</span>
-            </div>
-            <div class="explorer-item" data-filter="Causal">
-              <div class="explorer-icon" style="background:rgba(245,158,11,0.15);color:#f59e0b;">
-                <i class="fas fa-code-branch" style="font-size:0.6rem;"></i>
+              <div class="book book-causal" data-filter="Causal">
+                <span class="book-spine-text">Causal Analysis</span>
+                <span class="book-count" id="count-causal">2</span>
               </div>
-              <span class="explorer-text">Causal &amp; Survival Analysis</span>
-              <span class="explorer-count" id="count-causal">2</span>
-            </div>
-            <div class="explorer-item" data-filter="Neuro/Biomedical AI">
-              <div class="explorer-icon" style="background:rgba(139,92,246,0.15);color:#8b5cf6;">
-                <i class="fas fa-brain" style="font-size:0.6rem;"></i>
+              <div class="book book-neuro" data-filter="Neuro/Biomedical AI">
+                <span class="book-spine-text">Neuro / Biomedical</span>
+                <span class="book-count" id="count-neuro">1</span>
               </div>
-              <span class="explorer-text">Neuro / Biomedical AI</span>
-              <span class="explorer-count" id="count-neuro">1</span>
-            </div>
-            <div class="explorer-item" data-filter="Representation Learning">
-              <div class="explorer-icon" style="background:rgba(14,165,233,0.15);color:#0ea5e9;">
-                <i class="fas fa-project-diagram" style="font-size:0.6rem;"></i>
+              <div class="book book-repr" data-filter="Representation Learning">
+                <span class="book-spine-text">Representation</span>
+                <span class="book-count" id="count-repr">5</span>
               </div>
-              <span class="explorer-text">Representation Learning</span>
-              <span class="explorer-count" id="count-repr">5</span>
             </div>
           </div>
 
-          <!-- Carousel -->
+          <!-- Coverflow carousel -->
           <div class="carousel-wrap">
-            <div class="swiper pub-swiper" id="pub-swiper">
-              <div class="swiper-wrapper" id="pub-swiper-wrapper">
+            <div class="cf-stage">
+              <ul class="cf-list" id="pub-cf">
                 <!-- Cards injected by carousel.js -->
-              </div>
+              </ul>
             </div>
             <div class="carousel-footer">
-              <div class="swiper-controls">
-                <button class="swiper-btn" id="pub-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-                <div class="swiper-pagination" id="pub-pagination"></div>
-                <button class="swiper-btn" id="pub-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+              <div class="cf-controls">
+                <button class="cf-btn" id="pub-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <div class="cf-dots" id="pub-dots"></div>
+                <button class="cf-btn" id="pub-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
               </div>
               <button class="view-all-btn" id="pub-view-all">
                 <i class="fas fa-th"></i> View All
@@ -558,16 +540,16 @@
           <h2 class="section-title">Past Research &amp; Project Experiences</h2>
         </div>
         <div class="carousel-wrap">
-          <div class="swiper pub-swiper" id="proj-swiper">
-            <div class="swiper-wrapper" id="proj-swiper-wrapper">
+          <div class="cf-stage">
+            <ul class="cf-list" id="proj-cf">
               <!-- Cards injected by carousel.js -->
-            </div>
+            </ul>
           </div>
           <div class="carousel-footer">
-            <div class="swiper-controls">
-              <button class="swiper-btn" id="proj-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-              <div class="swiper-pagination" id="proj-pagination"></div>
-              <button class="swiper-btn" id="proj-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+            <div class="cf-controls">
+              <button class="cf-btn" id="proj-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+              <div class="cf-dots" id="proj-dots"></div>
+              <button class="cf-btn" id="proj-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
             </div>
             <button class="view-all-btn" id="proj-view-all">
               <i class="fas fa-th"></i> View All
@@ -694,8 +676,6 @@
      SCRIPTS
 ════════════════════════════════════════════════════════════════ -->
 <script src="assets/js/data.js"></script>
-<!-- Swiper -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <!-- GSAP -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
