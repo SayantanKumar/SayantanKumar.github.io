@@ -47,8 +47,17 @@
   --tag-causal:       #f59e0b;
   --tag-neuro:        #8b5cf6;
   --tag-repr:         #0ea5e9;
+  --tag-multi:        #ec4899;
+  --tag-agentic:      #64748b;
+  --tag-robotics:     #14b8a6;
+  --tag-nlp:          #64748b;
+  --tag-ml:           #94a3b8;
+  --tag-imaging:      #38bdf8;
+  --tag-bio:          #10b981;
+  --tag-drug:         #fb923c;
 
   /* Venue badge colors */
+  --badge-icml:       #60a5fa;
   --badge-iclr:       #a78bfa;
   --badge-aaai:       #34d399;
   --badge-chil:       #38bdf8;
@@ -57,6 +66,7 @@
   --badge-naacl:      #f472b6;
   --badge-workshop:   #94a3b8;
   --badge-preprint:   #64748b;
+  --badge-cmlhfellowship: #64748b;
   --badge-journal:    #fb923c;
 
   --navbar-height:    52px;
@@ -297,6 +307,7 @@ img { max-width: 100%; display: block; }
 .chip-causal { color: var(--tag-causal);border-color: var(--tag-causal);background: rgba(245,158,11,0.08); }
 .chip-neuro  { color: var(--tag-neuro); border-color: var(--tag-neuro); background: rgba(139,92,246,0.08); }
 .chip-repr   { color: var(--tag-repr);  border-color: var(--tag-repr);  background: rgba(14,165,233,0.08); }
+.chip-multi  { color: var(--tag-multi); border-color: var(--tag-multi); background: rgba(236,72,153,0.08); }
 
 /* Sidebar social links */
 .sidebar-social {
@@ -508,6 +519,7 @@ img { max-width: 100%; display: block; }
 .book-causal { --book-color: #7c2d12; --book-glow: rgba(245,158,11,0.42); }
 .book-neuro  { --book-color: #4c1d95; --book-glow: rgba(139,92,246,0.42); }
 .book-repr   { --book-color: #0c4a6e; --book-glow: rgba(14,165,233,0.42); }
+.book-multi  { --book-color: #831843; --book-glow: rgba(236,72,153,0.42); }
 
 .book-spine-text {
   font-size: 0.71rem;
@@ -1532,7 +1544,16 @@ img { max-width: 100%; display: block; }
 .tag-causal { color: var(--tag-causal);border-color: var(--tag-causal);background: rgba(245,158,11,0.10); }
 .tag-neuro  { color: var(--tag-neuro); border-color: var(--tag-neuro); background: rgba(139,92,246,0.10); }
 .tag-repr   { color: var(--tag-repr);  border-color: var(--tag-repr);  background: rgba(14,165,233,0.10); }
+.tag-multi  { color: var(--tag-multi); border-color: var(--tag-multi); background: rgba(236,72,153,0.10); }
+.tag-agentic{ color: var(--tag-agentic);border-color: var(--tag-agentic);background: rgba(100,116,139,0.10); }
+.tag-robotics{ color: var(--tag-robotics);border-color: var(--tag-robotics);background: rgba(20,184,166,0.10); }
+.tag-nlp    { color: var(--tag-nlp);   border-color: var(--tag-nlp);   background: rgba(100,116,139,0.10); }
+.tag-ml     { color: var(--tag-ml);    border-color: var(--tag-ml);    background: rgba(148,163,184,0.10); }
+.tag-imaging{ color: var(--tag-imaging);border-color: var(--tag-imaging);background: rgba(56,189,248,0.10); }
+.tag-bio    { color: var(--tag-bio);   border-color: var(--tag-bio);   background: rgba(16,185,129,0.10); }
+.tag-drug   { color: var(--tag-drug);  border-color: var(--tag-drug);  background: rgba(251,146,60,0.10); }
 
+.badge-icml    { color: var(--badge-icml);    border-color: var(--badge-icml);    background: rgba(96,165,250,0.10); }
 .badge-iclr    { color: var(--badge-iclr);    border-color: var(--badge-iclr);    background: rgba(167,139,250,0.10); }
 .badge-aaai    { color: var(--badge-aaai);    border-color: var(--badge-aaai);    background: rgba(52,211,153,0.10); }
 .badge-chil    { color: var(--badge-chil);    border-color: var(--badge-chil);    background: rgba(56,189,248,0.10); }
@@ -1541,6 +1562,7 @@ img { max-width: 100%; display: block; }
 .badge-naacl   { color: var(--badge-naacl);   border-color: var(--badge-naacl);   background: rgba(244,114,182,0.10); }
 .badge-workshop{ color: var(--badge-workshop);border-color: var(--badge-workshop);background: rgba(148,163,184,0.10); }
 .badge-preprint{ color: var(--badge-preprint);border-color: var(--badge-preprint);background: rgba(100,116,139,0.10); }
+.badge-cmlhfellowship{ color: var(--badge-cmlhfellowship);border-color: var(--badge-cmlhfellowship);background: rgba(100,116,139,0.10); }
 .badge-journal { color: var(--badge-journal); border-color: var(--badge-journal); background: rgba(251,146,60,0.10); }
 
 /* ─── Project carousel image height ─────────────────────────────── */

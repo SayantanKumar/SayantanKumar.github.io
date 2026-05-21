@@ -10,11 +10,20 @@
   // ── Helpers ───────────────────────────────────────────────────────
   function areaToKey(area) {
     const map = {
-      'Sequence Models':         'seq',
-      'Healthcare':              'health',
-      'Causal':                  'causal',
-      'Neuro/Biomedical AI':     'neuro',
-      'Representation Learning': 'repr',
+      'Deep Sequence Modeling':              'seq',
+      'Healthcare AI':                       'health',
+      'Causal Inference / Survival Analysis':'causal',
+      'Neuro / Biomedical AI':               'neuro',
+      'Representation Learning':             'repr',
+      'Multimodal Machine Learning':         'multi',
+      'Agentic':                             'agentic',
+      'Robotics':                            'robotics',
+      'NLP':                                 'nlp',
+      'Machine Learning':                    'ml',
+      'Neuroengineering':                    'neuro',
+      'Computational Imaging':               'imaging',
+      'Computational Biology':               'bio',
+      'Drug Discovery':                      'drug',
     };
     return map[area] || 'repr';
   }
@@ -136,6 +145,9 @@
             <img src="${item.image}" alt="${item.title}" loading="lazy" />
           </div>
           <div class="cf-card-body">
+            <div class="cf-card-badges">
+              ${buildAreaTags(item.areas)}
+            </div>
             <div class="cf-card-title">${item.title}</div>
             <div class="cf-card-links">${buildLinks(item.links)}</div>
           </div>
@@ -243,22 +255,24 @@
   function updateCounts() {
     const counts = {
       all: PUBLICATIONS.length,
-      'Sequence Models': 0,
-      'Healthcare': 0,
-      'Causal': 0,
-      'Neuro/Biomedical AI': 0,
+      'Deep Sequence Modeling': 0,
+      'Healthcare AI': 0,
+      'Causal Inference / Survival Analysis': 0,
+      'Neuro / Biomedical AI': 0,
       'Representation Learning': 0,
+      'Multimodal Machine Learning': 0,
     };
     PUBLICATIONS.forEach(p => {
       (p.areas || []).forEach(a => { if (a in counts) counts[a]++; });
     });
     const map = {
       all:                       'count-all',
-      'Sequence Models':         'count-seq',
-      'Healthcare':              'count-health',
-      'Causal':                  'count-causal',
-      'Neuro/Biomedical AI':     'count-neuro',
-      'Representation Learning': 'count-repr',
+      'Deep Sequence Modeling':              'count-seq',
+      'Healthcare AI':                       'count-health',
+      'Causal Inference / Survival Analysis':'count-causal',
+      'Neuro / Biomedical AI':               'count-neuro',
+      'Representation Learning':             'count-repr',
+      'Multimodal Machine Learning':         'count-multi',
     };
     Object.entries(map).forEach(([key, id]) => {
       const el = document.getElementById(id);

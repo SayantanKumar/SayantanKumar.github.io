@@ -49,17 +49,26 @@
 
   function areaToKey(area) {
     const map = {
-      'Sequence Models':        'seq',
-      'Healthcare':             'health',
-      'Causal':                 'causal',
-      'Neuro/Biomedical AI':    'neuro',
-      'Representation Learning':'repr',
+      'Deep Sequence Modeling':              'seq',
+      'Healthcare AI':                       'health',
+      'Causal Inference / Survival Analysis':'causal',
+      'Neuro / Biomedical AI':               'neuro',
+      'Representation Learning':             'repr',
+      'Multimodal Machine Learning':         'multi',
+      'Agentic':                             'agentic',
+      'Robotics':                            'robotics',
+      'NLP':                                 'nlp',
+      'Machine Learning':                    'ml',
+      'Neuroengineering':                    'neuro',
+      'Computational Imaging':               'imaging',
+      'Computational Biology':               'bio',
+      'Drug Discovery':                      'drug',
     };
     return map[area] || 'repr';
   }
 
   function venueBadgeHTML(badge, venue) {
-    return `<span class="venue-badge badge-${badge.toLowerCase()}">${venue}</span>`;
+    return `<span class="venue-badge badge-${badge.toLowerCase().replace(/[^a-z]/g, '')}">${venue}</span>`;
   }
 
   function linksHTML(links) {
@@ -103,6 +112,7 @@
   window.openProjectModal = function (proj) {
     const html = `
       <img class="modal-image" src="${proj.image}" alt="${proj.title}" loading="lazy" />
+      <div class="modal-meta">${areaTagsHTML(proj.areas)}</div>
       <div class="modal-title">${proj.title}</div>
       <div class="modal-links" style="margin-bottom:14px;">${linksHTML(proj.links)}</div>
       <div class="modal-abstract-label">Description</div>
@@ -142,7 +152,7 @@
       card.className = 'expand-card';
 
       let tagsHTML = '';
-      if (type === 'pub' && item.areas) {
+      if (item.areas) {
         tagsHTML = item.areas.map(a => {
           const key = areaToKey(a);
           return `<span class="area-tag tag-${key}" style="font-size:0.62rem;">${a}</span>`;
