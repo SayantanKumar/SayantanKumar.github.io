@@ -50,7 +50,12 @@
   }
 
   function venueBadgeHTML(badge, venue) {
-    return `<span class="venue-badge badge-${badge.toLowerCase().replace(/[^a-z]/g, '')}">${venue}</span>`;
+    if (Array.isArray(badge)) {
+      return badge.map((b, i) =>
+        `<span class="venue-badge badge-${b.toLowerCase().replace(/[^a-z0-9]/g, '')}">${i === 0 ? venue : b}</span>`
+      ).join('');
+    }
+    return `<span class="venue-badge badge-${badge.toLowerCase().replace(/[^a-z0-9]/g, '')}">${venue}</span>`;
   }
 
   function linksHTML(links) {

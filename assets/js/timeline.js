@@ -1,7 +1,7 @@
 /* ===================================================================
    timeline.js — Horizontal alternating work-experience timeline.
+   Dynamically fits all entries without horizontal scroll.
    Scroll-triggered entrance: axis draws L→R, nodes pop, cards stagger.
-   Running stick figure at far right.
    =================================================================== */
 
 (function () {
@@ -10,58 +10,83 @@
   const inner = document.getElementById('timeline-inner');
   if (!inner || typeof TIMELINE === 'undefined') return;
 
-  // ── Layout config ─────────────────────────────────────────────────
-  const ENTRY_W    = 190;  // card width — larger for visual prominence
-  const GAP        = 90;   // horizontal gap between entries
-  const AXIS_Y     = 50;   // % from top of inner container
-  const CARD_H     = 120;  // approximate card height
-  const CONNECTOR  = 35;   // connector line length
+  // ── Layout constants ──────────────────────────────────────────────
+  const PAD_L       = 40;   // left start margin
+  const PAD_R       = 80;   // right margin (stick figure space)
+  const CONNECTOR   = 32;   // connector line length
+
+  let ENTRY_W = 145;
+  let GAP     = 40;
+  let CARD_H  = 145;
+
+  // ── Compute dimensions from container width ───────────────────────
+  function computeDimensions() {
+    const wrap       = inner.parentElement;
+    const containerW = wrap ? wrap.clientWidth : 960;
+    const n          = TIMELINE.length;
+    const available  = Math.max(0, containerW - PAD_L - PAD_R);
+
+    // Allocate ~72% to card widths, rest to gaps
+    const rawW = Math.floor(available * 0.72 / n);
+    ENTRY_W    = Math.max(110, Math.min(160, rawW));
+    const remaining = available - n * ENTRY_W;
+    GAP        = n > 1 ? Math.max(10, Math.floor(remaining / (n - 1))) : 20;
+    // Slightly taller than wide for square feel (account for logo + text)
+    CARD_H     = Math.min(165, Math.max(130, ENTRY_W + 20));
+
+    // Expose as CSS custom property for card width
+    document.documentElement.style.setProperty('--tl-entry-w', ENTRY_W + 'px');
+  }
 
   // ── Compute total width needed ────────────────────────────────────
   function totalWidth() {
-    return 80 + TIMELINE.length * (ENTRY_W + GAP) + 80;
+    return PAD_L + TIMELINE.length * (ENTRY_W + GAP) - GAP + PAD_R;
   }
 
   // ── Build timeline DOM ────────────────────────────────────────────
   function buildTimeline() {
+    computeDimensions();
     inner.style.minWidth = totalWidth() + 'px';
     inner.style.height   = (CARD_H * 2 + CONNECTOR * 2 + 60) + 'px';
 
     // Axis
-    const axis = document.getElementById('timeline-axis');
+    const axis     = document.getElementById('timeline-axis');
     const axisGlow = document.getElementById('timeline-axis-glow');
-    const axisRight = 80;
     if (axis) {
-      axis.style.left  = '40px';
-      axis.style.right = axisRight + 'px';
+      axis.style.left  = PAD_L + 'px';
+      axis.style.right = PAD_R + 'px';
       axis.style.top   = '50%';
     }
     if (axisGlow) {
-      axisGlow.style.left  = '40px';
-      axisGlow.style.right = axisRight + 'px';
+      axisGlow.style.left  = PAD_L + 'px';
+      axisGlow.style.right = PAD_R + 'px';
       axisGlow.style.top   = '50%';
     }
 
     // Entries
     TIMELINE.forEach((entry, i) => {
-      const above = i % 2 === 0; // even → above axis
-      const x = 40 + i * (ENTRY_W + GAP) + ENTRY_W / 2;
+      const above = i % 2 === 0;
+      const x     = PAD_L + i * (ENTRY_W + GAP) + ENTRY_W / 2;
 
       const div = document.createElement('div');
       div.className = `timeline-entry ${above ? 'above' : 'below'}`;
-      div.style.left   = (x - ENTRY_W / 2) + 'px';
-      div.style.width  = ENTRY_W + 'px';
+      div.style.left  = (x - ENTRY_W / 2) + 'px';
+      div.style.width = ENTRY_W + 'px';
+
+      const cardHTML = `
+        <div class="timeline-card" data-timeline-id="${entry.id}">
+          <img class="timeline-logo" src="${entry.logo}" alt="${entry.full_name}"
+               onerror="this.style.display='none'" loading="lazy" />
+          <div class="timeline-card-label">${entry.label}</div>
+          <div class="timeline-card-location">${entry.location}</div>
+          <div class="timeline-card-period">${entry.period}</div>
+        </div>
+      `;
 
       if (above) {
         div.style.top = '0';
-        // card sits at top, connector + node below it
         div.innerHTML = `
-          <div class="timeline-card" data-timeline-id="${entry.id}">
-            <img class="timeline-logo" src="${entry.logo}" alt="${entry.full_name}"
-                 onerror="this.style.display='none'" loading="lazy" />
-            <div class="timeline-card-label">${entry.label}</div>
-            <div class="timeline-card-period">${entry.period}</div>
-          </div>
+          ${cardHTML}
           <div class="timeline-connector"></div>
           <div class="timeline-node" data-timeline-id="${entry.id}" title="${entry.full_name}"></div>
         `;
@@ -70,16 +95,10 @@
         div.innerHTML = `
           <div class="timeline-node" data-timeline-id="${entry.id}" title="${entry.full_name}"></div>
           <div class="timeline-connector"></div>
-          <div class="timeline-card" data-timeline-id="${entry.id}">
-            <img class="timeline-logo" src="${entry.logo}" alt="${entry.full_name}"
-                 onerror="this.style.display='none'" loading="lazy" />
-            <div class="timeline-card-label">${entry.label}</div>
-            <div class="timeline-card-period">${entry.period}</div>
-          </div>
+          ${cardHTML}
         `;
       }
 
-      // Click anywhere in entry → modal
       div.querySelectorAll('[data-timeline-id]').forEach(el => {
         el.addEventListener('click', () => {
           if (typeof openTimelineModal === 'function') openTimelineModal(entry);
@@ -89,7 +108,6 @@
       inner.appendChild(div);
     });
 
-    // Running stick figure
     addStickFigure();
   }
 
@@ -131,17 +149,11 @@
         .arm-r { animation: arm-r 0.6s linear infinite; }
       </style>
       <g class="runner-body" stroke="rgba(148,163,184,0.7)" stroke-width="1.5" stroke-linecap="round" fill="none">
-        <!-- Head -->
         <circle cx="12" cy="5" r="3" fill="rgba(148,163,184,0.5)" stroke="none"/>
-        <!-- Torso -->
         <line x1="12" y1="8" x2="12" y2="22"/>
-        <!-- Left arm -->
         <line class="arm-l" x1="12" y1="13" x2="6" y2="18"/>
-        <!-- Right arm -->
         <line class="arm-r" x1="12" y1="13" x2="18" y2="18"/>
-        <!-- Left leg -->
         <line class="leg-l" x1="12" y1="22" x2="6" y2="32"/>
-        <!-- Right leg -->
         <line class="leg-r" x1="12" y1="22" x2="18" y2="32"/>
       </g>
     `;
@@ -153,17 +165,16 @@
     const section = document.getElementById('work-experience');
     if (!section) return;
 
-    const axis    = document.getElementById('timeline-axis');
-    const axisGlow= document.getElementById('timeline-axis-glow');
-    const entries = inner.querySelectorAll('.timeline-entry');
+    const axis     = document.getElementById('timeline-axis');
+    const axisGlow = document.getElementById('timeline-axis-glow');
+    const entries  = inner.querySelectorAll('.timeline-entry');
 
-    // Start hidden
     if (axis) {
-      axis.style.transform     = 'translateY(-50%) scaleX(0)';
+      axis.style.transform      = 'translateY(-50%) scaleX(0)';
       axis.style.transformOrigin = 'left center';
     }
     if (axisGlow) {
-      axisGlow.style.transform     = 'translateY(-50%) scaleX(0)';
+      axisGlow.style.transform      = 'translateY(-50%) scaleX(0)';
       axisGlow.style.transformOrigin = 'left center';
     }
 
@@ -181,7 +192,6 @@
     observer.observe(section);
 
     function runEntrance() {
-      // Step 1: axis draws in
       if (axis) {
         axis.style.transition = 'transform 0.9s cubic-bezier(0.4,0,0.2,1)';
         axis.style.transform  = 'translateY(-50%) scaleX(1)';
@@ -190,12 +200,8 @@
         axisGlow.style.transition = 'transform 0.9s cubic-bezier(0.4,0,0.2,1)';
         axisGlow.style.transform  = 'translateY(-50%) scaleX(1)';
       }
-
-      // Step 2 & 3: entries stagger in
       entries.forEach((el, i) => {
-        setTimeout(() => {
-          el.classList.add('visible');
-        }, 900 + i * 120);
+        setTimeout(() => { el.classList.add('visible'); }, 900 + i * 120);
       });
     }
   }
@@ -204,6 +210,15 @@
   function init() {
     buildTimeline();
     initAnimation();
+
+    // Recompute on window resize
+    window.addEventListener('resize', () => {
+      clearTimeout(window._tlResizeTimer);
+      window._tlResizeTimer = setTimeout(() => {
+        inner.querySelectorAll('.timeline-entry, .stick-runner').forEach(el => el.remove());
+        buildTimeline();
+      }, 220);
+    });
   }
 
   if (document.readyState === 'loading') {

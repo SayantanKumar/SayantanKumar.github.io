@@ -30,7 +30,14 @@
   }
 
   function badgeClass(badge) {
-    return 'badge-' + badge.toLowerCase().replace(/[^a-z]/g, '');
+    return 'badge-' + badge.toLowerCase().replace(/[^a-z0-9]/g, '');
+  }
+
+  function buildVenueBadges(venue_badge) {
+    const badges = Array.isArray(venue_badge) ? venue_badge : [venue_badge];
+    return badges.map(b =>
+      `<span class="venue-badge ${badgeClass(b)}">${b}</span>`
+    ).join('');
   }
 
   function buildAreaTags(areas) {
@@ -116,8 +123,9 @@
       }
 
       if (opts.type === 'pub' && typeof VENUE_BADGES !== 'undefined') {
-        const pub   = items[activeIdx];
-        const color = (VENUE_BADGES[pub.venue_badge] || {}).color || '#3b82f6';
+        const pub    = items[activeIdx];
+        const badge  = Array.isArray(pub.venue_badge) ? pub.venue_badge[0] : pub.venue_badge;
+        const color  = (VENUE_BADGES[badge] || {}).color || '#3b82f6';
         document.documentElement.style.setProperty('--cf-glow', hexToRgba(color, 0.14));
       }
     }
@@ -149,7 +157,7 @@
           <div class="cf-card-body">
             <div class="cf-card-badges">
               <div class="cf-badges-venue">
-                <span class="venue-badge ${badgeClass(item.venue_badge)}">${item.venue_badge}</span>
+                ${buildVenueBadges(item.venue_badge)}
               </div>
               <div class="cf-badges-areas">
                 ${buildAreaTags(item.areas)}
@@ -208,8 +216,10 @@
           }
           if (pos === 'active') {
             if (e.target.closest('.btn')) return;
-            if (opts.type === 'pub'  && typeof openPubModal     === 'function') openPubModal(item);
-            if (opts.type === 'proj' && typeof openProjectModal === 'function') openProjectModal(item);
+            // Build navigation context so modal arrows are always available
+            const navCtx = { items: items.slice(), currentIdx: activeIdx, type: opts.type };
+            if (opts.type === 'pub'  && typeof openPubModal     === 'function') openPubModal(item, navCtx);
+            if (opts.type === 'proj' && typeof openProjectModal === 'function') openProjectModal(item, navCtx);
           }
         });
 

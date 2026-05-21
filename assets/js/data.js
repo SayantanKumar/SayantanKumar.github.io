@@ -21,18 +21,24 @@ const AREA_TAGS = {
 };
 
 // ─── Venue badge config ────────────────────────────────────────────
+// color is used for glow/hover tint only — visual style driven by CSS class
 const VENUE_BADGES = {
-  'ICML':     { color: '#60a5fa' },
-  'ICLR':     { color: '#a78bfa' },
-  'AAAI':     { color: '#34d399' },
-  'CHIL':     { color: '#38bdf8' },
-  'NAR':      { color: '#fb923c' },
-  'ML4H':     { color: '#4ade80' },
-  'Workshop': { color: '#94a3b8' },
-  'Preprint': { color: '#64748b' },
-  'CMLH-Fellowship': { color: '#64748b' },
-  'NAACL':    { color: '#f472b6' },
-  'Journal':  { color: '#fb923c' },
+  // Archival / published — white family
+  'ICML':                   { color: '#f1f5f9' },
+  'ICLR':                   { color: '#f1f5f9' },
+  'AAAI':                   { color: '#f1f5f9' },
+  'CHIL':                   { color: '#f1f5f9' },
+  'ML4H':                   { color: '#f1f5f9' },
+  'Neuroinformatics':        { color: '#f1f5f9' },
+  'Nucleic Acids Research':  { color: '#f1f5f9' },
+  // Workshops — cool silver
+  'NAACL-SemEval':           { color: '#b8c4d0' },
+  'CVPR-Embodied AI':        { color: '#b8c4d0' },
+  'AAAI-R2HCAI':             { color: '#b8c4d0' },
+  'NeurIPS-FoRLM':           { color: '#b8c4d0' },
+  // Preprint / fellowship — light gray
+  'Preprint':                { color: '#7a8ea3' },
+  'CMLH-Fellowship':         { color: '#7a8ea3' },
 };
 
 // ─── Recent Research / Publications ───────────────────────────────
@@ -157,7 +163,7 @@ Then, by analyzing a connection to Node2Vec, we demonstrate how the geometry ste
     title: 'mRNA-LM: full-length integrated SLM for mRNA analysis',
     short_title: 'mRNA-LM',
     venue: 'Nucleic Acids Research 2025',
-    venue_badge: 'NAR',
+    venue_badge: 'Nucleic Acids Research',
     year: 2025,
     image: 'images/mRNA-LM.png',
     areas: ['Representation Learning', 'Neuro / Biomedical AI'],
@@ -174,7 +180,7 @@ Then, by analyzing a connection to Node2Vec, we demonstrate how the geometry ste
     title: 'T5-generated clinical-Language summaries for DeBERTa Report Analysis (TLDR)',
     short_title: 'TLDR: Clinical NLI',
     venue: 'SemEval-2024 at NAACL',
-    venue_badge: 'NAACL',
+    venue_badge: 'NAACL-SemEval',
     year: 2024,
     image: 'images/TLDR-Model.jpg',
     areas: ['Healthcare AI'],
@@ -190,7 +196,7 @@ Then, by analyzing a connection to Node2Vec, we demonstrate how the geometry ste
     title: 'Temporal-Supervised Contrastive Learning: Modeling Patient Risk Progression',
     short_title: 'Temporal-Supervised Contrastive Learning',
     venue: 'ML4H 2023 · AAAI R2HCAI Workshop',
-    venue_badge: 'ML4H',
+    venue_badge: ['ML4H', 'AAAI-R2HCAI'],
     year: 2023,
     image: 'images/TSCL-MIMIC.jpg',
     areas: ['Deep Sequence Modeling', 'Representation Learning', 'Healthcare AI'],
@@ -220,7 +226,7 @@ Then, by analyzing a connection to Node2Vec, we demonstrate how the geometry ste
     title: 'Pre-trained CLIP Encoder for Embodied Instruction Following in ALFRED',
     short_title: 'ET-CLIP: Embodied Instruction Following',
     venue: 'CVPR Embodied AI Workshop 2022',
-    venue_badge: 'Workshop',
+    venue_badge: 'CVPR-Embodied AI',
     year: 2022,
     image: 'images/et-clip.jpg',
     areas: ['Representation Learning', 'Multimodal Machine Learning'],
@@ -235,7 +241,7 @@ Then, by analyzing a connection to Node2Vec, we demonstrate how the geometry ste
     title: 'Automatic Brain Pathology Analysis for Traumatic Brain Injury',
     short_title: 'Brain Pathology Analysis: TBI',
     venue: 'Neuroinformatics Journal 2019',
-    venue_badge: 'Journal',
+    venue_badge: 'Neuroinformatics',
     year: 2019,
     image: 'images/neuroinformatics.jpg',
     areas: ['Neuro / Biomedical AI'],
@@ -352,7 +358,7 @@ const TIMELINE = [
   },
   {
     id: 'google',
-    label: 'Google',
+    label: 'Google Research',
     full_name: 'Google Research',
     role: 'A.I. PhD Student Researcher',
     period: '2025',
