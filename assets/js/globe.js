@@ -1,10 +1,7 @@
 /* ===================================================================
-   globe.js — Interactive globe using globe.gl.
-   Two simultaneous layers:
-     1. LOCATION_PINS  → glowing pointsData dots
-     2. CONFERENCE_PINS → htmlElementsData flag markers
-   Flags: triangular flag + dark-red pole, perpendicular to globe surface
-   (orientations updated per animation frame via camera math).
+   globe.js — Lightweight whereabouts globe.
+   Uses native globe.gl point markers only. No HTML marker layer and no
+   per-frame custom marker positioning.
    =================================================================== */
 
 (function () {
@@ -13,178 +10,28 @@
   const container = document.getElementById('globe-container');
   if (!container || typeof Globe === 'undefined') return;
 
-  // ── Pin type config ───────────────────────────────────────────────
   const PIN_COLORS = {
-    academic: '#60a5fa',
-    industry: '#34d399',
-    personal: '#f59e0b',
-    visitor:  '#a78bfa',
+    visited:    '#fff200',
+    visitor:    '#a78bfa',
+    conference: '#ff1744',
   };
 
   const PIN_SIZES = {
-    academic: 0.55,
-    industry: 0.55,
-    personal: 0.45,
-    visitor:  0.38,
+    visited:    0.72,
+    visitor:    0.58,
+    conference: 0.84,
   };
 
-  // ── Flag element tracking for orientation updates ─────────────────
-  const flagData = []; // { el, d }
-
-  // ── Conference flag HTML element — triangular flag + pole ─────────
-  function buildFlagEl(d) {
-    const outer = document.createElement('div');
-    outer.style.cssText = `
-      position: relative;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: flex-start;
-      cursor: default;
-      user-select: none;
-      pointer-events: all;
-      transform-origin: bottom left;
-    `;
-
-    // Triangular flag (CSS border trick → right-pointing triangle)
-    // Sized at ~50% of original rectangular flag (original: 12×9px flag + 14px pole)
-    const flag = document.createElement('div');
-    flag.style.cssText = `
-      width: 0;
-      height: 0;
-      border-top: 3px solid transparent;
-      border-bottom: 3px solid transparent;
-      border-left: 6px solid #c0392b;
-      margin-left: 1px;
-      filter: drop-shadow(0 0 2px rgba(192,57,43,0.70));
-      flex-shrink: 0;
-    `;
-
-    // Pole — dark red vertical bar
-    const pole = document.createElement('div');
-    pole.style.cssText = `
-      width: 1.5px;
-      height: 6px;
-      background: #7b0000;
-      margin-left: 0;
-      flex-shrink: 0;
-    `;
-
-    // Tooltip
-    const confNames = (d.conferences || []).join(' · ');
-    const tooltip = document.createElement('div');
-    tooltip.style.cssText = `
-      position: absolute;
-      bottom: calc(100% + 4px);
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(7,11,20,0.92);
-      border: 1px solid rgba(192,57,43,0.45);
-      border-radius: 6px;
-      padding: 5px 10px;
-      font-family: Roboto, sans-serif;
-      font-size: 11px;
-      color: #e2e8f0;
-      white-space: nowrap;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      z-index: 10;
-    `;
-    tooltip.innerHTML = `<strong style="color:#f87171;">${d.city}</strong><br>${confNames}`;
-
-    outer.appendChild(tooltip);
-    outer.appendChild(flag);
-    outer.appendChild(pole);
-
-    outer.addEventListener('mouseenter', () => { tooltip.style.opacity = '1'; });
-    outer.addEventListener('mouseleave', () => { tooltip.style.opacity = '0'; });
-
-    flagData.push({ el: outer, d });
-    return outer;
-  }
-
-  // ── Per-frame flag orientation update ────────────────────────────
-  // Camera orbits a fixed globe. Surface normals are constant in world space.
-  // We project each flag's surface normal onto the screen plane and compute
-  // the CSS rotate() angle needed to align the flag pole with that direction.
-  function updateFlagOrientations() {
-    if (!shouldRunGlobe()) {
-      flagAnimId = null;
-      return;
-    }
-    if (!globe || flagData.length === 0) {
-      flagAnimId = requestAnimationFrame(updateFlagOrientations);
-      return;
-    }
-
-    const cam = globe.camera();
-    const cp  = cam.position;
-    const cLen = Math.sqrt(cp.x * cp.x + cp.y * cp.y + cp.z * cp.z);
-    if (cLen < 0.001) {
-      flagAnimId = requestAnimationFrame(updateFlagOrientations);
-      return;
-    }
-
-    // Camera forward (toward globe center = -camPos normalized)
-    const fx = -cp.x / cLen, fy = -cp.y / cLen, fz = -cp.z / cLen;
-
-    // Screen up = world Y (0,1,0) projected onto camera plane
-    const dotFU = fy; // (0,1,0)·fwd = fy
-    let sux = -dotFU * fx, suy = 1 - dotFU * fy, suz = -dotFU * fz;
-    const suLen = Math.sqrt(sux * sux + suy * suy + suz * suz);
-    if (suLen < 0.001) {
-      flagAnimId = requestAnimationFrame(updateFlagOrientations);
-      return;
-    }
-    sux /= suLen; suy /= suLen; suz /= suLen;
-
-    // Screen right = fwd × screenUp
-    const srx = fy * suz - fz * suy;
-    const sry = fz * sux - fx * suz;
-    const srz = fx * suy - fy * sux;
-
-    flagData.forEach(({ el, d }) => {
-      const latR = d.lat * Math.PI / 180;
-      const lngR = d.lng * Math.PI / 180;
-
-      // Surface normal (world-space, globe is fixed)
-      const nx = Math.cos(latR) * Math.cos(lngR);
-      const ny = Math.sin(latR);
-      const nz = Math.cos(latR) * Math.sin(lngR);
-
-      // Visibility: dot with camera forward
-      const vis = nx * fx + ny * fy + nz * fz;
-      // (globe.gl already hides rear elements; we just compute angle)
-
-      // Project normal onto screen plane
-      const dot = nx * fx + ny * fy + nz * fz;
-      const pnx = nx - dot * fx, pny = ny - dot * fy, pnz = nz - dot * fz;
-      const pnLen = Math.sqrt(pnx * pnx + pny * pny + pnz * pnz);
-
-      if (pnLen < 0.02) {
-        // Normal pointing directly at camera — no rotation needed
-        el.style.transform = '';
-        return;
-      }
-      const pnNx = pnx / pnLen, pnNy = pny / pnLen, pnNz = pnz / pnLen;
-
-      // Angle between projected normal and screen up
-      const cosA = pnNx * sux + pnNy * suy + pnNz * suz;
-      const sinA = pnNx * srx + pnNy * sry + pnNz * srz;
-      const angle = Math.atan2(sinA, cosA) * 180 / Math.PI;
-
-      el.style.transform = `rotate(${angle.toFixed(1)}deg)`;
-    });
-
-    flagAnimId = requestAnimationFrame(updateFlagOrientations);
-  }
-
-  // ── Build globe ───────────────────────────────────────────────────
-  let globe;
-  let controls;
-  let flagAnimId = null;
+  let globe = null;
+  let controls = null;
   let globeInView = false;
   let globeHovered = false;
+  let markers = [];
+  let activeMarker = null;
+  let tooltip = null;
+  let lastPointer = { x: 0, y: 0 };
+  let hoverCheckTimer = null;
+  const HOVER_CHECK_MS = 90;
 
   function pageFocused() {
     return !document.hidden && document.hasFocus();
@@ -194,99 +41,251 @@
     return globeInView && pageFocused();
   }
 
+  function markerKey(lat, lng) {
+    return `${Number(lat).toFixed(4)},${Number(lng).toFixed(4)}`;
+  }
+
+  function addMarker(map, item) {
+    const key = markerKey(item.lat, item.lng);
+    const existing = map.get(key);
+    if (!existing) {
+      map.set(key, {
+        lat: item.lat,
+        lng: item.lng,
+        label: item.label || item.city || 'Location',
+        sublabels: [],
+        type: item.type || 'visited',
+      });
+      return map.get(key);
+    }
+    return existing;
+  }
+
+  function buildMarkers() {
+    const locationPins = typeof LOCATION_PINS !== 'undefined'
+      ? LOCATION_PINS
+      : (typeof GLOBE_PINS !== 'undefined' ? GLOBE_PINS : []);
+    const conferencePins = typeof CONFERENCE_PINS !== 'undefined' ? CONFERENCE_PINS : [];
+    const byLocation = new Map();
+
+    locationPins.forEach(pin => {
+      const marker = addMarker(byLocation, pin);
+      if (pin.sublabel) marker.sublabels.push(pin.sublabel);
+    });
+
+    conferencePins.forEach(pin => {
+      const marker = addMarker(byLocation, {
+        lat: pin.lat,
+        lng: pin.lng,
+        label: pin.city,
+        type: 'conference',
+      });
+      marker.type = 'conference';
+      (pin.conferences || []).forEach(conf => marker.sublabels.push(conf));
+    });
+
+    return Array.from(byLocation.values()).map(marker => ({
+      ...marker,
+      sublabels: Array.from(new Set(marker.sublabels)),
+    }));
+  }
+
+  function makeTooltip() {
+    const el = document.createElement('div');
+    el.className = 'globe-tooltip';
+    el.setAttribute('aria-hidden', 'true');
+    container.appendChild(el);
+    return el;
+  }
+
+  function tooltipHTML(d) {
+    const detail = d.sublabels.length
+      ? `<div class="globe-tooltip-detail">${d.sublabels.join(' · ')}</div>`
+      : '';
+    const color = PIN_COLORS[d.type] || PIN_COLORS.visited;
+    return `<div class="globe-tooltip-title" style="color:${color};">${d.label}</div>${detail}`;
+  }
+
+  function positionTooltip() {
+    if (!tooltip || !activeMarker) return;
+    const rect = container.getBoundingClientRect();
+    const x = lastPointer.x - rect.left + 14;
+    const y = lastPointer.y - rect.top + 14;
+    tooltip.style.transform = `translate(${x}px, ${y}px)`;
+  }
+
+  function showTooltip(marker) {
+    activeMarker = marker;
+    if (!tooltip) tooltip = makeTooltip();
+    tooltip.innerHTML = tooltipHTML(marker);
+    tooltip.classList.add('visible');
+    positionTooltip();
+  }
+
+  function hideTooltip() {
+    activeMarker = null;
+    if (tooltip) tooltip.classList.remove('visible');
+  }
+
+  function pointerInGlobeCircle(e) {
+    const rect = container.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = e.clientX - cx;
+    const dy = e.clientY - cy;
+    const radius = Math.min(rect.width, rect.height) * 0.44;
+    return dx * dx + dy * dy <= radius * radius;
+  }
+
+  function markerIsFacingCamera(marker) {
+    if (!globe) return false;
+
+    const camera = globe.camera();
+    const cp = camera.position;
+    const cLen = Math.sqrt(cp.x * cp.x + cp.y * cp.y + cp.z * cp.z);
+    if (cLen < 0.001) return false;
+
+    const altitude = marker.type === 'conference' ? 0.025 : 0.014;
+    const point = typeof globe.getCoords === 'function'
+      ? globe.getCoords(marker.lat, marker.lng, altitude)
+      : null;
+
+    if (point) {
+      const pLen = Math.sqrt(point.x * point.x + point.y * point.y + point.z * point.z);
+      if (pLen < 0.001) return false;
+      return ((point.x * cp.x) + (point.y * cp.y) + (point.z * cp.z)) / (pLen * cLen) > 0.12;
+    }
+
+    const lat = marker.lat * Math.PI / 180;
+    const lng = marker.lng * Math.PI / 180;
+    const nx = Math.cos(lat) * Math.cos(lng);
+    const ny = Math.sin(lat);
+    const nz = Math.cos(lat) * Math.sin(lng);
+
+    return (nx * cp.x + ny * cp.y + nz * cp.z) / cLen > 0.12;
+  }
+
+  function hoveredMarkerAt(e) {
+    if (!globe || !markers.length || !pointerInGlobeCircle(e)) return null;
+
+    const rect = container.getBoundingClientRect();
+    const pointerX = e.clientX - rect.left;
+    const pointerY = e.clientY - rect.top;
+    let nearest = null;
+    let nearestDistance = Infinity;
+
+    markers.forEach(marker => {
+      if (!markerIsFacingCamera(marker)) return;
+
+      const pos = globe.getScreenCoords(
+        marker.lat,
+        marker.lng,
+        marker.type === 'conference' ? 0.025 : 0.014,
+      );
+      const dx = pointerX - pos.x;
+      const dy = pointerY - pos.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const hitRadius = marker.type === 'conference' ? 28 : 24;
+
+      if (distance <= hitRadius && distance < nearestDistance) {
+        nearest = marker;
+        nearestDistance = distance;
+      }
+    });
+
+    return nearest;
+  }
+
+  function runHoverCheck() {
+    hoverCheckTimer = null;
+
+    const overGlobe = pointerInGlobeCircle(lastPointer);
+    if (globeHovered !== overGlobe) {
+      globeHovered = overGlobe;
+      syncGlobeActivity();
+    }
+
+    const nearbyMarker = hoveredMarkerAt(lastPointer);
+    if (nearbyMarker) showTooltip(nearbyMarker);
+    else if (!overGlobe || activeMarker) hideTooltip();
+    positionTooltip();
+  }
+
+  function scheduleHoverCheck() {
+    if (hoverCheckTimer) return;
+    hoverCheckTimer = window.setTimeout(runHoverCheck, HOVER_CHECK_MS);
+  }
+
   function syncGlobeActivity() {
     const active = shouldRunGlobe();
-    if (controls) controls.autoRotate = active && !globeHovered;
-    if (globe) {
-      if (active && typeof globe.resumeAnimation === 'function') globe.resumeAnimation();
-      if (!active && typeof globe.pauseAnimation === 'function') globe.pauseAnimation();
-    }
-    if (active) startFlagLoop();
-    else stopFlagLoop();
+    const renderActive = active && !globeHovered;
+    if (controls) controls.autoRotate = renderActive;
+    if (!globe) return;
+
+    if (renderActive && typeof globe.resumeAnimation === 'function') globe.resumeAnimation();
+    if (!renderActive && typeof globe.pauseAnimation === 'function') globe.pauseAnimation();
   }
 
-  function startFlagLoop() {
-    if (!flagAnimId && shouldRunGlobe()) flagAnimId = requestAnimationFrame(updateFlagOrientations);
-  }
-
-  function stopFlagLoop() {
-    if (flagAnimId) cancelAnimationFrame(flagAnimId);
-    flagAnimId = null;
+  function resizeGlobe() {
+    if (!globe) return;
+    const w = container.clientWidth || 360;
+    const h = container.clientHeight || 320;
+    globe.width(w).height(h);
   }
 
   function init() {
-    const w = container.clientWidth  || 400;
-    const h = container.clientHeight || 320;
-
-    const locationPins   = typeof LOCATION_PINS   !== 'undefined' ? LOCATION_PINS   : (typeof GLOBE_PINS !== 'undefined' ? GLOBE_PINS : []);
-    const conferencePins = typeof CONFERENCE_PINS !== 'undefined' ? CONFERENCE_PINS : [];
+    markers = buildMarkers();
 
     globe = Globe({ animateIn: false })(container)
-      .width(w)
-      .height(h)
+      .width(container.clientWidth || 360)
+      .height(container.clientHeight || 320)
       .backgroundColor('rgba(0,0,0,0)')
-      .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
+      .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
       .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
-      .atmosphereColor('#3b82f6')
-      .atmosphereAltitude(0.16)
-      // Layer 1: glowing location dots
-      .pointsData(locationPins)
+      .atmosphereColor('#7dd3fc')
+      .atmosphereAltitude(0.13)
+      .pointsData(markers)
       .pointLat('lat')
       .pointLng('lng')
-      .pointColor(d => PIN_COLORS[d.type] || '#60a5fa')
-      .pointRadius(d => PIN_SIZES[d.type] || 0.45)
-      .pointAltitude(0.01)
-      .pointsMerge(false)
-      .pointLabel(d => {
-        const sub = d.sublabel ? `<br><span style="opacity:0.7;font-size:11px;">${d.sublabel}</span>` : '';
-        return `
-          <div style="
-            background: rgba(7,11,20,0.90);
-            border: 1px solid rgba(59,130,246,0.30);
-            border-radius: 6px;
-            padding: 5px 10px;
-            font-family: Roboto, sans-serif;
-            font-size: 12px;
-            color: #e2e8f0;
-            white-space: nowrap;
-            pointer-events: none;
-          ">${d.label}${sub}</div>
-        `;
-      })
-      // Layer 2: conference flag HTML elements
-      .htmlElementsData(conferencePins)
-      .htmlLat('lat')
-      .htmlLng('lng')
-      .htmlAltitude(0.018)
-      .htmlElement(d => buildFlagEl(d));
+      .pointColor(d => PIN_COLORS[d.type] || PIN_COLORS.visited)
+      .pointRadius(d => PIN_SIZES[d.type] || PIN_SIZES.visited)
+      .pointAltitude(d => d.type === 'conference' ? 0.025 : 0.014)
+      .pointResolution(8)
+      .pointsMerge(false);
 
-    globe.pointOfView({ lat: 20, lng: -20, altitude: 1.8 });
+    globe.pointOfView({ lat: 20, lng: -30, altitude: 1.85 });
+
+    const renderer = typeof globe.renderer === 'function' ? globe.renderer() : null;
+    if (renderer && typeof renderer.setPixelRatio === 'function') {
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.2));
+    }
 
     controls = globe.controls();
-    controls.autoRotate      = shouldRunGlobe();
-    controls.autoRotateSpeed = 0.4;
-    controls.enableZoom      = false;
-    controls.enableDamping   = true;
-    controls.dampingFactor   = 0.1;
+    controls.autoRotate = false;
+    controls.autoRotateSpeed = 0.34;
+    controls.enableZoom = false;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
 
-    // Pause rotation on hover
-    container.addEventListener('mouseenter', () => {
-      globeHovered = true;
-      syncGlobeActivity();
-    });
+    container.addEventListener('mousemove', (e) => {
+      lastPointer = { x: e.clientX, y: e.clientY };
+      positionTooltip();
+      scheduleHoverCheck();
+    }, { passive: true });
     container.addEventListener('mouseleave', () => {
+      if (hoverCheckTimer) {
+        window.clearTimeout(hoverCheckTimer);
+        hoverCheckTimer = null;
+      }
       globeHovered = false;
+      hideTooltip();
       syncGlobeActivity();
     });
 
-    // Brighten the globe canvas
     setTimeout(() => {
       const canvas = container.querySelector('canvas');
-      if (canvas) canvas.style.filter = 'brightness(1.9) saturate(1.15)';
+      if (canvas) canvas.style.filter = 'brightness(1.18) contrast(1.04) saturate(1.12)';
     }, 300);
-
-    // Start per-frame flag orientation only while visible/focused
-    startFlagLoop();
 
     const section = document.getElementById('news-globe');
     if (section) {
@@ -295,28 +294,31 @@
         syncGlobeActivity();
       }, { threshold: [0, 0.12, 0.5] });
       activeObserver.observe(section);
+    } else {
+      globeInView = true;
     }
 
     window.addEventListener('focus', syncGlobeActivity);
     window.addEventListener('blur', syncGlobeActivity);
     document.addEventListener('visibilitychange', syncGlobeActivity);
 
-    const ro = new ResizeObserver(() => {
-      const nw = container.clientWidth;
-      const nh = container.clientHeight;
-      if (nw > 0 && nh > 0) globe.width(nw).height(nh);
-    });
+    const ro = new ResizeObserver(resizeGlobe);
     ro.observe(container);
+    syncGlobeActivity();
   }
 
-  // ── Public: add a visitor pin ─────────────────────────────────────
   window.addVisitorPin = function (lat, lng, label) {
-    const locationPins = typeof LOCATION_PINS !== 'undefined' ? LOCATION_PINS : (typeof GLOBE_PINS !== 'undefined' ? GLOBE_PINS : []);
-    locationPins.push({ lat, lng, label: label || 'Visitor', sublabel: '', type: 'visitor' });
-    if (globe) globe.pointsData([...locationPins]);
+    const marker = {
+      lat,
+      lng,
+      label: label || 'Visitor',
+      sublabels: [],
+      type: 'visitor',
+    };
+    markers.push(marker);
+    if (globe) globe.pointsData([...markers]);
   };
 
-  // ── Init (defer until section is near viewport) ───────────────────
   function tryInit() {
     if (typeof Globe === 'undefined') {
       setTimeout(tryInit, 500);
@@ -327,8 +329,8 @@
     if (!section) { init(); return; }
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
           observer.disconnect();
           init();
         }
@@ -343,5 +345,4 @@
   } else {
     tryInit();
   }
-
 })();

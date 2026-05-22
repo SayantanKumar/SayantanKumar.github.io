@@ -1466,8 +1466,8 @@ img { max-width: 100%; display: block; }
 /* ─── Section 7: News + Globe ────────────────────────────────────── */
 .news-globe-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 36px;
   align-items: start;
 }
 
@@ -1539,15 +1539,48 @@ img { max-width: 100%; display: block; }
 
 .globe-container {
   width: 100%;
-  height: 320px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--border-subtle);
-  background: #050a14;
+  height: 340px;
+  position: relative;
+  overflow: visible;
+  background: transparent;
   cursor: grab;
 }
 
 .globe-container:active { cursor: grabbing; }
+
+.globe-tooltip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  max-width: min(260px, calc(100vw - 48px));
+  padding: 7px 10px;
+  border: 1px solid rgba(255,242,0,0.54);
+  border-radius: 6px;
+  background: rgba(7,11,20,0.94);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.42), 0 0 18px rgba(255,242,0,0.12);
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  line-height: 1.35;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.globe-tooltip.visible {
+  opacity: 1;
+}
+
+.globe-tooltip-title {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.globe-tooltip-detail {
+  margin-top: 2px;
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+}
 
 .globe-stats {
   display: grid;
@@ -1573,6 +1606,16 @@ img { max-width: 100%; display: block; }
   font-size: 0.68rem;
   color: var(--text-muted);
   margin-top: 2px;
+}
+
+.globe-stat-label-visited {
+  color: #fff200;
+  text-shadow: 0 0 12px rgba(255,242,0,0.30);
+}
+
+.globe-stat-label-conference {
+  color: #ff1744;
+  text-shadow: 0 0 12px rgba(255,23,68,0.32);
 }
 
 /* ─── Unified Modal ──────────────────────────────────────────────── */

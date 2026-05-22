@@ -388,18 +388,18 @@ const TIMELINE = [
   },
 ];
 
-// ─── Globe: location glow dots ─────────────────────────────────────
+// ─── Globe: visited location dots ──────────────────────────────────
 // Each entry: { lat, lng, label, sublabel, type }
 // label format: "City, State/Province, Country"
 const LOCATION_PINS = [
-  { lat: 40.4433,  lng: -79.9436,  label: 'Pittsburgh, PA, USA',        sublabel: 'CMU',             type: 'academic'  },
-  { lat: 40.7128,  lng: -74.0060,  label: 'New York, NY, USA',          sublabel: 'Google Research', type: 'industry'  },
-  { lat: 42.3601,  lng: -71.0589,  label: 'Cambridge, MA, USA',         sublabel: 'Sanofi',          type: 'industry'  },
-  { lat: 49.2606,  lng: -123.2460, label: 'Vancouver, BC, Canada',      sublabel: 'UBC',             type: 'academic'  },
-  { lat: 35.6892,  lng:  51.3890,  label: 'Tehran, Tehran, Iran',       sublabel: '',                type: 'personal'  },
-  { lat:  1.3521,  lng: 103.8198,  label: 'Singapore, Singapore',       sublabel: '',                type: 'personal'  },
-  { lat: -22.9068, lng: -43.1729,  label: 'Rio de Janeiro, RJ, Brazil', sublabel: '',                type: 'personal'  },
-  { lat: 37.5665,  lng: 126.9780,  label: 'Seoul, South Korea',         sublabel: '',                type: 'personal'  },
+  { lat: 40.4433,  lng: -79.9436,  label: 'Pittsburgh, PA, USA',        sublabel: 'Visited', type: 'visited' },
+  { lat: 40.7128,  lng: -74.0060,  label: 'New York, NY, USA',          sublabel: 'Visited', type: 'visited' },
+  { lat: 42.3601,  lng: -71.0589,  label: 'Cambridge, MA, USA',         sublabel: 'Visited', type: 'visited' },
+  { lat: 49.2606,  lng: -123.2460, label: 'Vancouver, BC, Canada',      sublabel: 'Visited', type: 'visited' },
+  { lat: 35.6892,  lng:  51.3890,  label: 'Tehran, Tehran, Iran',       sublabel: 'Visited', type: 'visited' },
+  { lat:  1.3521,  lng: 103.8198,  label: 'Singapore, Singapore',       sublabel: 'Visited', type: 'visited' },
+  { lat: -22.9068, lng: -43.1729,  label: 'Rio de Janeiro, RJ, Brazil', sublabel: 'Visited', type: 'visited' },
+  { lat: 37.5665,  lng: 126.9780,  label: 'Seoul, South Korea',         sublabel: 'Visited', type: 'visited' },
 ];
 
 // ─── Globe: conference attendance flags (dark red markers) ─────────
