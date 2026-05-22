@@ -382,12 +382,12 @@ const TIMELINE = [
     id: 'microsoft-research',
     label: 'Microsoft Research',
     full_name: 'Microsoft Research',
-    role: 'A.I.Research Intern',
+    role: 'A.I. Research Intern',
     period: 'May 2026',
     location: 'Redmond, WA, USA',
     logo: 'images/msr.jpeg',
     type: 'industry',
-    details: `Research Intern [2026]: Researching multimodal reasoning and AI triage systems for contextual healthcare decision-making using longitudinal and conversational patient signals.`,
+    details: `AI Research Intern [2026]: Researching multimodal reasoning and AI triage systems for contextual healthcare decision-making using longitudinal and conversational patient signals.`,
   },
 ];
 
