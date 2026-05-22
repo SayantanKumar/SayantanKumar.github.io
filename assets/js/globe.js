@@ -1,7 +1,6 @@
 /* ===================================================================
    globe.js — Lightweight whereabouts globe.
-   Uses native globe.gl point markers only. No HTML marker layer and no
-   per-frame custom marker positioning.
+   Uses globe.gl's native onPointHover for tooltip detection.
    =================================================================== */
 
 (function () {
@@ -29,9 +28,7 @@
   let markers = [];
   let activeMarker = null;
   let tooltip = null;
-  let lastPointer = { x: 0, y: 0 };
-  let hoverCheckTimer = null;
-  const HOVER_CHECK_MS = 90;
+  let lastPointer = { clientX: 0, clientY: 0 };
 
   function pageFocused() {
     return !document.hidden && document.hasFocus();
@@ -109,8 +106,8 @@
   function positionTooltip() {
     if (!tooltip || !activeMarker) return;
     const rect = container.getBoundingClientRect();
-    const x = lastPointer.x - rect.left + 14;
-    const y = lastPointer.y - rect.top + 14;
+    const x = lastPointer.clientX - rect.left + 14;
+    const y = lastPointer.clientY - rect.top + 14;
     tooltip.style.transform = `translate(${x}px, ${y}px)`;
   }
 
@@ -127,103 +124,19 @@
     if (tooltip) tooltip.classList.remove('visible');
   }
 
-  function pointerInGlobeCircle(e) {
-    const rect = container.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
-    const radius = Math.min(rect.width, rect.height) * 0.44;
-    return dx * dx + dy * dy <= radius * radius;
-  }
-
-  function markerIsFacingCamera(marker) {
-    if (!globe) return false;
-
-    const camera = globe.camera();
-    const cp = camera.position;
-    const cLen = Math.sqrt(cp.x * cp.x + cp.y * cp.y + cp.z * cp.z);
-    if (cLen < 0.001) return false;
-
-    const altitude = marker.type === 'conference' ? 0.025 : 0.014;
-    const point = typeof globe.getCoords === 'function'
-      ? globe.getCoords(marker.lat, marker.lng, altitude)
-      : null;
-
-    if (point) {
-      const pLen = Math.sqrt(point.x * point.x + point.y * point.y + point.z * point.z);
-      if (pLen < 0.001) return false;
-      return ((point.x * cp.x) + (point.y * cp.y) + (point.z * cp.z)) / (pLen * cLen) > 0.12;
-    }
-
-    const lat = marker.lat * Math.PI / 180;
-    const lng = marker.lng * Math.PI / 180;
-    const nx = Math.cos(lat) * Math.cos(lng);
-    const ny = Math.sin(lat);
-    const nz = Math.cos(lat) * Math.sin(lng);
-
-    return (nx * cp.x + ny * cp.y + nz * cp.z) / cLen > 0.12;
-  }
-
-  function hoveredMarkerAt(e) {
-    if (!globe || !markers.length || !pointerInGlobeCircle(e)) return null;
-
-    const rect = container.getBoundingClientRect();
-    const pointerX = e.clientX - rect.left;
-    const pointerY = e.clientY - rect.top;
-    let nearest = null;
-    let nearestDistance = Infinity;
-
-    markers.forEach(marker => {
-      if (!markerIsFacingCamera(marker)) return;
-
-      const pos = globe.getScreenCoords(
-        marker.lat,
-        marker.lng,
-        marker.type === 'conference' ? 0.025 : 0.014,
-      );
-      const dx = pointerX - pos.x;
-      const dy = pointerY - pos.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      const hitRadius = marker.type === 'conference' ? 28 : 24;
-
-      if (distance <= hitRadius && distance < nearestDistance) {
-        nearest = marker;
-        nearestDistance = distance;
-      }
-    });
-
-    return nearest;
-  }
-
-  function runHoverCheck() {
-    hoverCheckTimer = null;
-
-    const overGlobe = pointerInGlobeCircle(lastPointer);
-    if (globeHovered !== overGlobe) {
-      globeHovered = overGlobe;
-      syncGlobeActivity();
-    }
-
-    const nearbyMarker = hoveredMarkerAt(lastPointer);
-    if (nearbyMarker) showTooltip(nearbyMarker);
-    else if (!overGlobe || activeMarker) hideTooltip();
-    positionTooltip();
-  }
-
-  function scheduleHoverCheck() {
-    if (hoverCheckTimer) return;
-    hoverCheckTimer = window.setTimeout(runHoverCheck, HOVER_CHECK_MS);
-  }
-
   function syncGlobeActivity() {
     const active = shouldRunGlobe();
-    const renderActive = active && !globeHovered;
-    if (controls) controls.autoRotate = renderActive;
+    // Stop auto-rotation when hovered so the user can inspect pins,
+    // but keep the render loop alive (hover events need it).
+    if (controls) controls.autoRotate = active && !globeHovered;
     if (!globe) return;
 
-    if (renderActive && typeof globe.resumeAnimation === 'function') globe.resumeAnimation();
-    if (!renderActive && typeof globe.pauseAnimation === 'function') globe.pauseAnimation();
+    // Only pause/resume based on visibility and focus, never on hover.
+    if (active) {
+      if (typeof globe.resumeAnimation === 'function') globe.resumeAnimation();
+    } else {
+      if (typeof globe.pauseAnimation === 'function') globe.pauseAnimation();
+    }
   }
 
   function resizeGlobe() {
@@ -241,7 +154,6 @@
       .height(container.clientHeight || 320)
       .backgroundColor('rgba(0,0,0,0)')
       .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-      .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
       .atmosphereColor('#7dd3fc')
       .atmosphereAltitude(0.13)
       .pointsData(markers)
@@ -251,13 +163,17 @@
       .pointRadius(d => PIN_SIZES[d.type] || PIN_SIZES.visited)
       .pointAltitude(d => d.type === 'conference' ? 0.025 : 0.014)
       .pointResolution(8)
-      .pointsMerge(false);
+      .pointsMerge(false)
+      .onPointHover(point => {
+        if (point) showTooltip(point);
+        else hideTooltip();
+      });
 
     globe.pointOfView({ lat: 20, lng: -30, altitude: 1.85 });
 
     const renderer = typeof globe.renderer === 'function' ? globe.renderer() : null;
     if (renderer && typeof renderer.setPixelRatio === 'function') {
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.0));
     }
 
     controls = globe.controls();
@@ -268,15 +184,16 @@
     controls.dampingFactor = 0.08;
 
     container.addEventListener('mousemove', (e) => {
-      lastPointer = { x: e.clientX, y: e.clientY };
+      lastPointer = { clientX: e.clientX, clientY: e.clientY };
       positionTooltip();
-      scheduleHoverCheck();
     }, { passive: true });
+
+    container.addEventListener('mouseenter', () => {
+      globeHovered = true;
+      syncGlobeActivity();
+    });
+
     container.addEventListener('mouseleave', () => {
-      if (hoverCheckTimer) {
-        window.clearTimeout(hoverCheckTimer);
-        hoverCheckTimer = null;
-      }
       globeHovered = false;
       hideTooltip();
       syncGlobeActivity();
