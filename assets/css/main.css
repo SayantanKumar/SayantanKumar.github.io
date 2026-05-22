@@ -9,7 +9,7 @@
 
 /* ─── CSS Custom Properties (dark theme) ─────────────────────────── */
 [data-theme="dark"], :root {
-  --bg-canvas:        #070b14;
+  --bg-canvas:        #061027;
   --bg-sidebar:       #07091200;   /* transparent — sidebar uses solid color */
   --bg-sidebar-solid: #090d1e;
   --bg-panel:         #0d1226;
@@ -361,6 +361,7 @@ img { max-width: 100%; display: block; }
   height: calc(100vh - var(--navbar-height));
   pointer-events: none;
   z-index: 0;
+  filter: blur(0.22px) saturate(1.08) hue-rotate(4deg);
 }
 
 .content-sections {
@@ -441,8 +442,8 @@ img { max-width: 100%; display: block; }
 }
 
 #about .prehistoric p {
-  font-size: 0.85rem;
-  /* color: var(--text-muted); */
+  font-size: 0.62rem;
+  color: var(--text-muted);
   line-height: 1.72;
 }
 
@@ -886,10 +887,12 @@ img { max-width: 100%; display: block; }
 .area-tag {
   font-size: 0.63rem;
   font-weight: 400;
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
   border: 1px solid;
   opacity: 0.85;
+  line-height: 1.45;
+  white-space: nowrap;
 }
 
 .cf-card-title {
@@ -1628,6 +1631,23 @@ img { max-width: 100%; display: block; }
   align-items: center;
 }
 
+.modal-meta-stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.modal-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
+.modal-meta-areas {
+  gap: 4px;
+}
+
 .modal-venue {
   font-size: 0.78rem;
   color: var(--text-muted);
@@ -1881,7 +1901,7 @@ img { max-width: 100%; display: block; }
 .badge-nar,
 .badge-journal {
   color: var(--badge-icml);
-  border-color: rgba(241,245,249,0.28);
+  border-color: currentColor;
   background: rgba(241,245,249,0.05);
 }
 
@@ -1893,7 +1913,7 @@ img { max-width: 100%; display: block; }
 .badge-naacl,
 .badge-workshop {
   color: var(--badge-naaclsemeval);
-  border-color: rgba(184,196,208,0.32);
+  border-color: currentColor;
   background: rgba(184,196,208,0.06);
 }
 
@@ -1901,7 +1921,7 @@ img { max-width: 100%; display: block; }
 .badge-preprint,
 .badge-cmlhfellowship {
   color: var(--badge-preprint);
-  border-color: rgba(122,142,163,0.32);
+  border-color: currentColor;
   background: rgba(122,142,163,0.07);
 }
 

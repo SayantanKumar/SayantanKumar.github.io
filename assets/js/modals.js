@@ -68,9 +68,13 @@
   function buildPubModalHTML(pub) {
     return `
       <img class="modal-image" src="${pub.image}" alt="${pub.title}" loading="lazy" />
-      <div class="modal-meta">
-        ${venueBadgeHTML(pub.venue_badge, pub.venue)}
-        ${areaTagsHTML(pub.areas)}
+      <div class="modal-meta modal-meta-stacked">
+        <div class="modal-meta-row modal-meta-venue">
+          ${venueBadgeHTML(pub.venue_badge, pub.venue)}
+        </div>
+        <div class="modal-meta-row modal-meta-areas">
+          ${areaTagsHTML(pub.areas)}
+        </div>
       </div>
       <div class="modal-title">${pub.title}</div>
       <div class="modal-authors">${pub.authors}</div>
