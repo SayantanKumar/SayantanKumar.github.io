@@ -108,6 +108,8 @@
       if (diff === total - 1)  return 'prev';
       if (diff === 2)          return 'next-2';
       if (diff === total - 2)  return 'prev-2';
+      if (opts.type === 'pub' && diff === 3)         return 'next-3';
+      if (opts.type === 'pub' && diff === total - 3) return 'prev-3';
       return 'hidden';
     }
 
