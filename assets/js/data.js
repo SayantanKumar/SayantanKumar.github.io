@@ -56,6 +56,7 @@ const PUBLICATIONS = [
     links: [
       { label: 'Paper', url: 'https://arxiv.org/abs/2510.26745' },
       { label: 'Workshop', url: 'https://openreview.net/pdf?id=2NuCrYf8Ap' },
+      { label: 'Code', url: 'https://github.com/Shahriarnz14/Geometric_Memory' }
     ],
     abstract: `Deep sequence models are said to store atomic facts predominantly in the form of associative memory: a brute-force lookup of co-occurring entities. We identify a dramatically different form of storage of atomic facts that we term as geometric memory. Here, the model has synthesized embeddings encoding novel global relationships between all entities, including ones that do not co-occur in training. Such storage is powerful: for instance, we show how it transforms a hard reasoning task involving an ℓ-fold composition into an easy-to-learn 1-step navigation task.
 
@@ -75,6 +76,7 @@ Then, by analyzing a connection to Node2Vec, we demonstrate how the geometry ste
     authors: 'S. Noroozizadeh, J. Weiss',
     links: [
       { label: 'Paper', url: 'https://arxiv.org/abs/2504.12326' },
+      { label: 'Code', url: 'https://github.com/Shahriarnz14/T2S2' },
     ],
     abstract: `Clinical case reports and discharge summaries may be the most complete and accurate summarization of patient encounters, yet they are finalized, i.e., timestamped after the encounter. Complementary structured data streams become available sooner but suffer from incompleteness. To train models and algorithms on more complete and temporally fine-grained data, we construct a pipeline to phenotype, extract, and annotate time-localized findings within case reports using large language models. We apply our pipeline to generate an open-access textual time series corpus for Sepsis-3 comprising 2,139 case reports from the PubMed-Open Access (PMOA) Subset. To validate our system, we apply it to PMOA and timeline annotations from i2b2/MIMIC-IV and compare the results to physician-expert annotations. We show high recovery rates of clinical findings (event match rates: GPT-5–0.93, Llama 3.3 70B Instruct–0.76) and strong temporal ordering (concordance: GPT-5–0.965, Llama 3.3 70B Instruct–0.908). Our work characterizes the ability of LLMs to time-localize clinical findings in text, illustrating the limitations of LLM use for temporal reconstruction and providing several potential avenues of improvement via multimodal integration.`,
   },
@@ -90,6 +92,7 @@ Then, by analyzing a connection to Node2Vec, we demonstrate how the geometry ste
     authors: 'S. Kumar *, S. Noroozizadeh *, J. Kim *, J. Weiss',
     links: [
       { label: 'ArXiv', url: 'https://arxiv.org/abs/2605.15168' },
+      { label: 'Code', url: 'https://github.com/SayantanKumar/MLHC_TTA' },
     ],
     abstract: `Reconstructing precise clinical timelines is essential for modeling patient trajectories and forecasting risk in complex, heterogeneous conditions like sepsis. While unstructured clinical narratives offer semantically rich and contextually complete descriptions of a patient's course, they often lack temporal precision and contain ambiguous event timing. Conversely, structured electronic health record (EHR) data provides precise temporal anchors but misses a substantial portion of clinically meaningful events. We introduce a retrieval-augmented multimodal alignment framework that bridges this gap to improve the temporal precision of absolute clinical timelines extracted from text. Our approach formulates timeline reconstruction as a graph-based multistep process: it first extracts central anchor events from narratives to build an initial temporal scaffold, places non-central events relative to this backbone, and then calibrates the timeline using retrieved structured EHR rows as external temporal evidence. Evaluated using instruction-tuned large language models on the i2m4 benchmark spanning MIMIC-III and MIMIC-IV, our multimodal pipeline consistently improves absolute timestamp accuracy (AULTC) and improves temporal concordance across nearly all evaluated models over unimodal text-only reconstruction, without compromising event match rates. Furthermore, our empirical gap analysis reveals that 34.8% of text-derived events are entirely absent from tabular records, demonstrating that aligning these modalities can produce a more temporally faithful and clinically informative reconstruction of patient trajectories than either source alone.`,
   },
@@ -259,7 +262,7 @@ const PROJECTS = [
     id: 'conformal-abstention',
     title: 'Knowing When to Generate: Selective Generation with Conformal Abstention for Human Preference Alignment',
     image: 'images/conformal-abstention.png',
-    areas: ['Machine Learning', 'Multimodal Machine Learning'],
+    areas: ['Machine Learning', 'Multimodal Machine Learning', 'Computer Vision', 'NLP'],
     links: [{ label: 'Code', url: 'https://github.com/Minxing-Zheng/when-to-generate-conformal-abstention' }],
     description: `Standard text-to-image pipelines return outputs even when all sampled candidates are visually poor or misaligned. We frame this problem as <em>selective generation</em>, where a system abstains from returning unreliable images. We propose a plug-and-play conformal abstention layer that wraps pretrained generators and human-preference reward models without retraining. This post hoc calibrator provides a distribution-free risk-control guarantee on the failure rate among accepted outputs. Evaluated on Pick-a-Pic prompts using SDXL-Turbo, conformal abstention achieves the highest selective accuracy and strongest empirical guarantees among baselines, demonstrating that post hoc calibration effectively makes generative systems reliability-aware.`,
   },

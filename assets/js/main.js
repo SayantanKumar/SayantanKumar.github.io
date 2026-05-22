@@ -77,12 +77,24 @@
     const scroll = document.getElementById('news-scroll');
     const wrap   = scroll ? scroll.parentElement : null;
     const fade   = wrap ? wrap.querySelector('.news-fade') : null;
+    const downBtn = wrap ? wrap.querySelector('.news-scroll-down') : null;
     if (!scroll || !fade) return;
 
     function update() {
       const atBottom = scroll.scrollTop + scroll.clientHeight >= scroll.scrollHeight - 10;
       fade.style.opacity = atBottom ? '0' : '1';
+      if (downBtn) downBtn.classList.toggle('hidden', atBottom);
     }
+
+    if (downBtn) {
+      downBtn.addEventListener('click', () => {
+        scroll.scrollBy({
+          top: Math.round(scroll.clientHeight * 0.78),
+          behavior: 'smooth',
+        });
+      });
+    }
+
     scroll.addEventListener('scroll', update, { passive: true });
     update();
   }

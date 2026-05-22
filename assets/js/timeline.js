@@ -18,6 +18,7 @@
   let ENTRY_W = 145;
   let GAP     = 40;
   let CARD_H  = 145;
+  let entranceAnimated = false;
 
   // ── Compute dimensions from container width ───────────────────────
   function computeDimensions() {
@@ -121,6 +122,7 @@
         });
       });
 
+      if (entranceAnimated) div.classList.add('visible');
       inner.appendChild(div);
     });
 
@@ -183,8 +185,6 @@
 
     const axis     = document.getElementById('timeline-axis');
     const axisGlow = document.getElementById('timeline-axis-glow');
-    const entries  = inner.querySelectorAll('.timeline-entry');
-
     if (axis) {
       axis.style.transform      = 'translateY(-50%) scaleX(0)';
       axis.style.transformOrigin = 'left center';
@@ -194,12 +194,10 @@
       axisGlow.style.transformOrigin = 'left center';
     }
 
-    let animated = false;
-
     const observer = new IntersectionObserver((entries_obs) => {
       entries_obs.forEach(entry => {
-        if (entry.isIntersecting && !animated) {
-          animated = true;
+        if (entry.isIntersecting && !entranceAnimated) {
+          entranceAnimated = true;
           runEntrance();
         }
       });
@@ -216,6 +214,7 @@
         axisGlow.style.transition = 'transform 0.9s cubic-bezier(0.4,0,0.2,1)';
         axisGlow.style.transform  = 'translateY(-50%) scaleX(1)';
       }
+      const entries = inner.querySelectorAll('.timeline-entry');
       entries.forEach((el, i) => {
         setTimeout(() => { el.classList.add('visible'); }, 900 + i * 120);
       });
