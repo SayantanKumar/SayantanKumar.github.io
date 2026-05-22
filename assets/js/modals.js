@@ -65,6 +65,24 @@
     ).join('');
   }
 
+  function escapeHTML(text) {
+    return String(text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function timelineDetailsHTML(details) {
+    const text = String(details || '');
+    const colonIdx = text.indexOf(':');
+    const formatted = colonIdx === -1
+      ? escapeHTML(text)
+      : `<span class="modal-detail-prefix">${escapeHTML(text.slice(0, colonIdx + 1))}</span>${escapeHTML(text.slice(colonIdx + 1))}`;
+    return formatted.replace(/\n/g, '<br>').replace(/•/g, '&#8226;');
+  }
+
   function buildPubModalHTML(pub) {
     return `
       <img class="modal-image" src="${pub.image}" alt="${pub.title}" loading="lazy" />
@@ -96,9 +114,13 @@
   }
 
   // ── Open / Close ──────────────────────────────────────────────────
-  function openModal(html, navCtx) {
+  function openModal(html, navCtx, modalClass) {
+    if (typeof window.stopAllCoverflowAuto === 'function') window.stopAllCoverflowAuto();
+
     content.innerHTML = html;
     expandContext = navCtx || null;
+    box.classList.remove('modal-box-timeline');
+    if (modalClass) box.classList.add(modalClass);
 
     // Show/hide nav arrows
     if (navPrev) navPrev.style.display = expandContext ? 'flex' : 'none';
@@ -124,6 +146,7 @@
 
     expandContext = null;
     content.innerHTML = '';
+    box.classList.remove('modal-box-timeline');
   }
 
   closeBtn.addEventListener('click', closeModal);
@@ -164,9 +187,9 @@
       <div class="modal-title">${entry.full_name}</div>
       <div class="modal-role">${entry.role}</div>
       <div class="modal-period-loc">${entry.period} &nbsp;·&nbsp; ${entry.location}</div>
-      <div class="modal-details">${entry.details.replace(/\n/g, '<br>').replace(/•/g, '&#8226;')}</div>
+      <div class="modal-details">${timelineDetailsHTML(entry.details)}</div>
     `;
-    openModal(html, null);
+    openModal(html, null, 'modal-box-timeline');
   };
 
   // ── Project modal ────────────────────────────────────────────────
@@ -200,6 +223,8 @@
   });
 
   window.openExpandOverlay = function (items, title, type) {
+    if (typeof window.stopAllCoverflowAuto === 'function') window.stopAllCoverflowAuto();
+
     if (expandTitle) expandTitle.textContent = title;
     if (!expandGrid) return;
     expandGrid.innerHTML = '';

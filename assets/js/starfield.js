@@ -12,7 +12,7 @@
   const ctx = canvas.getContext('2d');
 
   // Config
-  const STAR_COUNT     = 255;
+  const STAR_COUNT     = 360;
   const STAR_MIN_R     = 0.4;
   const STAR_MAX_R     = 1.65;
   const TWINKLE_SPEED  = 0.003;

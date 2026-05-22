@@ -90,6 +90,13 @@
     return !!(abstractPanel && abstractPanel.classList.contains('open'));
   }
 
+  function isOverlayOpen() {
+    return !!(
+      document.getElementById('modal-overlay')?.classList.contains('open') ||
+      document.getElementById('expand-overlay')?.classList.contains('open')
+    );
+  }
+
   if (papClose) papClose.addEventListener('click', closeAbstractPanel);
 
   // ── Coverflow factory ─────────────────────────────────────────────
@@ -153,7 +160,7 @@
     function startAuto() {
       stopAuto();
       autoTimer = setInterval(() => {
-        if (!isHovered && isInView && !document.hidden && !isAbstractPanelOpen()) navigate(1);
+        if (!isHovered && isInView && !document.hidden && !isAbstractPanelOpen() && !isOverlayOpen()) navigate(1);
       }, 7000);
     }
 
@@ -311,6 +318,11 @@
   let projCf = null;
   let currentFilter = 'all';
 
+  window.stopAllCoverflowAuto = function () {
+    if (pubCf) pubCf.stopAuto();
+    if (projCf) projCf.stopAuto();
+  };
+
   function filteredPubs(filter) {
     if (filter === 'all') return PUBLICATIONS;
     return PUBLICATIONS.filter(p => p.areas && p.areas.includes(filter));
@@ -367,6 +379,7 @@
         const label    = currentFilter === 'all'
           ? 'Recent Research & Publications'
           : `${currentFilter} — Publications`;
+        window.stopAllCoverflowAuto();
         if (typeof openExpandOverlay === 'function') openExpandOverlay(filtered, label, 'pub');
       });
     }
@@ -374,6 +387,7 @@
     const projBtn = document.getElementById('proj-view-all');
     if (projBtn) {
       projBtn.addEventListener('click', () => {
+        window.stopAllCoverflowAuto();
         if (typeof openExpandOverlay === 'function') openExpandOverlay(PROJECTS, 'Past Research & Project Experiences', 'proj');
       });
     }
@@ -381,6 +395,7 @@
 
   // ── Keyboard navigation ───────────────────────────────────────────
   document.addEventListener('keydown', (e) => {
+    if (isOverlayOpen()) return;
     if (e.key === 'ArrowLeft')  { if (pubCf)  pubCf.navigate(-1);  }
     if (e.key === 'ArrowRight') { if (pubCf)  pubCf.navigate(1);   }
   });

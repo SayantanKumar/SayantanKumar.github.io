@@ -256,6 +256,14 @@ Then, by analyzing a connection to Node2Vec, we demonstrate how the geometry ste
 // ─── Past Projects ─────────────────────────────────────────────────
 const PROJECTS = [
   {
+    id: 'conformal-abstention',
+    title: 'Knowing When to Generate: Selective Generation with Conformal Abstention for Human Preference Alignment',
+    image: 'images/conformal-abstention.png',
+    areas: ['Machine Learning', 'Multimodal Machine Learning'],
+    links: [{ label: 'Code', url: 'https://github.com/Minxing-Zheng/when-to-generate-conformal-abstention' }],
+    description: `Standard text-to-image pipelines return outputs even when all sampled candidates are visually poor or misaligned. We frame this problem as <em>selective generation</em>, where a system abstains from returning unreliable images. We propose a plug-and-play conformal abstention layer that wraps pretrained generators and human-preference reward models without retraining. This post hoc calibrator provides a distribution-free risk-control guarantee on the failure rate among accepted outputs. Evaluated on Pick-a-Pic prompts using SDXL-Turbo, conformal abstention achieves the highest selective accuracy and strongest empirical guarantees among baselines, demonstrating that post hoc calibration effectively makes generative systems reliability-aware.`,
+  },
+  {
     id: 'many-shot-icl',
     title: 'Many-Shot In-Context Learning for Molecular Inverse Design',
     image: 'images/ManyShotICL.jpg',
@@ -336,7 +344,7 @@ const TIMELINE = [
   },
   {
     id: 'philips',
-    label: 'Philips',
+    label: 'Philips Healthcare Research',
     full_name: 'Philips Healthcare Research',
     role: 'Research and Development Intern',
     period: '2016',
@@ -349,7 +357,7 @@ const TIMELINE = [
     id: 'sanofi',
     label: 'Sanofi',
     full_name: 'Sanofi Inc.',
-    role: 'AI Research Scientist Intern',
+    role: 'A.I. Research Scientist Intern',
     period: 'Summer 2024',
     location: 'Cambridge, MA, USA',
     logo: 'images/sanofi-logo.jpeg',
@@ -371,12 +379,12 @@ const TIMELINE = [
     id: 'microsoft-research',
     label: 'Microsoft Research',
     full_name: 'Microsoft Research',
-    role: 'Research Intern',
+    role: 'A.I.Research Intern',
     period: 'May 2026',
     location: 'Redmond, WA, USA',
-    logo: 'images/microsoft.jpg',
+    logo: 'images/msr.jpeg',
     type: 'industry',
-    details: `Research Intern [May 2026]: Researching multimodal reasoning and AI triage systems for contextual healthcare decision-making using longitudinal and conversational patient signals.`,
+    details: `Research Intern [2026]: Researching multimodal reasoning and AI triage systems for contextual healthcare decision-making using longitudinal and conversational patient signals.`,
   },
 ];
 

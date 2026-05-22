@@ -31,11 +31,12 @@
     ENTRY_W    = Math.max(110, Math.min(160, rawW));
     const remaining = available - n * ENTRY_W;
     GAP        = n > 1 ? Math.max(10, Math.floor(remaining / (n - 1))) : 20;
-    // Slightly taller than wide for square feel (account for logo + text)
-    CARD_H     = Math.min(165, Math.max(130, ENTRY_W + 20));
+    // Account for wrapped company + role + location text on narrow screens.
+    CARD_H     = Math.min(245, Math.max(220, ENTRY_W + 90));
 
     // Expose as CSS custom property for card width
     document.documentElement.style.setProperty('--tl-entry-w', ENTRY_W + 'px');
+    document.documentElement.style.setProperty('--tl-card-h', CARD_H + 'px');
   }
 
   // ── Compute total width needed ────────────────────────────────────
@@ -46,8 +47,22 @@
   // ── Build timeline DOM ────────────────────────────────────────────
   function buildTimeline() {
     computeDimensions();
-    inner.style.minWidth = totalWidth() + 'px';
-    inner.style.height   = (CARD_H * 2 + CONNECTOR * 2 + 60) + 'px';
+    const wrap    = inner.parentElement;
+    const tlWidth = totalWidth();
+    const tlHeight = CARD_H * 2 + CONNECTOR * 2 + 60;
+    const scale   = wrap ? Math.min(1, wrap.clientWidth / tlWidth) : 1;
+
+    inner.style.minWidth = tlWidth + 'px';
+    inner.style.height   = tlHeight + 'px';
+    inner.style.transform = scale < 1 ? `scale(${scale})` : '';
+    inner.style.transformOrigin = 'top left';
+
+    if (wrap) {
+      const verticalPadding = 160; // timeline-inner top + bottom padding
+      wrap.style.height = scale < 1
+        ? Math.ceil((tlHeight + verticalPadding) * scale + 16) + 'px'
+        : '';
+    }
 
     // Axis
     const axis     = document.getElementById('timeline-axis');
@@ -78,6 +93,7 @@
           <img class="timeline-logo" src="${entry.logo}" alt="${entry.full_name}"
                onerror="this.style.display='none'" loading="lazy" />
           <div class="timeline-card-label">${entry.label}</div>
+          <div class="timeline-card-role">${entry.role}</div>
           <div class="timeline-card-location">${entry.location}</div>
           <div class="timeline-card-period">${entry.period}</div>
         </div>
