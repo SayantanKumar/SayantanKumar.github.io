@@ -83,6 +83,11 @@
   function closeAbstractPanel() {
     if (!abstractPanel) return;
     abstractPanel.classList.remove('open');
+    document.querySelectorAll('.abs-btn').forEach(b => { b.textContent = 'Abstract'; });
+  }
+
+  function isAbstractPanelOpen() {
+    return !!(abstractPanel && abstractPanel.classList.contains('open'));
   }
 
   if (papClose) papClose.addEventListener('click', closeAbstractPanel);
@@ -99,6 +104,7 @@
     let activeIdx = 0;
     let autoTimer = null;
     let isHovered = false;
+    let isInView = true;
 
     function getPos(i) {
       const total = items.length;
@@ -108,8 +114,8 @@
       if (diff === total - 1)  return 'prev';
       if (diff === 2)          return 'next-2';
       if (diff === total - 2)  return 'prev-2';
-      if (opts.type === 'pub' && diff === 3)         return 'next-3';
-      if (opts.type === 'pub' && diff === total - 3) return 'prev-3';
+      if (diff === 3)          return 'next-3';
+      if (diff === total - 3)  return 'prev-3';
       return 'hidden';
     }
 
@@ -138,10 +144,16 @@
       updatePositions();
     }
 
+    function navigateTo(idx) {
+      activeIdx = ((idx % items.length) + items.length) % items.length;
+      closeAbstractPanel();
+      updatePositions();
+    }
+
     function startAuto() {
       stopAuto();
       autoTimer = setInterval(() => {
-        if (!isHovered) navigate(1);
+        if (!isHovered && isInView && !document.hidden && !isAbstractPanelOpen()) navigate(1);
       }, 7000);
     }
 
@@ -210,11 +222,11 @@
 
         li.addEventListener('click', (e) => {
           const pos = li.getAttribute('data-pos');
-          if (pos === 'prev' || pos === 'prev-2') {
-            navigate(-1); stopAuto(); startAuto(); return;
+          if (pos === 'prev' || pos === 'prev-2' || pos === 'prev-3') {
+            navigateTo(i); stopAuto(); startAuto(); return;
           }
-          if (pos === 'next' || pos === 'next-2') {
-            navigate(1);  stopAuto(); startAuto(); return;
+          if (pos === 'next' || pos === 'next-2' || pos === 'next-3') {
+            navigateTo(i); stopAuto(); startAuto(); return;
           }
           if (pos === 'active') {
             if (e.target.closest('.btn')) return;
@@ -254,9 +266,7 @@
           const dot = document.createElement('span');
           dot.className = 'cf-dot';
           dot.addEventListener('click', () => {
-            activeIdx = i;
-            closeAbstractPanel();
-            updatePositions();
+            navigateTo(i);
             stopAuto(); startAuto();
           });
           dotsWrap.appendChild(dot);
@@ -273,6 +283,24 @@
     if (wrap) {
       wrap.addEventListener('mouseenter', () => { isHovered = true; });
       wrap.addEventListener('mouseleave', () => { isHovered = false; });
+      wrap.addEventListener('click', (e) => {
+        if (opts.type !== 'pub' && opts.type !== 'proj') return;
+        if (e.target.closest('.cf-item, .cf-btn, .cf-dot, .view-all-btn, .pub-abstract-panel')) return;
+        const stage = list.closest('.cf-stage');
+        if (!stage) return;
+        const rect = stage.getBoundingClientRect();
+        const clickedRightSide = e.clientX > rect.left + rect.width / 2;
+        navigate(clickedRightSide ? 1 : -1);
+        stopAuto(); startAuto();
+      });
+
+      if ('IntersectionObserver' in window) {
+        isInView = false;
+        const io = new IntersectionObserver((entries) => {
+          isInView = entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= 0.18);
+        }, { threshold: [0, 0.18, 0.45] });
+        io.observe(wrap);
+      }
     }
 
     return { build, navigate, startAuto, stopAuto };

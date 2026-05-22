@@ -584,6 +584,7 @@ img { max-width: 100%; display: block; }
   perspective: 1350px;
   perspective-origin: 50% 42%;
   overflow: visible;
+  z-index: 1;
 }
 
 .cf-list {
@@ -752,6 +753,8 @@ img { max-width: 100%; display: block; }
 
 #pub-cf .cf-card-image {
   height: 292px;
+  padding: 12px;
+  background: #fff;
 }
 
 .cf-card-image img {
@@ -761,20 +764,86 @@ img { max-width: 100%; display: block; }
 }
 
 .cf-item[data-pos="active"] .cf-card-image img { transform: scale(1.02); }
-#pub-cf .cf-item[data-pos="active"] .cf-card-image img { transform: scale(1.045); }
+#pub-cf .cf-card-image img {
+  object-fit: contain;
+  background: #fff;
+}
+#pub-cf .cf-item[data-pos="active"] .cf-card-image img { transform: none; }
 
 .project-card-image { height: 148px; }
 
 /* Project carousel — shorter, more cinematic cards */
 .cf-stage-proj {
-  height: 360px;
+  height: 390px;
+  perspective: 1500px;
+  perspective-origin: 50% 45%;
 }
 .cf-stage-proj .cf-item {
   height: 308px;
   top: 12px;
 }
 .cf-stage-proj .project-card-image {
-  height: 148px;
+  height: 185px;
+  padding: 10px;
+  background: #fff;
+}
+
+.cf-stage-proj .project-card-image img {
+  object-fit: contain;
+  background: #fff;
+}
+
+.cf-stage-proj .cf-item[data-pos="active"] .project-card-image img {
+  transform: none;
+}
+
+#proj-cf .cf-item[data-pos="active"] {
+  transform: translateX(-50%) translateZ(75px) scale(1);
+  opacity: 1;
+  filter: brightness(1.04) contrast(1.02) saturate(1.03);
+  z-index: 20;
+}
+
+#proj-cf .cf-item[data-pos="prev"] {
+  transform: translateX(calc(-50% - 285px)) translateZ(-135px) rotateY(23deg) rotateX(1deg) scale(0.84);
+  opacity: 0.88;
+  filter: brightness(0.90) contrast(0.96) saturate(0.94);
+  z-index: 12;
+}
+
+#proj-cf .cf-item[data-pos="next"] {
+  transform: translateX(calc(-50% + 285px)) translateZ(-135px) rotateY(-23deg) rotateX(1deg) scale(0.84);
+  opacity: 0.88;
+  filter: brightness(0.90) contrast(0.96) saturate(0.94);
+  z-index: 12;
+}
+
+#proj-cf .cf-item[data-pos="prev-2"] {
+  transform: translateX(calc(-50% - 470px)) translateZ(-265px) rotateY(31deg) rotateX(1.6deg) scale(0.76);
+  opacity: 0.62;
+  filter: brightness(0.74) contrast(0.88) saturate(0.84);
+  z-index: 7;
+}
+
+#proj-cf .cf-item[data-pos="next-2"] {
+  transform: translateX(calc(-50% + 470px)) translateZ(-265px) rotateY(-31deg) rotateX(1.6deg) scale(0.76);
+  opacity: 0.62;
+  filter: brightness(0.74) contrast(0.88) saturate(0.84);
+  z-index: 7;
+}
+
+#proj-cf .cf-item[data-pos="prev-3"] {
+  transform: translateX(calc(-50% - 620px)) translateZ(-420px) rotateY(39deg) rotateX(2.2deg) scale(0.68);
+  opacity: 0.42;
+  filter: brightness(0.62) contrast(0.82) saturate(0.76);
+  z-index: 4;
+}
+
+#proj-cf .cf-item[data-pos="next-3"] {
+  transform: translateX(calc(-50% + 620px)) translateZ(-420px) rotateY(-39deg) rotateX(2.2deg) scale(0.68);
+  opacity: 0.42;
+  filter: brightness(0.62) contrast(0.82) saturate(0.76);
+  z-index: 4;
 }
 
 .cf-card-body {
@@ -880,6 +949,8 @@ img { max-width: 100%; display: block; }
 
 /* ── Publication abstract panel (below carousel stage) ──────────── */
 .pub-abstract-panel {
+  position: relative;
+  z-index: 30;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.55s cubic-bezier(0.25, 0.1, 0.25, 1),
@@ -893,11 +964,13 @@ img { max-width: 100%; display: block; }
 .pub-abstract-panel.open {
   max-height: 2400px; /* generous — never clips long abstracts */
   opacity: 1;
-  padding: 22px 4px 12px;
-  margin-top: 0;
+  padding: 7px 4px 12px;
+  margin-top: -2cm;
 }
 
 .pap-inner {
+  width: 60%;
+  margin: 0 auto;
   background: var(--bg-card);
   border: 1px solid var(--border-accent);
   border-radius: var(--radius-lg);
@@ -1941,6 +2014,31 @@ img { max-width: 100%; display: block; }
     transform: translateX(calc(-50% + 335px)) translateZ(-400px) rotateY(-46deg) rotateX(2.6deg) scale(0.62);
     opacity: 0.36;
   }
+  .cf-stage-proj { height: 350px; }
+  #proj-cf .cf-item[data-pos="prev"] {
+    transform: translateX(calc(-50% - 185px)) translateZ(-135px) rotateY(28deg) rotateX(1.4deg) scale(0.82);
+    opacity: 0.84;
+  }
+  #proj-cf .cf-item[data-pos="next"] {
+    transform: translateX(calc(-50% + 185px)) translateZ(-135px) rotateY(-28deg) rotateX(1.4deg) scale(0.82);
+    opacity: 0.84;
+  }
+  #proj-cf .cf-item[data-pos="prev-2"] {
+    transform: translateX(calc(-50% - 300px)) translateZ(-250px) rotateY(37deg) rotateX(2deg) scale(0.72);
+    opacity: 0.56;
+  }
+  #proj-cf .cf-item[data-pos="next-2"] {
+    transform: translateX(calc(-50% + 300px)) translateZ(-250px) rotateY(-37deg) rotateX(2deg) scale(0.72);
+    opacity: 0.56;
+  }
+  #proj-cf .cf-item[data-pos="prev-3"] {
+    transform: translateX(calc(-50% - 390px)) translateZ(-380px) rotateY(45deg) rotateX(2.5deg) scale(0.64);
+    opacity: 0.36;
+  }
+  #proj-cf .cf-item[data-pos="next-3"] {
+    transform: translateX(calc(-50% + 390px)) translateZ(-380px) rotateY(-45deg) rotateX(2.5deg) scale(0.64);
+    opacity: 0.36;
+  }
 
   .modal-nav-btn { display: none; }
 }
@@ -1969,6 +2067,25 @@ img { max-width: 100%; display: block; }
   }
   #pub-cf .cf-item[data-pos="next-3"] {
     transform: translateX(calc(-50% + 265px)) translateZ(-410px) rotateY(-48deg) rotateX(2.6deg) scale(0.58);
+  }
+  .cf-stage-proj { height: 330px; perspective: 1150px; }
+  #proj-cf .cf-item[data-pos="prev"] {
+    transform: translateX(calc(-50% - 145px)) translateZ(-140px) rotateY(33deg) rotateX(1.6deg) scale(0.78);
+  }
+  #proj-cf .cf-item[data-pos="next"] {
+    transform: translateX(calc(-50% + 145px)) translateZ(-140px) rotateY(-33deg) rotateX(1.6deg) scale(0.78);
+  }
+  #proj-cf .cf-item[data-pos="prev-2"] {
+    transform: translateX(calc(-50% - 235px)) translateZ(-260px) rotateY(42deg) rotateX(2.1deg) scale(0.68);
+  }
+  #proj-cf .cf-item[data-pos="next-2"] {
+    transform: translateX(calc(-50% + 235px)) translateZ(-260px) rotateY(-42deg) rotateX(2.1deg) scale(0.68);
+  }
+  #proj-cf .cf-item[data-pos="prev-3"] {
+    transform: translateX(calc(-50% - 305px)) translateZ(-390px) rotateY(49deg) rotateX(2.5deg) scale(0.60);
+  }
+  #proj-cf .cf-item[data-pos="next-3"] {
+    transform: translateX(calc(-50% + 305px)) translateZ(-390px) rotateY(-49deg) rotateX(2.5deg) scale(0.60);
   }
 }
 
