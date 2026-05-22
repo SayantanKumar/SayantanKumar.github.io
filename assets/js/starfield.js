@@ -30,6 +30,19 @@
   let nextCometTimer = null;
   let animId = null;
 
+  function shouldAnimate() {
+    return !document.hidden && document.hasFocus();
+  }
+
+  function startDraw() {
+    if (!animId && shouldAnimate()) animId = requestAnimationFrame(draw);
+  }
+
+  function stopDraw() {
+    if (animId) cancelAnimationFrame(animId);
+    animId = null;
+  }
+
   // ── Sizing ────────────────────────────────────────────────────────
   function resize() {
     const sidebar = document.getElementById('sidebar');
@@ -72,6 +85,7 @@
   }
 
   function spawnComet() {
+    if (!shouldAnimate()) { scheduleComet(); return; }
     if (cometActive) { scheduleComet(); return; }
     cometActive = true;
 
@@ -247,6 +261,11 @@
   // ── Draw frame ────────────────────────────────────────────────────
   let t = 0;
   function draw() {
+    if (!shouldAnimate()) {
+      animId = null;
+      return;
+    }
+
     ctx.clearRect(0, 0, W, H);
     drawNebula();
     t += 1;
@@ -306,10 +325,16 @@
   // ── Init ──────────────────────────────────────────────────────────
   function init() {
     resize();
-    draw();
+    startDraw();
     scheduleComet();
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('focus', startDraw);
+    window.addEventListener('blur', stopDraw);
+    document.addEventListener('visibilitychange', () => {
+      if (shouldAnimate()) startDraw();
+      else stopDraw();
+    });
     // Remove preload class after first paint
     requestAnimationFrame(() => {
       document.body.classList.remove('is-preload');

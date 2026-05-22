@@ -108,12 +108,22 @@
   // We project each flag's surface normal onto the screen plane and compute
   // the CSS rotate() angle needed to align the flag pole with that direction.
   function updateFlagOrientations() {
-    if (!globe || flagData.length === 0) return;
+    if (!shouldRunGlobe()) {
+      flagAnimId = null;
+      return;
+    }
+    if (!globe || flagData.length === 0) {
+      flagAnimId = requestAnimationFrame(updateFlagOrientations);
+      return;
+    }
 
     const cam = globe.camera();
     const cp  = cam.position;
     const cLen = Math.sqrt(cp.x * cp.x + cp.y * cp.y + cp.z * cp.z);
-    if (cLen < 0.001) return;
+    if (cLen < 0.001) {
+      flagAnimId = requestAnimationFrame(updateFlagOrientations);
+      return;
+    }
 
     // Camera forward (toward globe center = -camPos normalized)
     const fx = -cp.x / cLen, fy = -cp.y / cLen, fz = -cp.z / cLen;
@@ -122,7 +132,10 @@
     const dotFU = fy; // (0,1,0)·fwd = fy
     let sux = -dotFU * fx, suy = 1 - dotFU * fy, suz = -dotFU * fz;
     const suLen = Math.sqrt(sux * sux + suy * suy + suz * suz);
-    if (suLen < 0.001) return;
+    if (suLen < 0.001) {
+      flagAnimId = requestAnimationFrame(updateFlagOrientations);
+      return;
+    }
     sux /= suLen; suy /= suLen; suz /= suLen;
 
     // Screen right = fwd × screenUp
@@ -163,12 +176,43 @@
       el.style.transform = `rotate(${angle.toFixed(1)}deg)`;
     });
 
-    requestAnimationFrame(updateFlagOrientations);
+    flagAnimId = requestAnimationFrame(updateFlagOrientations);
   }
 
   // ── Build globe ───────────────────────────────────────────────────
   let globe;
   let controls;
+  let flagAnimId = null;
+  let globeInView = false;
+  let globeHovered = false;
+
+  function pageFocused() {
+    return !document.hidden && document.hasFocus();
+  }
+
+  function shouldRunGlobe() {
+    return globeInView && pageFocused();
+  }
+
+  function syncGlobeActivity() {
+    const active = shouldRunGlobe();
+    if (controls) controls.autoRotate = active && !globeHovered;
+    if (globe) {
+      if (active && typeof globe.resumeAnimation === 'function') globe.resumeAnimation();
+      if (!active && typeof globe.pauseAnimation === 'function') globe.pauseAnimation();
+    }
+    if (active) startFlagLoop();
+    else stopFlagLoop();
+  }
+
+  function startFlagLoop() {
+    if (!flagAnimId && shouldRunGlobe()) flagAnimId = requestAnimationFrame(updateFlagOrientations);
+  }
+
+  function stopFlagLoop() {
+    if (flagAnimId) cancelAnimationFrame(flagAnimId);
+    flagAnimId = null;
+  }
 
   function init() {
     const w = container.clientWidth  || 400;
@@ -219,15 +263,21 @@
     globe.pointOfView({ lat: 20, lng: -20, altitude: 1.8 });
 
     controls = globe.controls();
-    controls.autoRotate      = true;
+    controls.autoRotate      = shouldRunGlobe();
     controls.autoRotateSpeed = 0.4;
     controls.enableZoom      = false;
     controls.enableDamping   = true;
     controls.dampingFactor   = 0.1;
 
     // Pause rotation on hover
-    container.addEventListener('mouseenter', () => { if (controls) controls.autoRotate = false; });
-    container.addEventListener('mouseleave', () => { if (controls) controls.autoRotate = true; });
+    container.addEventListener('mouseenter', () => {
+      globeHovered = true;
+      syncGlobeActivity();
+    });
+    container.addEventListener('mouseleave', () => {
+      globeHovered = false;
+      syncGlobeActivity();
+    });
 
     // Brighten the globe canvas
     setTimeout(() => {
@@ -235,8 +285,21 @@
       if (canvas) canvas.style.filter = 'brightness(1.9) saturate(1.15)';
     }, 300);
 
-    // Start per-frame flag orientation
-    requestAnimationFrame(updateFlagOrientations);
+    // Start per-frame flag orientation only while visible/focused
+    startFlagLoop();
+
+    const section = document.getElementById('news-globe');
+    if (section) {
+      const activeObserver = new IntersectionObserver((entries) => {
+        globeInView = entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= 0.12);
+        syncGlobeActivity();
+      }, { threshold: [0, 0.12, 0.5] });
+      activeObserver.observe(section);
+    }
+
+    window.addEventListener('focus', syncGlobeActivity);
+    window.addEventListener('blur', syncGlobeActivity);
+    document.addEventListener('visibilitychange', syncGlobeActivity);
 
     const ro = new ResizeObserver(() => {
       const nw = container.clientWidth;

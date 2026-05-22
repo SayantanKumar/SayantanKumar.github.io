@@ -97,6 +97,10 @@
     );
   }
 
+  function isPageFocused() {
+    return !document.hidden && document.hasFocus();
+  }
+
   if (papClose) papClose.addEventListener('click', closeAbstractPanel);
 
   // ── Coverflow factory ─────────────────────────────────────────────
@@ -160,7 +164,7 @@
     function startAuto() {
       stopAuto();
       autoTimer = setInterval(() => {
-        if (!isHovered && isInView && !document.hidden && !isAbstractPanelOpen() && !isOverlayOpen()) navigate(1);
+        if (!isHovered && isInView && isPageFocused() && !isAbstractPanelOpen() && !isOverlayOpen()) navigate(1);
       }, 7000);
     }
 
