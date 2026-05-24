@@ -52,11 +52,17 @@
 
   // ── Helpers ───────────────────────────────────────────────────────
 
+  // Accept either FIREBASE_CONFIG (our name) or firebaseConfig (Firebase's default)
+  function resolveConfig() {
+    if (typeof FIREBASE_CONFIG !== 'undefined' &&
+        FIREBASE_CONFIG.apiKey !== 'REPLACE_WITH_YOUR_API_KEY') return FIREBASE_CONFIG;
+    if (typeof firebaseConfig !== 'undefined' &&
+        firebaseConfig.apiKey !== 'REPLACE_WITH_YOUR_API_KEY') return firebaseConfig;
+    return null;
+  }
+
   function isFirebaseReady() {
-    return (
-      typeof FIREBASE_CONFIG !== 'undefined' &&
-      FIREBASE_CONFIG.apiKey !== 'REPLACE_WITH_YOUR_API_KEY'
-    );
+    return resolveConfig() !== null;
   }
 
   // Stable Firestore document key for a city
@@ -236,7 +242,7 @@
     }
 
     // Initialise Firebase (guard against double-init in dev reloads)
-    if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
+    if (!firebase.apps.length) firebase.initializeApp(resolveConfig());
     const db = firebase.firestore();
 
     const newVisit = isNewVisit();
