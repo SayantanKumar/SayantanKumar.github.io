@@ -45,7 +45,6 @@
   'use strict';
 
   // ── Constants ─────────────────────────────────────────────────────
-  const GEO_API         = 'https://ipwho.is/';
   const GEO_TIMEOUT_MS  = 5000;
   const LAST_VISIT_KEY  = 'sn_visitor_ts';   // localStorage key
   const VISIT_WINDOW_MS = 24 * 60 * 60 * 1000;
@@ -125,28 +124,40 @@
     });
   }
 
-  // ── Geolocation ───────────────────────────────────────────────────
+  // ── Geolocation — tries two APIs in sequence ─────────────────────
+
+  const GEO_APIS = [
+    {
+      url:   'https://ipwho.is/',
+      parse: d => (d.success && d.city)
+        ? { city: d.city, country: d.country, country_code: d.country_code,
+            lat: d.latitude, lng: d.longitude }
+        : null,
+    },
+    {
+      url:   'https://ipapi.co/json/',
+      parse: d => (d.city && !d.error)
+        ? { city: d.city, country: d.country_name || d.country,
+            country_code: d.country, lat: d.latitude, lng: d.longitude }
+        : null,
+    },
+  ];
 
   async function fetchGeo() {
-    const ctrl    = new AbortController();
-    const timeout = setTimeout(() => ctrl.abort(), GEO_TIMEOUT_MS);
-    try {
-      const res  = await fetch(GEO_API, { signal: ctrl.signal });
-      const data = await res.json();
-      clearTimeout(timeout);
-      if (!data.success || !data.city) return null;
-      return {
-        city:         data.city         || 'Unknown',
-        country:      data.country      || 'Unknown',
-        country_code: data.country_code || 'XX',
-        lat:          data.latitude     || 0,
-        lng:          data.longitude    || 0,
-      };
-    } catch (_) {
-      return null;
-    } finally {
-      clearTimeout(timeout);
+    for (const api of GEO_APIS) {
+      const ctrl    = new AbortController();
+      const timeout = setTimeout(() => ctrl.abort(), GEO_TIMEOUT_MS);
+      try {
+        const res  = await fetch(api.url, { signal: ctrl.signal });
+        const data = await res.json();
+        clearTimeout(timeout);
+        const parsed = api.parse(data);
+        if (parsed && parsed.city) return parsed;
+      } catch (_) {
+        clearTimeout(timeout);
+      }
     }
+    return null;
   }
 
   // ── Firestore read ────────────────────────────────────────────────
@@ -184,16 +195,20 @@
 
     const batch = db.batch();
 
-    // 1. Permanent raw visit log (always written)
-    const visitRef = db.collection('visitors').doc();
-    batch.set(visitRef, {
-      city:         (geo && geo.city)         || 'Unknown',
-      country:      (geo && geo.country)      || 'Unknown',
-      country_code: (geo && geo.country_code) || 'XX',
-      lat:          (geo && geo.lat)          || 0,
-      lng:          (geo && geo.lng)          || 0,
-      timestamp:    FV.serverTimestamp(),
-    });
+    // 1. Permanent raw visit log (always written).
+    //    When geo is unavailable the record is kept minimal — no fake Unknown fields.
+    const visitRef  = db.collection('visitors').doc();
+    const visitData = { timestamp: FV.serverTimestamp() };
+    if (hasLocation) {
+      visitData.city         = geo.city;
+      visitData.country      = geo.country;
+      visitData.country_code = geo.country_code;
+      visitData.lat          = geo.lat;
+      visitData.lng          = geo.lng;
+    } else {
+      visitData.no_geo = true;
+    }
+    batch.set(visitRef, visitData);
 
     // 2. City aggregate (only when we have a real city)
     if (hasLocation && cityRef) {
