@@ -147,7 +147,10 @@
   }
 
   function init() {
-    markers = buildMarkers();
+    // Preserve any visitor pins that were added via addVisitorPin() before
+    // the globe initialised (visitor-tracker.js may win the async race).
+    const preInitVisitorPins = markers.filter(m => m.type === 'visitor');
+    markers = [...buildMarkers(), ...preInitVisitorPins];
 
     globe = Globe({ animateIn: false })(container)
       .width(container.clientWidth || 360)

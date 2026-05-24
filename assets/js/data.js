@@ -448,3 +448,55 @@ const CONFERENCE_PINS = [
 
 // Backward-compat alias; visitor pins appended here at runtime
 const GLOBE_PINS = LOCATION_PINS.slice();
+
+// ─── Visitor tracker: mock seed data ──────────────────────────────
+//
+// These are the cities pre-seeded on the globe before real visitor
+// tracking began (May 2026).  They serve two purposes:
+//
+//   1. The visitor counter starts at MOCK_VISITOR_OFFSET instead of 0.
+//   2. Real visitors from these cities reuse the existing pin rather
+//      than adding a duplicate — the city is simply "graduated".
+//
+// HOW TO RETIRE A MOCK CITY:
+//   When a real visitor arrives from one of these cities the tracker
+//   automatically skips adding a duplicate pin.  Once you are happy
+//   that the real data covers a city, remove its entry from this list
+//   AND subtract 1 from MOCK_VISITOR_OFFSET so the offset stays correct.
+//
+// IMPORTANT: Do NOT clear this list without adjusting MOCK_VISITOR_OFFSET —
+// otherwise the displayed visitor count will drop by the number of entries removed.
+//
+const VISITOR_MOCK_CITIES = [
+  // ── From LOCATION_PINS ──────────────────────────────────────────
+  { city: 'Pittsburgh',     country: 'United States', country_code: 'US', lat:  40.4433, lng:  -79.9436 },
+  { city: 'New York',       country: 'United States', country_code: 'US', lat:  40.7128, lng:  -74.0060 },
+  { city: 'Cambridge',      country: 'United States', country_code: 'US', lat:  42.3601, lng:  -71.0589 },
+  { city: 'Vancouver',      country: 'Canada',        country_code: 'CA', lat:  49.2606, lng: -123.2460 },
+  { city: 'Tehran',         country: 'Iran',          country_code: 'IR', lat:  35.6892, lng:   51.3890 },
+  { city: 'Singapore',      country: 'Singapore',     country_code: 'SG', lat:   1.3521, lng:  103.8198 },
+  { city: 'Rio de Janeiro', country: 'Brazil',        country_code: 'BR', lat: -22.9068, lng:  -43.1729 },
+  { city: 'Seoul',          country: 'South Korea',   country_code: 'KR', lat:  37.5665, lng:  126.9780 },
+  // ── From CONFERENCE_PINS only (not already in LOCATION_PINS) ────
+  { city: 'New Orleans',    country: 'United States', country_code: 'US', lat:  29.9511, lng:  -90.0715 },
+  { city: 'San Diego',      country: 'United States', country_code: 'US', lat:  32.7157, lng: -117.1611 },
+  { city: 'Berkeley',       country: 'United States', country_code: 'US', lat:  37.8716, lng: -122.2727 },
+  { city: 'Seattle',        country: 'United States', country_code: 'US', lat:  47.6062, lng: -122.3321 },
+];
+
+// Starting visitor count offset — equals the number of mock cities above.
+// Decrement by 1 each time you remove an entry from VISITOR_MOCK_CITIES.
+// Set to 0 (and remove both this and VISITOR_MOCK_CITIES) when all cities
+// have real visitor data and you no longer need the artificial head-start.
+const MOCK_VISITOR_OFFSET = 12;
+
+// Unique countries represented in the mock cities above.
+// Used to seed the countries counter before real visitor data exists.
+const MOCK_VISITOR_COUNTRIES = [
+  'United States',
+  'Canada',
+  'Iran',
+  'Singapore',
+  'Brazil',
+  'South Korea',
+];

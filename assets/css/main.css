@@ -1650,6 +1650,13 @@ img { max-width: 100%; display: block; }
   text-shadow: 0 0 12px rgba(255,23,68,0.32);
 }
 
+.globe-stat-since {
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  opacity: 0.72;
+}
+
 /* ─── Unified Modal ──────────────────────────────────────────────── */
 #modal-overlay {
   position: fixed;
